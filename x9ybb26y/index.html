@@ -332,7 +332,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">SDR ACCOUNTING</span>
-  <span class="docs-header-badge">668 endpoints</span>
+  <span class="docs-header-badge">664 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -3232,16 +3232,6 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
       </div>
       <div class="sidebar-endpoints">
         
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="233">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">SYSTEM_UPDATE</span>
-          </div>
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="234">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">SYSTEM_UPDATE Copy</span>
-          </div>
-        
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="235">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">UPLOAD SALDO AWAL AKUN PER CABANG</span>
@@ -3265,16 +3255,6 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="239">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">COMPANY TRANSFER METHOD</span>
-          </div>
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="397">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">SYSTEM_UPDATE</span>
-          </div>
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="398">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">SYSTEM_UPDATE Copy</span>
           </div>
         
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="399">
@@ -44161,78 +44141,10 @@ Partial Result: Jika ada beberapa baris yang error tapi sisanya sukses, respon a
       <div class="section-header" id="folder-51">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">SETTING</span>
-        <span class="section-count">14 endpoint</span>
+        <span class="section-count">10 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
-      
-        <div class="endpoint-card m-POST" data-id="233" data-search="system_update {{accountinghost}}/accounting/{{companyid}}/setting/systemupdate/8 add one location">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{accountinghost}}/accounting/{{companyId}}/setting/systemupdate/8">{{accountinghost}}/accounting/{{companyId}}/setting/systemupdate/8</span>
-              <span class="endpoint-name">SYSTEM_UPDATE</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Add One location</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
-              
-              
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-    &quot;idCompany&quot;: &quot;{{companyId}}&quot;
-    
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="234" data-search="system_update copy http://192.168.10.141:1992/echo/updatesystem add one location">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="http://192.168.10.141:1992/echo/updatesystem">http://192.168.10.141:1992/echo/updatesystem</span>
-              <span class="endpoint-name">SYSTEM_UPDATE Copy</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Add One location</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
-              
-              
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-    &quot;idCompany&quot;: &quot;{{companyId}}&quot;
-    
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
-            
-          </div>
-        </div>
       
         <div class="endpoint-card m-POST" data-id="235" data-search="upload saldo awal akun per cabang {{accountinghost}}/accounting/{{companyid}}/setting/usaldoawalcoa /setting/usaldoawalcoa">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
@@ -44400,74 +44312,6 @@ Partial Result: Jika ada beberapa baris yang error tapi sisanya sukses, respon a
     &quot;idAkunDiscountBillFA&quot;: 0,
     &quot;idAkunTaxPPNFA&quot;: 0,
     &quot;reportPLwithTax&quot;: &quot;true&quot;
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="397" data-search="system_update {{accountinghost}}/accounting/{{companyid}}/setting/systemupdate/8 add one location">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{accountinghost}}/accounting/{{companyId}}/setting/systemupdate/8">{{accountinghost}}/accounting/{{companyId}}/setting/systemupdate/8</span>
-              <span class="endpoint-name">SYSTEM_UPDATE</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Add One location</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
-              
-              
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-    &quot;idCompany&quot;: &quot;{{companyId}}&quot;
-    
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="398" data-search="system_update copy http://192.168.10.141:1992/echo/updatesystem add one location">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="http://192.168.10.141:1992/echo/updatesystem">http://192.168.10.141:1992/echo/updatesystem</span>
-              <span class="endpoint-name">SYSTEM_UPDATE Copy</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Add One location</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
-              
-              
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-    &quot;idCompany&quot;: &quot;{{companyId}}&quot;
-    
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
@@ -52432,9 +52276,9 @@ Partial Result: Jika ada beberapa baris yang error tapi sisanya sukses, respon a
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>29 Jun 2026 11:38</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>29 Jun 2026 11:40</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>29 Jun 2026  11:38</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>29 Jun 2026  11:39</span>
       </span>
     </div>
   </main>
