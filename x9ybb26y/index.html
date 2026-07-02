@@ -53388,9 +53388,9 @@ Partial Result: Jika ada beberapa baris yang error tapi sisanya sukses, respon a
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>02 Jul 2026 10:31</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>02 Jul 2026 10:33</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>02 Jul 2026  10:22</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>02 Jul 2026  10:31</span>
       </span>
     </div>
   </main>
@@ -53438,7 +53438,8 @@ function scrollEpName(event, dir) {
   var row = event.currentTarget.closest('.sidebar-ep');
   var nameEl = row.querySelector('.sb-ep-name');
   if (!nameEl) return;
-  nameEl.scrollBy({ left: dir * 50, behavior: 'smooth' });
+  var target = dir > 0 ? (nameEl.scrollWidth - nameEl.clientWidth) : 0;
+  nameEl.scrollTo({ left: target, behavior: 'smooth' });
 }
 
 function jumpToEndpoint(el) {
