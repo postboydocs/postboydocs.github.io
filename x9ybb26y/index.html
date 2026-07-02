@@ -20,6 +20,7 @@
   --c-patch:    #50e3c2; --c-patch-bg:  #edfaf7; --c-patch-bd:  #a8f0e0;
   --c-head:     #9012fe; --c-head-bg:   #f5eeff; --c-head-bd:   #d4aaff;
   --sidebar-w: 240px;
+  --sidebar-w-extended: 400px;
   --header-h:  64px;
   --txt:       #1e293b;
   --txt-muted: #64748b;
@@ -103,11 +104,9 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
   transition: left .2s ease;
 }
 .sidebar-toggle:hover { background: #f1f5f9; color: var(--txt); }
-body.sidebar-collapsed .sidebar-toggle { left: 0; }
-body.sidebar-collapsed .docs-sidebar {
-  width: 0; padding: 0; border-width: 0; overflow: hidden;
-}
-.docs-sidebar { transition: width .2s ease, padding .2s ease; }
+body.sidebar-extended .sidebar-toggle { left: var(--sidebar-w-extended); }
+body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
+.docs-sidebar { transition: width .2s ease; }
 
 .docs-main { flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
 
@@ -4370,8 +4369,8 @@ body.sidebar-collapsed .docs-sidebar {
     
   </nav>
 
-  <button type="button" class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="Toggle sidebar">
-    <i class="bi bi-chevron-left" id="sidebarToggleIcon"></i>
+  <button type="button" class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="Perlebar sidebar">
+    <i class="bi bi-chevron-right" id="sidebarToggleIcon"></i>
   </button>
 
   <!-- Main -->
@@ -52085,9 +52084,9 @@ Partial Result: Jika ada beberapa baris yang error tapi sisanya sukses, respon a
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>02 Jul 2026 10:42</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>02 Jul 2026 10:56</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>02 Jul 2026  10:33</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>02 Jul 2026  10:42</span>
       </span>
     </div>
   </main>
@@ -52131,9 +52130,9 @@ function toggleSbFolder(el) {
 }
 
 function toggleSidebar() {
-  var collapsed = document.body.classList.toggle('sidebar-collapsed');
+  var extended = document.body.classList.toggle('sidebar-extended');
   var icon = document.getElementById('sidebarToggleIcon');
-  icon.className = collapsed ? 'bi bi-chevron-right' : 'bi bi-chevron-left';
+  icon.className = extended ? 'bi bi-chevron-left' : 'bi bi-chevron-right';
 }
 
 function jumpToEndpoint(el) {
