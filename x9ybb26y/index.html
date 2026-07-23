@@ -20,7 +20,6 @@
   --c-patch:    #50e3c2; --c-patch-bg:  #edfaf7; --c-patch-bd:  #a8f0e0;
   --c-head:     #9012fe; --c-head-bg:   #f5eeff; --c-head-bd:   #d4aaff;
   --sidebar-w: 240px;
-  --sidebar-w-extended: 400px;
   --header-h:  64px;
   --txt:       #1e293b;
   --txt-muted: #64748b;
@@ -92,21 +91,6 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
 .sb-m-DELETE { background: var(--c-delete-bg); color: var(--c-delete); }
 .sb-m-PATCH  { background: var(--c-patch-bg);  color: var(--c-patch); }
 .sb-ep-name  { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-.sidebar-toggle {
-  position: fixed; top: 50%; left: var(--sidebar-w);
-  transform: translate(-50%, -50%);
-  width: 22px; height: 22px; border-radius: 50%;
-  background: var(--card-bg); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; z-index: 150; color: var(--txt-muted); font-size: .7rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,.15);
-  transition: left .2s ease;
-}
-.sidebar-toggle:hover { background: #f1f5f9; color: var(--txt); }
-body.sidebar-extended .sidebar-toggle { left: var(--sidebar-w-extended); }
-body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
-.docs-sidebar { transition: width .2s ease; }
 
 .docs-main { flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
 
@@ -339,7 +323,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   .docs-sidebar { display: none; }
   .docs-main { padding: 1.25rem 1rem; }
   .endpoint-name { display: none; }
-  .sidebar-toggle { display: none; }
 }
 </style>
 </head>
@@ -4368,10 +4351,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       </div>
     
   </nav>
-
-  <button type="button" class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="Perlebar sidebar">
-    <i class="bi bi-chevron-right" id="sidebarToggleIcon"></i>
-  </button>
 
   <!-- Main -->
   <main class="docs-main">
@@ -52084,9 +52063,9 @@ Partial Result: Jika ada beberapa baris yang error tapi sisanya sukses, respon a
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>23 Jul 2026 09:10</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Jul 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>23 Jul 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>23 Jul 2026  09:10</span>
       </span>
     </div>
   </main>
@@ -52127,12 +52106,6 @@ function toggleSbFolder(el) {
   el.classList.add('active');
   clickLock = true;
   setTimeout(function () { clickLock = false; }, 800);
-}
-
-function toggleSidebar() {
-  var extended = document.body.classList.toggle('sidebar-extended');
-  var icon = document.getElementById('sidebarToggleIcon');
-  icon.className = extended ? 'bi bi-chevron-left' : 'bi bi-chevron-right';
 }
 
 function jumpToEndpoint(el) {
