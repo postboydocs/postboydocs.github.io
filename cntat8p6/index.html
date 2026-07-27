@@ -332,7 +332,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">INVENTORY</span>
-  <span class="docs-header-badge">1 endpoints</span>
+  <span class="docs-header-badge">3 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -377,6 +377,27 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="42">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">GET ALL ITEM</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-79">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>Report</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="707">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">MOVEMENT REPORT TEMPORARY BY LIST ID</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="708">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">MOVEMENT REPORT WITH FILTER</span>
           </div>
         
         
@@ -432,11 +453,97 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); colo
       <!-- Subfolders -->
       
     
+      <div class="section-header" id="folder-79">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">Report</span>
+        <span class="section-count">2 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="707" data-search="movement report temporary by list id {{accountinghost}}/inventory/report/movement/temporarylistid ">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{accountinghost}}/inventory/report/movement/temporaryListId">{{accountinghost}}/inventory/report/movement/temporaryListId</span>
+              <span class="endpoint-name">MOVEMENT REPORT TEMPORARY BY LIST ID</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;companyId&quot;:&quot;{{companyId}}&quot;
+,&quot;startDate&quot;:&quot;2026-02-28&quot;
+,&quot;endDate&quot;:&quot;2026-02-28&quot;
+,&quot;locationId&quot;:301
+,&quot;listIdItem&quot;:[36315]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="708" data-search="movement report with filter {{accountinghost}}/inventory/report/movement/filter ">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{accountinghost}}/inventory/report/movement/filter">{{accountinghost}}/inventory/report/movement/filter</span>
+              <span class="endpoint-name">MOVEMENT REPORT WITH FILTER</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;companyId&quot;:&quot;{{companyId}}&quot;
+,&quot;startDate&quot;:&quot;2026-02-28&quot;
+,&quot;endDate&quot;:&quot;2026-02-28&quot;
+,&quot;locationId&quot;:301
+,&quot;limit&quot;:5
+,&quot;offset&quot;:0
+,&quot;itemCode&quot;:&quot;MNC01&quot;
+,&quot;itemName&quot;:&quot;&quot;
+,&quot;catName&quot;:&quot;&quot;
+,&quot;subCatName&quot;:&quot;&quot;
+,&quot;unit&quot;:&quot;&quot;
+,&quot;sortingType&quot;:&quot;itemName&quot;
+,&quot;sortingOrder&quot;:&quot;DESC&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>27 Jul 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>28 Jul 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>26 Jul 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>27 Jul 2026  02:00</span>
       </span>
     </div>
   </main>
