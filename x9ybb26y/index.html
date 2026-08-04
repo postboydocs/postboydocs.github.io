@@ -569,7 +569,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>AP</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -11298,7 +11298,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="666" data-search="insert ap bc {{accountinghost}}/accounting/{{companyid}}/ap/bc/in/1 /ap/bc/in/1">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{accountinghost}}/accounting/{{companyId}}/ap/bc/in/1">{{accountinghost}}/accounting/{{companyId}}/ap/bc/in/1</span>
               <span class="endpoint-name">Insert AP BC</span>
@@ -11321,40 +11321,34 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-    &quot;nomor_jurnal&quot;: &quot;DIP-742.0017-RCV&quot;,
-    &quot;nama&quot;: &quot;Receive - M2025 - Marine Group&quot;,
-    &quot;nama_supplier&quot;: &quot;M2025 - Marine Group&quot;,
-    &quot;id_supplier&quot;: &quot;M2025&quot;,
-    &quot;kode_cabang&quot;: &quot;DIP-742.0017&quot;,
-    &quot;reff_sys&quot;: &quot;PRPU2505140289000075-734001&quot;,
-    &quot;trx_date&quot;: &quot;2025-05-15 11:06:23&quot;,
-    &quot;amount_ar&quot;: null,
-    &quot;amount_ap&quot;: 69823.35,
-    &quot;amounttotal&quot;: 496789.60,
-    &quot;id_customer&quot;: null,
-    &quot;short_reff&quot;: &quot;PRPU2505140289000075-734001&quot;,
-    &quot;rows&quot;: [
-        {
-            &quot;kode_akun&quot;: &quot;110-00-003&quot;,
-            &quot;description&quot;: &quot;RECEIVE - EXPENSE - Nomor PO : PRPU2505140289000075-734001&quot;,
-            &quot;posisi&quot;: &quot;D&quot;,
-            &quot;jumlah&quot;: 77503.90
-        },
-        {
-            &quot;kode_akun&quot;: &quot;155-00-0078429&quot;,
-            &quot;description&quot;: &quot;RECEIVE - SUBLEDGER - Nomor PO : PRPU2505140289000075-734001&quot;,
-            &quot;posisi&quot;: &quot;K&quot;,
-            &quot;jumlah&quot;: 69823.35
-        },
-        {
-            &quot;kode_akun&quot;: &quot;11201105&quot;,
-            &quot;description&quot;: &quot;RECEIVE - PPH - Nomor PO : PRPU2505140289000075-734001&quot;,
-            &quot;posisi&quot;: &quot;K&quot;,
-            &quot;jumlah&quot;: 7680.55
-        }
-    ],
-    &quot;flag_input&quot;: 2 ,
-    &quot;due_date&quot; : &quot;2025-01-20&quot;
+  &quot;nomor_jurnal&quot;: &quot;DIP-1162-RCV&quot;,
+  &quot;nama&quot;: &quot;A018 - Hari-Hari Pasar Swalayan&quot;,
+  &quot;nama_supplier&quot;: &quot;A018 - Hari-Hari Pasar Swalayan&quot;,
+  &quot;id_supplier&quot;: &quot;A018&quot;,
+  &quot;kode_cabang&quot;: &quot;DIP-1162&quot;,
+  &quot;reff_sys&quot;: &quot;POPU2607270569000136-776001&quot;,
+  &quot;trx_date&quot;: &quot;2026-07-27 15:18:18&quot;,
+  &quot;amount_ar&quot;: null,
+  &quot;amount_ap&quot;: 97740,
+  &quot;amounttotal&quot;: 97740,
+  &quot;id_customer&quot;: null,
+  &quot;short_reff&quot;: &quot;POPU2607270569000136-776001&quot;,
+  &quot;rows&quot;: [
+    {
+      &quot;kode_akun&quot;: &quot;130-00-008&quot;,
+      &quot;description&quot;: &quot;RECEIVE - ITEM - Nomor PO : POPU2607270569000136-776001&quot;,
+      &quot;posisi&quot;: &quot;D&quot;,
+      &quot;jumlah&quot;: 97740
+    },
+    {
+      &quot;kode_akun&quot;: &quot;210-00-0106118&quot;,
+      &quot;description&quot;: &quot;RECEIVE - SUBLEDGER - Nomor PO : POPU2607270569000136-776001&quot;,
+      &quot;posisi&quot;: &quot;K&quot;,
+      &quot;jumlah&quot;: 97740
+    }
+  ],
+  &quot;flag_input&quot;: 1,
+  &quot;due_date&quot;: &quot;2026-07-26&quot;
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
@@ -52084,9 +52078,9 @@ Partial Result: Jika ada beberapa baris yang error tapi sisanya sukses, respon a
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>04 Aug 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>05 Aug 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>03 Agu 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>04 Agu 2026  02:00</span>
       </span>
     </div>
   </main>
