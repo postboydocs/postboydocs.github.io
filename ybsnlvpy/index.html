@@ -372,9 +372,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <span class="env-label">Environment</span>
       <select class="env-select" id="envSelect" onchange="applyEnv()">
         <option value="">— pilih environment —</option>
-        <option value="http://192.168.135.172:10140">PROD</option>
-        <option value="http://192.168.135.122:10140">STAGING</option>
-        <option value="http://10.100.111.50:10140">DEV</option>
+        <option value="http://100.67.172.17:8069" data-var="odoohost">ODOO VOODOO LOCAL</option>
       </select>
       <div class="env-host" id="envHostLabel"></div>
     </div>
@@ -441,9 +439,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create dretail_mpos_inventory_api - category api -create
-
-mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
+        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create dretail_mpos_inventory_api - category api - create">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -457,16 +453,15 @@ mpos_company_id diambil dari field company id (sebelah tombol send) via {{compan
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API -Create
-
-mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - Create</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
               
               
-              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -476,9 +471,7 @@ mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{compan
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update dretail_mpos_inventory_api - category api - update
-
-mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
+        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update dretail_mpos_inventory_api - category api - update">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             <span class="new-badge">NEW</span>
@@ -492,16 +485,15 @@ mpos_company_id diambil dari field company id (sebelah tombol send) via {{compan
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - update
-
-mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - Update</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
               
               
-              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -511,9 +503,7 @@ mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{compan
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="735" data-search="category - delete {{odoohost}}/api/inventory/category/delete dretail_mpos_inventory_api - category api - delete.
-
-mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
+        <div class="endpoint-card m-DELETE" data-id="735" data-search="category - delete {{odoohost}}/api/inventory/category/delete dretail_mpos_inventory_api - category api - delete">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             <span class="new-badge">NEW</span>
@@ -527,16 +517,15 @@ mpos_company_id diambil dari field company id (sebelah tombol send) via {{compan
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - delete.
-
-mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - Delete</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
               
               
-              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -546,9 +535,7 @@ mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{compan
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="736" data-search="category - get (single) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}}&amp;mpos_category_id=cat-001 dretail_mpos_inventory_api - category api - get, mode single
-
-mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
+        <div class="endpoint-card m-GET" data-id="736" data-search="category - get (single) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}}&amp;mpos_category_id=cat-001 dretail_mpos_inventory_api - category api - get (single)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
@@ -562,25 +549,22 @@ mpos_company_id diambil dari field company id (sebelah tombol send) via {{compan
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - get, mode single
-
-mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - Get (single)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
               
               
-              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
             </div>
             
             
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="737" data-search="category - get (list) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - category api - get, mode list
-
-mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
+        <div class="endpoint-card m-GET" data-id="737" data-search="category - get (list) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - category api - get (list)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
@@ -594,16 +578,15 @@ mpos_company_id diambil dari field company id (sebelah tombol send) via {{compan
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - get, mode list
-
-mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - Get (list)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
               
               
-              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
             </div>
             
             
@@ -616,9 +599,9 @@ mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{compan
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Aug 2026 16:54</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Aug 2026 17:07</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Agu 2026  15:46</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Agu 2026  16:55</span>
       </span>
     </div>
   </main>
@@ -739,15 +722,26 @@ function clearSearch() {
 
 function applyEnv() {
   var sel = document.getElementById('envSelect');
+  var opt = sel.options[sel.selectedIndex];
   var host = sel.value;
+  // Which {{varName}} this option's host value fills -- set per-<option>
+  // from EnvOption.varKey (DocsController), since different collections'
+  // requests use different placeholders ({{accountinghost}},
+  // {{odoohost}}, ...). Previously this was hardcoded to accountinghost
+  // only, so picking any environment on a non-accounting collection's
+  // docs page silently substituted nothing.
+  var varKey = opt ? opt.getAttribute('data-var') : null;
   var label = document.getElementById('envHostLabel');
   label.textContent = host || '';
 
   document.querySelectorAll('.endpoint-url[data-url]').forEach(function (el) {
     var original = el.getAttribute('data-url');
-    el.textContent = host
-      ? original.replace(/\{\{accountinghost\}\}/g, host)
-      : original;
+    if (host && varKey) {
+      var re = new RegExp('\\{\\{' + varKey + '\\}\\}', 'g');
+      el.textContent = original.replace(re, host);
+    } else {
+      el.textContent = original;
+    }
   });
 }
 
@@ -790,6 +784,26 @@ function showAuthInfo(type, event) {
       '<div class="auth-modal-note" style="font-size:.82rem;color:var(--txt);">Token di-generate dari endpoint:</div>' +
       '<div class="auth-modal-row" style="margin-top:.5rem;"><div class="auth-modal-val">POST /accounting/{companyId}/init-client</div></div>' +
       '<div class="auth-modal-note">Gunakan response token dari endpoint <strong>/init-client</strong> sebagai Bearer Token pada header Authorization.</div>';
+  } else if (type === 'mposInventoryHmac') {
+    title.innerHTML = '<i class="bi bi-shield-lock" style="color:#7c3aed"></i> MPOS Inventory HMAC — Cara Menghitung';
+    // Secret sengaja TIDAK ditulis di sini (beda dari Header Auth di atas,
+    // yang nampilin secret-nya polos) -- halaman ini publik, dan skema ini
+    // menandatangani isi request (bukan cuma tanggal), jadi bocornya
+    // secret di sini lebih berbahaya (siapa pun bisa forge request apa
+    // saja, bukan cuma replay dalam 1 hari). Minta secretnya langsung ke
+    // developer modul dretail_mpos_inventory_api.
+    body.innerHTML =
+      '<div class="auth-modal-row"><div class="auth-modal-label">Algoritma</div>' +
+      '<div class="auth-modal-val">HMAC-SHA256</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Data yang ditandatangani</div>' +
+      '<div class="auth-modal-val"><code>{timestamp}.{raw_body}</code> untuk POST/PUT/DELETE<br><code>{timestamp}.{raw_query_string}</code> untuk GET (bukan body -- GET tidak bawa body)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Secret</div>' +
+      '<div class="auth-modal-val">Tidak ditampilkan di halaman publik ini -- minta ke developer modul <code>dretail_mpos_inventory_api</code>.</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Header yang dikirim</div>' +
+      '<div class="auth-modal-val"><code>X-Timestamp</code>: unix time detik<br><code>X-Signature</code>: hex digest hasil HMAC di atas</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
+      '<div class="auth-modal-val">30 menit -- request ditolak kalau selisih |now − timestamp| lebih dari itu</div></div>' +
+      '<div class="auth-modal-note">Beda dari Header Auth: skema ini menandatangani ISI request (body atau query string), bukan cuma tanggal -- signature yang ke-capture tidak bisa dipakai ulang dengan payload lain, dan tetap expired dalam 30 menit.</div>';
   }
 
   overlay.classList.add('show');
