@@ -372,9 +372,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <span class="env-label">Environment</span>
       <select class="env-select" id="envSelect" onchange="applyEnv()">
         <option value="">— pilih environment —</option>
-        <option value="http://192.168.135.172:10140">PROD</option>
-        <option value="http://192.168.135.122:10140">STAGING</option>
-        <option value="http://10.100.111.50:10140">DEV</option>
+        <option value="https://api.stg.joob.asia/v3/external/b2b/dRetail" data-var="joobBaseUrl">JOOB STAGING</option>
+        <option value="bb934ab8bd714c6e83325eed261e9f89" data-var="externalStoreId">JOOB STAGING</option>
+        <option value="1Kq37MlJj9Lp" data-var="jobPostingId">JOOB STAGING</option>
+        <option value="wnNg91ol35dX" data-var="joobCompanyId">JOOB STAGING</option>
       </select>
       <div class="env-host" id="envHostLabel"></div>
     </div>
@@ -576,6 +577,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             <div class="detail-row">
@@ -618,6 +620,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -643,6 +646,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -674,6 +678,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -702,6 +707,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -727,6 +733,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -765,6 +772,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             <div class="detail-row">
@@ -798,6 +806,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -849,6 +858,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -877,6 +887,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -902,6 +913,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -952,6 +964,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -977,6 +990,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -1008,6 +1022,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -1033,6 +1048,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -1073,6 +1089,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -1143,6 +1160,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
               <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             
@@ -1168,6 +1186,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
+              
               
               
               
@@ -1212,6 +1231,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1230,8 +1250,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Aug 2026 15:38</span>
-      
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>25 Aug 2026 02:00</span>
+      <span style="display:block;margin-top:.35rem;font-size:.68rem;">
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Agu 2026  15:38</span>
+      </span>
     </div>
   </main>
 </div>
@@ -1351,15 +1373,26 @@ function clearSearch() {
 
 function applyEnv() {
   var sel = document.getElementById('envSelect');
+  var opt = sel.options[sel.selectedIndex];
   var host = sel.value;
+  // Which {{varName}} this option's host value fills -- set per-<option>
+  // from EnvOption.varKey (DocsController), since different collections'
+  // requests use different placeholders ({{accountinghost}},
+  // {{odoohost}}, ...). Previously this was hardcoded to accountinghost
+  // only, so picking any environment on a non-accounting collection's
+  // docs page silently substituted nothing.
+  var varKey = opt ? opt.getAttribute('data-var') : null;
   var label = document.getElementById('envHostLabel');
   label.textContent = host || '';
 
   document.querySelectorAll('.endpoint-url[data-url]').forEach(function (el) {
     var original = el.getAttribute('data-url');
-    el.textContent = host
-      ? original.replace(/\{\{accountinghost\}\}/g, host)
-      : original;
+    if (host && varKey) {
+      var re = new RegExp('\\{\\{' + varKey + '\\}\\}', 'g');
+      el.textContent = original.replace(re, host);
+    } else {
+      el.textContent = original;
+    }
   });
 }
 
@@ -1402,6 +1435,25 @@ function showAuthInfo(type, event) {
       '<div class="auth-modal-note" style="font-size:.82rem;color:var(--txt);">Token di-generate dari endpoint:</div>' +
       '<div class="auth-modal-row" style="margin-top:.5rem;"><div class="auth-modal-val">POST /accounting/{companyId}/init-client</div></div>' +
       '<div class="auth-modal-note">Gunakan response token dari endpoint <strong>/init-client</strong> sebagai Bearer Token pada header Authorization.</div>';
+  } else if (type === 'mposInventoryHmac') {
+    title.innerHTML = '<i class="bi bi-shield-lock" style="color:#7c3aed"></i> MPOS Inventory HMAC — Cara Menghitung';
+    // Secret sengaja TIDAK ditulis di sini (beda dari Header Auth di atas,
+    // yang nampilin secret-nya polos) -- halaman ini publik, dan skema ini
+    // menandatangani isi request (bukan cuma tanggal), jadi bocornya
+    // secret di sini lebih berbahaya (siapa pun bisa forge request apa
+    // saja, bukan cuma replay dalam 1 hari). Minta secretnya langsung ke
+    // developer modul dretail_mpos_inventory_api.
+    body.innerHTML =
+      '<div class="auth-modal-row"><div class="auth-modal-label">Algoritma</div>' +
+      '<div class="auth-modal-val">HMAC-SHA256</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Data yang ditandatangani</div>' +
+      '<div class="auth-modal-val"><code>{timestamp}.{raw_body}</code> untuk POST/PUT/DELETE<br><code>{timestamp}.{raw_query_string}</code> untuk GET (bukan body -- GET tidak bawa body)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Secret</div>' +
+      '<div class="auth-modal-val">Tidak ditampilkan di halaman publik ini -- minta ke developer modul <code>dretail_mpos_inventory_api</code>.</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Header yang dikirim</div>' +
+      '<div class="auth-modal-val"><code>X-Timestamp</code>: unix time detik<br><code>X-Signature</code>: hex digest hasil HMAC di atas</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
+      '<div class="auth-modal-val">30 menit -- request ditolak kalau selisih |now − timestamp| lebih dari itu</div></div>';
   }
 
   overlay.classList.add('show');
