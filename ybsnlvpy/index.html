@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">3 endpoints</span>
+  <span class="docs-header-badge">5 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -397,13 +397,23 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="734">
-            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-method sb-m-PUT">PUT</span>
             <span class="sb-ep-name">Category - Update</span>
           </div>
         
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="735">
-            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-method sb-m-DELETE">DELETE</span>
             <span class="sb-ep-name">Category - Delete</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="736">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Category - Get (single)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="737">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Category - Get (list)</span>
           </div>
         
         
@@ -426,27 +436,19 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-87">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">CATEGORY</span>
-        <span class="section-count">3 endpoint</span>
+        <span class="section-count">5 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="733" data-search="category - create http://192.168.138.116:8069/api/inventory/category/create dretail_mpos_inventory_api - category api - create.
+        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create dretail_mpos_inventory_api - category api -create
 
-auth type: pilih &quot;mpos inventory hmac&quot; di dropdown supaya x-timestamp/x-signature dihitung otomatis.
-
-host/port 192.168.138.116:8069 asumsi default odoo dev (sdr-odoo-dev) - verifikasi http_port di /etc/odoo18.conf server itu sebelum dipakai, belum dicek langsung.
-
-response rspcode: 00 ok, 13 auth invalid, 14 malformed json, 20 mpos_company_id tidak ditemukan, 21 field wajib kosong, 22 mpos_category_id sudah ada, 24 parent_mpos_category_id tidak ditemukan.
-
-subcategory: pakai endpoint sama, isi parent_mpos_category_id dengan id category induk.
-
-lihat dretail_mpos_inventory_api/docs/module_documentation.md # category api untuk detail lengkap.">
+mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="http://192.168.138.116:8069/api/inventory/category/create">http://192.168.138.116:8069/api/inventory/category/create</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/category/create">{{odoohost}}/api/inventory/category/create</span>
               <span class="endpoint-name">Category - Create</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -455,17 +457,9 @@ lihat dretail_mpos_inventory_api/docs/module_documentation.md # category api unt
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - create.
+              <span class="detail-description">dretail_mpos_inventory_api - Category API -Create
 
-Auth Type: pilih &quot;MPOS Inventory HMAC&quot; di dropdown supaya X-Timestamp/X-Signature dihitung otomatis.
-
-Host/port 192.168.138.116:8069 asumsi default Odoo dev (sdr-odoo-dev) - verifikasi http_port di /etc/odoo18.conf server itu sebelum dipakai, belum dicek langsung.
-
-response rspcode: 00 OK, 13 auth invalid, 14 malformed JSON, 20 mpos_company_id tidak ditemukan, 21 field wajib kosong, 22 mpos_category_id sudah ada, 24 parent_mpos_category_id tidak ditemukan.
-
-Subcategory: pakai endpoint sama, isi parent_mpos_category_id dengan id category induk.
-
-Lihat dretail_mpos_inventory_api/docs/MODULE_DOCUMENTATION.md # Category API untuk detail lengkap.</span>
+mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -476,26 +470,20 @@ Lihat dretail_mpos_inventory_api/docs/MODULE_DOCUMENTATION.md # Category API unt
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;123&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Beverages&quot;, &quot;parent_mpos_category_id&quot;: null, &quot;active&quot;: true}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Beverages&quot;, &quot;parent_mpos_category_id&quot;: null, &quot;active&quot;: true}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="734" data-search="category - update http://192.168.138.116:8069/api/inventory/category/update dretail_mpos_inventory_api - category api - update.
+        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update dretail_mpos_inventory_api - category api - update
 
-auth type: &quot;mpos inventory hmac&quot;.
-
-field opsional, cuma yang dikirim yang di-update: name, active, parent_mpos_category_id (isi null untuk lepas dari parent).
-
-response rspcode: 00 ok, 13 auth invalid, 14 malformed json, 20 mpos_company_id tidak ditemukan, 23 mpos_category_id tidak ditemukan, 24 parent_mpos_category_id tidak ditemukan.
-
-lihat dretail_mpos_inventory_api/docs/module_documentation.md # category api.">
+mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
+            <span class="method-badge">PUT</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="http://192.168.138.116:8069/api/inventory/category/update">http://192.168.138.116:8069/api/inventory/category/update</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/category/update">{{odoohost}}/api/inventory/category/update</span>
               <span class="endpoint-name">Category - Update</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -504,15 +492,9 @@ lihat dretail_mpos_inventory_api/docs/module_documentation.md # category api.">
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - update.
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - update
 
-Auth Type: &quot;MPOS Inventory HMAC&quot;.
-
-Field opsional, cuma yang dikirim yang di-update: name, active, parent_mpos_category_id (isi null untuk lepas dari parent).
-
-response rspcode: 00 OK, 13 auth invalid, 14 malformed JSON, 20 mpos_company_id tidak ditemukan, 23 mpos_category_id tidak ditemukan, 24 parent_mpos_category_id tidak ditemukan.
-
-Lihat dretail_mpos_inventory_api/docs/MODULE_DOCUMENTATION.md # Category API.</span>
+mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -523,26 +505,20 @@ Lihat dretail_mpos_inventory_api/docs/MODULE_DOCUMENTATION.md # Category API.</s
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;123&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Beverages (renamed)&quot;, &quot;active&quot;: true}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Beverages (renamed)&quot;, &quot;active&quot;: true}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="735" data-search="category - delete http://192.168.138.116:8069/api/inventory/category/delete dretail_mpos_inventory_api - category api - delete.
+        <div class="endpoint-card m-DELETE" data-id="735" data-search="category - delete {{odoohost}}/api/inventory/category/delete dretail_mpos_inventory_api - category api - delete.
 
-auth type: &quot;mpos inventory hmac&quot;.
-
-idempotent: mpos_category_id tidak ketemu = tetap sukses (rspcode 00), bukan error.
-
-ditolak (bukan cascade) kalau: masih ada subcategory di bawahnya (rspcode 26) atau masih ada product yang assign ke category ini (rspcode 25) - hapus itu duluan di mpos/odoo.
-
-lihat dretail_mpos_inventory_api/docs/module_documentation.md # category api.">
+mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
+            <span class="method-badge">DELETE</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="http://192.168.138.116:8069/api/inventory/category/delete">http://192.168.138.116:8069/api/inventory/category/delete</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/category/delete">{{odoohost}}/api/inventory/category/delete</span>
               <span class="endpoint-name">Category - Delete</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -553,13 +529,7 @@ lihat dretail_mpos_inventory_api/docs/module_documentation.md # category api.">
               <span class="detail-label">Deskripsi</span>
               <span class="detail-description">dretail_mpos_inventory_api - Category API - delete.
 
-Auth Type: &quot;MPOS Inventory HMAC&quot;.
-
-Idempotent: mpos_category_id tidak ketemu = tetap sukses (rspcode 00), bukan error.
-
-Ditolak (bukan cascade) kalau: masih ada subcategory di bawahnya (rspcode 26) atau masih ada product yang assign ke category ini (rspcode 25) - hapus itu duluan di MPOS/Odoo.
-
-Lihat dretail_mpos_inventory_api/docs/MODULE_DOCUMENTATION.md # Category API.</span>
+mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -570,8 +540,72 @@ Lihat dretail_mpos_inventory_api/docs/MODULE_DOCUMENTATION.md # Category API.</s
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;123&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="736" data-search="category - get (single) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}}&amp;mpos_category_id=cat-001 dretail_mpos_inventory_api - category api - get, mode single
+
+mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/category/get?mpos_company_id={{companyId}}&amp;mpos_category_id=cat-001">{{odoohost}}/api/inventory/category/get?mpos_company_id={{companyId}}&amp;mpos_category_id=cat-001</span>
+              <span class="endpoint-name">Category - Get (single)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - get, mode single
+
+mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="737" data-search="category - get (list) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - category api - get, mode list
+
+mpos_company_id diambil dari field company id (sebelah tombol send) via {{companyid}} -- isi/autocomplete company di situ (mis. 656 / &quot;black rose&quot;), bukan diedit di body/url langsung.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/category/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/category/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-name">Category - Get (list)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Category API - get, mode list
+
+mpos_company_id diambil dari field Company ID (sebelah tombol Send) via {{companyId}} -- isi/autocomplete company di situ (mis. 656 / &quot;Black Rose&quot;), bukan diedit di body/URL langsung.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            
             
           </div>
         </div>
@@ -582,9 +616,9 @@ Lihat dretail_mpos_inventory_api/docs/MODULE_DOCUMENTATION.md # Category API.</s
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Aug 2026 15:46</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Aug 2026 16:54</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Agu 2026  15:35</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Agu 2026  15:46</span>
       </span>
     </div>
   </main>
