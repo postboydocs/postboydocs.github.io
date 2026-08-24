@@ -599,9 +599,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Aug 2026 17:07</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Aug 2026 17:19</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Agu 2026  16:55</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Agu 2026  17:07</span>
       </span>
     </div>
   </main>
@@ -802,8 +802,7 @@ function showAuthInfo(type, event) {
       '<div class="auth-modal-row"><div class="auth-modal-label">Header yang dikirim</div>' +
       '<div class="auth-modal-val"><code>X-Timestamp</code>: unix time detik<br><code>X-Signature</code>: hex digest hasil HMAC di atas</div></div>' +
       '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
-      '<div class="auth-modal-val">30 menit -- request ditolak kalau selisih |now − timestamp| lebih dari itu</div></div>' +
-      '<div class="auth-modal-note">Beda dari Header Auth: skema ini menandatangani ISI request (body atau query string), bukan cuma tanggal -- signature yang ke-capture tidak bisa dipakai ulang dengan payload lain, dan tetap expired dalam 30 menit.</div>';
+      '<div class="auth-modal-val">30 menit -- request ditolak kalau selisih |now − timestamp| lebih dari itu</div></div>';
   }
 
   overlay.classList.add('show');
