@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">31 endpoints</span>
+  <span class="docs-header-badge">33 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -611,6 +611,27 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="763">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Combo Component - Get</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-95">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>TRANSACTION</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="765">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Transaction - Sync</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="766">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Transaction - Void</span>
           </div>
         
         
@@ -1927,11 +1948,108 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <!-- Subfolders -->
       
     
+      <div class="section-header" id="folder-95">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">TRANSACTION</span>
+        <span class="section-count">2 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync dretail_mpos_inventory_api - transaction sync api - sync">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/sync">{{odoohost}}/api/inventory/transaction/sync</span>
+              <span class="endpoint-name">Transaction - Sync</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Transaction Sync API - Sync</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
+  &quot;mpos_order_id&quot;: &quot;trx-00123&quot;,
+  &quot;lines&quot;: [
+    {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 2, &quot;price_unit&quot;: 15000, &quot;discount_type&quot;: &quot;percentage&quot;, &quot;discount&quot;: 0, &quot;is_global_discount&quot;: false}
+  ],
+  &quot;payments&quot;: [
+    {&quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;amount&quot;: 30000}
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void dretail_mpos_inventory_api - transaction sync api - void">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/void">{{odoohost}}/api/inventory/transaction/void</span>
+              <span class="endpoint-name">Transaction - Void</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Transaction Sync API - Void</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
+  &quot;mpos_order_id&quot;: &quot;trx-00123&quot;,
+  &quot;mpos_void_id&quot;: &quot;void-00045&quot;,
+  &quot;lines&quot;: [
+    {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1}
+  ],
+  &quot;payments&quot;: [
+    {&quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;amount&quot;: 15000}
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>31 Aug 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>31 Aug 2026 11:24</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>30 Agu 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>31 Agu 2026  02:00</span>
       </span>
     </div>
   </main>
