@@ -1396,7 +1396,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="745" data-search="bom - update {{odoohost}}/api/inventory/bom/update dretail_mpos_inventory_api - bom api - update">
+        <div class="endpoint-card m-PUT" data-id="745" data-search="bom - update {{odoohost}}/api/inventory/bom/update dretail_mpos_inventory_api - bom api - update. upsert sejak 2026-09-01: kalau mpos_bom_line_id belum ada, otomatis create -- makanya payload sekarang wajib selengkap create() (mpos_product_id, odoo_ingredient_id), bukan cuma qty. kalau line-nya sudah ada, cuma qty (+ uom opsional) yang benar-benar dipakai/diubah.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1410,7 +1410,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - BOM API - Update</span>
+              <span class="detail-description">dretail_mpos_inventory_api - BOM API - Update. Upsert sejak 2026-09-01: kalau mpos_bom_line_id belum ada, otomatis create -- makanya payload sekarang wajib selengkap create() (mpos_product_id, odoo_ingredient_id), bukan cuma qty. Kalau line-nya sudah ada, cuma qty (+ uom opsional) yang benar-benar dipakai/diubah.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1422,7 +1422,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_bom_line_id&quot;: &quot;line-001&quot;, &quot;qty&quot;: 3}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_bom_line_id&quot;: &quot;line-001&quot;, &quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;odoo_ingredient_id&quot;: 82, &quot;qty&quot;: 3}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
@@ -1984,7 +1984,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="761" data-search="combo component - update {{odoohost}}/api/inventory/combo/component/update dretail_mpos_inventory_api - combo api - component update">
+        <div class="endpoint-card m-PUT" data-id="761" data-search="combo component - update {{odoohost}}/api/inventory/combo/component/update dretail_mpos_inventory_api - combo api - component update. upsert sejak 2026-09-01: kalau mpos_combo_component_id belum ada, otomatis create -- makanya payload sekarang wajib selengkap create() (mpos_product_id, mpos_component_product_id), bukan cuma qty. kalau component-nya sudah ada, cuma qty yang benar-benar dipakai/diubah.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             <span class="new-badge">NEW</span>
@@ -1998,7 +1998,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Combo API - Component Update</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Combo API - Component Update. Upsert sejak 2026-09-01: kalau mpos_combo_component_id belum ada, otomatis create -- makanya payload sekarang wajib selengkap create() (mpos_product_id, mpos_component_product_id), bukan cuma qty. Kalau component-nya sudah ada, cuma qty yang benar-benar dipakai/diubah.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2010,7 +2010,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_combo_component_id&quot;: &quot;comp-001&quot;, &quot;qty&quot;: 2}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_combo_component_id&quot;: &quot;comp-001&quot;, &quot;mpos_product_id&quot;: &quot;paket-001&quot;, &quot;mpos_component_product_id&quot;: &quot;menu-001&quot;, &quot;qty&quot;: 2}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
@@ -2506,9 +2506,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>01 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>01 Sep 2026 11:27</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>31 Agu 2026  15:42</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>01 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
