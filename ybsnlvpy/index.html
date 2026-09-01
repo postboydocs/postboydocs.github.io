@@ -476,7 +476,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>BOM</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -543,7 +543,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>REGISTER</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -564,7 +564,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>COMBO</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -1367,7 +1367,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="744" data-search="bom - create {{odoohost}}/api/inventory/bom/create dretail_mpos_inventory_api - bom api - create. ditolak (code 40) kalau pasangan (mpos_product_id, odoo_ingredient_id) ini udah ada -- 1 ingredient cuma boleh 1 baris per resep.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/create">{{odoohost}}/api/inventory/bom/create</span>
               <span class="endpoint-name">BOM - Create</span>
@@ -1390,7 +1390,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;odoo_ingredient_id&quot;: 82, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;kg&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 50, &quot;uom&quot;: &quot;gram&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
@@ -1399,7 +1399,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-PUT" data-id="745" data-search="bom - update {{odoohost}}/api/inventory/bom/update dretail_mpos_inventory_api - bom api - update. always-upsert sejak 2026-09-01 (mpos_bom_line_id dihapus total): pasangan (mpos_product_id, odoo_ingredient_id) ini yang jadi identitas baris -- kalau udah ada, qty/uom-nya diupdate; kalau belum ada, langsung dibikin baru.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/update">{{odoohost}}/api/inventory/bom/update</span>
               <span class="endpoint-name">BOM - Update</span>
@@ -1422,8 +1422,36 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;odoo_ingredient_id&quot;: 82, &quot;qty&quot;: 3}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 75, &quot;uom&quot;: &quot;gram&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">126 ms</span>
+                    <span class="response-time">2026-09-01 15:10</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;odoo_bom_line_id&quot;: 81,
+  &quot;bom_line&quot;: {
+    &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;,
+    &quot;odoo_ingredient_id&quot;: 2980,
+    &quot;ingredient_name&quot;: &quot;Tomat&quot;,
+    &quot;qty&quot;: 75,
+    &quot;uom&quot;: &quot;gram&quot;
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -1431,7 +1459,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-DELETE" data-id="746" data-search="bom - delete {{odoohost}}/api/inventory/bom/delete dretail_mpos_inventory_api - bom api - delete. sejak 2026-09-01 diidentifikasi pakai pasangan (mpos_product_id, odoo_ingredient_id), bukan mpos_bom_line_id lagi (field itu sudah dihapus dari model). idempotent.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/delete">{{odoohost}}/api/inventory/bom/delete</span>
               <span class="endpoint-name">BOM - Delete</span>
@@ -1454,18 +1482,38 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;odoo_ingredient_id&quot;: 82}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">135 ms</span>
+                    <span class="response-time">2026-09-01 15:11</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="747" data-search="bom - get {{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyid}}&amp;mpos_product_id=menu-001 dretail_mpos_inventory_api - bom api - get">
+        <div class="endpoint-card m-GET" data-id="747" data-search="bom - get {{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyid}}&amp;mpos_product_id=test-menu-002 dretail_mpos_inventory_api - bom api - get">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyId}}&amp;mpos_product_id=menu-001">{{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyId}}&amp;mpos_product_id=menu-001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyId}}&amp;mpos_product_id=test-menu-002">{{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyId}}&amp;mpos_product_id=test-menu-002</span>
               <span class="endpoint-name">BOM - Get</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1485,6 +1533,43 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
             </div>
             
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">6128 ms</span>
+                    <span class="response-time">2026-09-01 15:09</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;odoo_bom_id&quot;: 38,
+  &quot;bom_lines&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;,
+      &quot;odoo_ingredient_id&quot;: 2981,
+      &quot;ingredient_name&quot;: &quot;Adonan Martabak&quot;,
+      &quot;qty&quot;: 10,
+      &quot;uom&quot;: &quot;gram&quot;
+    },
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;,
+      &quot;odoo_ingredient_id&quot;: 2980,
+      &quot;ingredient_name&quot;: &quot;Tomat&quot;,
+      &quot;qty&quot;: 50,
+      &quot;uom&quot;: &quot;gram&quot;
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -1697,7 +1782,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="753" data-search="register - open {{odoohost}}/api/inventory/register/open dretail_mpos_inventory_api - register api - open">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/register/open">{{odoohost}}/api/inventory/register/open</span>
               <span class="endpoint-name">Register - Open</span>
@@ -1757,7 +1842,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="754" data-search="register - settle {{odoohost}}/api/inventory/register/settle dretail_mpos_inventory_api - register api - settle">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/register/settle">{{odoohost}}/api/inventory/register/settle</span>
               <span class="endpoint-name">Register - Settle</span>
@@ -1801,7 +1886,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="755" data-search="combo - create {{odoohost}}/api/inventory/combo/create dretail_mpos_inventory_api - combo api - create">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/create">{{odoohost}}/api/inventory/combo/create</span>
               <span class="endpoint-name">Combo - Create</span>
@@ -1833,7 +1918,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-PUT" data-id="756" data-search="combo - update {{odoohost}}/api/inventory/combo/update dretail_mpos_inventory_api - combo api - update">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/update">{{odoohost}}/api/inventory/combo/update</span>
               <span class="endpoint-name">Combo - Update</span>
@@ -1865,7 +1950,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-DELETE" data-id="757" data-search="combo - delete {{odoohost}}/api/inventory/combo/delete dretail_mpos_inventory_api - combo api - delete">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/delete">{{odoohost}}/api/inventory/combo/delete</span>
               <span class="endpoint-name">Combo - Delete</span>
@@ -1897,7 +1982,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="758" data-search="combo - get (single) {{odoohost}}/api/inventory/combo/get?mpos_company_id={{companyid}}&amp;mpos_product_id=paket-001 dretail_mpos_inventory_api - combo api - get (single)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/get?mpos_company_id={{companyId}}&amp;mpos_product_id=paket-001">{{odoohost}}/api/inventory/combo/get?mpos_company_id={{companyId}}&amp;mpos_product_id=paket-001</span>
               <span class="endpoint-name">Combo - Get (single)</span>
@@ -1926,7 +2011,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="759" data-search="combo - get (list) {{odoohost}}/api/inventory/combo/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - combo api - get (list)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/combo/get?mpos_company_id={{companyId}}</span>
               <span class="endpoint-name">Combo - Get (list)</span>
@@ -1955,7 +2040,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="760" data-search="combo component - create {{odoohost}}/api/inventory/combo/component/create dretail_mpos_inventory_api - combo api - component create">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/component/create">{{odoohost}}/api/inventory/combo/component/create</span>
               <span class="endpoint-name">Combo Component - Create</span>
@@ -1987,7 +2072,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-PUT" data-id="761" data-search="combo component - update {{odoohost}}/api/inventory/combo/component/update dretail_mpos_inventory_api - combo api - component update. upsert sejak 2026-09-01: kalau mpos_combo_component_id belum ada, otomatis create -- makanya payload sekarang wajib selengkap create() (mpos_product_id, mpos_component_product_id), bukan cuma qty. kalau component-nya sudah ada, cuma qty yang benar-benar dipakai/diubah.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/component/update">{{odoohost}}/api/inventory/combo/component/update</span>
               <span class="endpoint-name">Combo Component - Update</span>
@@ -2019,7 +2104,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-DELETE" data-id="762" data-search="combo component - delete {{odoohost}}/api/inventory/combo/component/delete dretail_mpos_inventory_api - combo api - component delete">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/component/delete">{{odoohost}}/api/inventory/combo/component/delete</span>
               <span class="endpoint-name">Combo Component - Delete</span>
@@ -2051,7 +2136,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="763" data-search="combo component - get {{odoohost}}/api/inventory/combo/component/get?mpos_company_id={{companyid}}&amp;mpos_product_id=paket-001 dretail_mpos_inventory_api - combo api - component get">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/combo/component/get?mpos_company_id={{companyId}}&amp;mpos_product_id=paket-001">{{odoohost}}/api/inventory/combo/component/get?mpos_company_id={{companyId}}&amp;mpos_product_id=paket-001</span>
               <span class="endpoint-name">Combo Component - Get</span>
@@ -2506,9 +2591,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>01 Sep 2026 11:46</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>01 Sep 2026 15:17</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>01 Sep 2026  11:27</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>01 Sep 2026  11:46</span>
       </span>
     </div>
   </main>
