@@ -1572,6 +1572,36 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;name&quot;: &quot;Kasir 1&quot;, &quot;active&quot;: true, &quot;mpos_branch_id&quot;: &quot;branch001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">359 ms</span>
+                    <span class="response-time">2026-09-02 11:39</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;odoo_shop_id&quot;: 32,
+  &quot;shop&quot;: {
+    &quot;mpos_device_id&quot;: &quot;test-autolicense-001&quot;,
+    &quot;name&quot;: &quot;Test Auto License Shop&quot;,
+    &quot;active&quot;: true,
+    &quot;odoo_shop_id&quot;: 32,
+    &quot;odoo_warehouse_id&quot;: 53,
+    &quot;mpos_branch_id&quot;: false,
+    &quot;mpos_company_id&quot;: &quot;417&quot;
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
@@ -2301,7 +2331,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="770" data-search="payment method - update {{odoohost}}/api/inventory/payment_method/update dretail_mpos_inventory_api - payment method api - update">
+        <div class="endpoint-card m-PUT" data-id="770" data-search="payment method - update {{odoohost}}/api/inventory/payment_method/update dretail_mpos_inventory_api - payment method api - update (rename by mpos_payment_method_id, no odoo_payment_method_id needed -- mpos never has that id)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             <span class="new-badge">NEW</span>
@@ -2315,7 +2345,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Update</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Update (rename by mpos_payment_method_id, no odoo_payment_method_id needed -- MPOS never has that id)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2327,13 +2357,13 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;odoo_payment_method_id&quot;: 40, &quot;mpos_payment_method_id&quot;: &quot;cash&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;name&quot;: &quot;Tunai&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="771" data-search="payment method - delete (unmap) {{odoohost}}/api/inventory/payment_method/delete dretail_mpos_inventory_api - payment method api - delete (unmap)">
+        <div class="endpoint-card m-DELETE" data-id="771" data-search="payment method - delete (unmap) {{odoohost}}/api/inventory/payment_method/delete dretail_mpos_inventory_api - payment method api - delete (unmap by mpos_payment_method_id, idempotent, no odoo_payment_method_id needed)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             <span class="new-badge">NEW</span>
@@ -2347,7 +2377,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Delete (unmap)</span>
+              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Delete (unmap by mpos_payment_method_id, idempotent, no odoo_payment_method_id needed)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2359,7 +2389,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;odoo_payment_method_id&quot;: 40}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_payment_method_id&quot;: &quot;cash&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
@@ -2550,9 +2580,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>02 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>02 Sep 2026 11:49</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>01 Sep 2026  15:17</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>02 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
