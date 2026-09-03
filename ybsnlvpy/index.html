@@ -2160,10 +2160,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
+{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00124&quot;,
+  &quot;reff_sys&quot;: &quot;REF-00001&quot;,
   &quot;lines&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
@@ -2180,7 +2182,8 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       &quot;amount&quot;: 56000
     }
   ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}
+"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
@@ -2212,18 +2215,21 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
+{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00123&quot;,
   &quot;mpos_void_id&quot;: &quot;void-00045&quot;,
+  &quot;reff_sys&quot;: &quot;REF-00002&quot;,
   &quot;lines&quot;: [
     {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1}
   ],
   &quot;payments&quot;: [
     {&quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;amount&quot;: 15000}
   ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}
+"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
@@ -2580,9 +2586,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>03 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>03 Sep 2026 07:49</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>02 Sep 2026  11:49</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>03 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
