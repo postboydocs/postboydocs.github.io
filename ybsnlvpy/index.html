@@ -439,7 +439,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-89">
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
-        <span>C̶O̶M̶B̶O̶ (tidak dipakai)</span>
+        <span>MENU</span>
         
       </div>
       <div class="sidebar-endpoints">
@@ -563,7 +563,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-93">
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
-        <span>COMBO</span>
+        <span>C̶O̶M̶B̶O̶ (tidak dipakai)</span>
         
       </div>
       <div class="sidebar-endpoints">
@@ -1091,7 +1091,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
       <div class="section-header" id="folder-89">
         <i class="bi bi-folder-fill section-icon"></i>
-        <span class="section-name">C̶O̶M̶B̶O̶ (tidak dipakai)</span>
+        <span class="section-name">MENU</span>
         <span class="section-count">5 endpoint</span>
       </div>
 
@@ -1873,7 +1873,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
       <div class="section-header" id="folder-93">
         <i class="bi bi-folder-fill section-icon"></i>
-        <span class="section-name">COMBO</span>
+        <span class="section-name">C̶O̶M̶B̶O̶ (tidak dipakai)</span>
         <span class="section-count">9 endpoint</span>
       </div>
 
@@ -2170,7 +2170,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync dretail_mpos_inventory_api - transaction sync api - sync">
+        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync lines[].discount = angka rupiah fixed final (bukan persen lagi, discount_type/is_global_discount dihapus dari payload -- lihat docs 2026-09-04). service_charge/commercial_fee/gratuity/delivery_fee/rounding = confirmed shape, produk fee-nya harus type=service. commission/voucher/point = provisional.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -2184,7 +2184,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Transaction Sync API - Sync</span>
+              <span class="detail-description">lines[].discount = angka Rupiah fixed final (bukan persen lagi, discount_type/is_global_discount dihapus dari payload -- lihat docs 2026-09-04). service_charge/commercial_fee/gratuity/delivery_fee/rounding = confirmed shape, produk fee-nya harus type=Service. commission/voucher/point = PROVISIONAL.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2207,17 +2207,23 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
       &quot;qty&quot;: 2,
       &quot;price_unit&quot;: 28000,
-      &quot;discount_type&quot;: &quot;percentage&quot;,
-      &quot;discount&quot;: 0,
-      &quot;is_global_discount&quot;: false
+      &quot;discount&quot;: 0
     }
   ],
   &quot;payments&quot;: [
     {
       &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
-      &quot;amount&quot;: 56000
+      &quot;amount&quot;: 64650
     }
-  ]
+  ],
+  &quot;service_charge&quot;: 1400,
+  &quot;commercial_fee&quot;: 1100,
+  &quot;gratuity&quot;: 1150,
+  &quot;delivery_fee&quot;: 5000,
+  &quot;rounding&quot;: 0,
+  &quot;commission&quot;: 0,
+  &quot;voucher&quot;: 0,
+  &quot;point&quot;: 0
 }
 "></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
@@ -2791,7 +2797,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>04 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>05 Sep 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
         <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>04 Sep 2026  02:00</span>
       </span>
