@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">GRAB JOOB</span>
-  <span class="docs-header-badge">19 endpoints</span>
+  <span class="docs-header-badge">22 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -529,6 +529,32 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="731">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">Browser Handoff (token exchange)</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-100">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>6. Webhook (Inbound)</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="791">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Job Posting Published (inbound)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="792">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Application Status Changed (inbound)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="793">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Application Created (inbound, no-op)</span>
           </div>
         
         
@@ -1248,11 +1274,152 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <!-- Subfolders -->
       
     
+      <div class="section-header" id="folder-100">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">6. Webhook (Inbound)</span>
+        <span class="section-count">3 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="791" data-search="job posting published (inbound) https://odev.dretail.id/grab_joob/webhook ">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="https://odev.dretail.id/grab_joob/webhook">https://odev.dretail.id/grab_joob/webhook</span>
+              <span class="endpoint-name">Job Posting Published (inbound)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;event&quot;: &quot;JOB_POSTING_PUBLISHED&quot;,
+  &quot;eventId&quot;: &quot;evt-jobpub-001&quot;,
+  &quot;externalStoreId&quot;: &quot;example-external-store-id&quot;,
+  &quot;businessId&quot;: &quot;example-business-id&quot;,
+  &quot;jobPostingId&quot;: &quot;example-job-posting-id&quot;,
+  &quot;status&quot;: &quot;PUBLISHED&quot;,
+  &quot;occurredAt&quot;: 1788751703000
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">201 ms</span>
+                    <span class="response-time">2026-09-08 14:15</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: &quot;duplicate&quot;,
+  &quot;eventId&quot;: &quot;evt-jobpub-001&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="792" data-search="application status changed (inbound) https://odev.dretail.id/grab_joob/webhook ">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="https://odev.dretail.id/grab_joob/webhook">https://odev.dretail.id/grab_joob/webhook</span>
+              <span class="endpoint-name">Application Status Changed (inbound)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;event&quot;: &quot;APPLICATION_STATUS_CHANGED&quot;,
+  &quot;eventId&quot;: &quot;evt-appstatus-001&quot;,
+  &quot;externalStoreId&quot;: &quot;example-external-store-id&quot;,
+  &quot;jobPostingId&quot;: &quot;example-job-posting-id&quot;,
+  &quot;applicationId&quot;: &quot;example-application-id&quot;,
+  &quot;status&quot;: &quot;INTERVIEW_ACCEPTED&quot;,
+  &quot;occurredAt&quot;: 1788755770000
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="793" data-search="application created (inbound, no-op) https://odev.dretail.id/grab_joob/webhook ">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="https://odev.dretail.id/grab_joob/webhook">https://odev.dretail.id/grab_joob/webhook</span>
+              <span class="endpoint-name">Application Created (inbound, no-op)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;event&quot;: &quot;APPLICATION_CREATED&quot;,
+  &quot;eventId&quot;: &quot;evt-appcreated-001&quot;,
+  &quot;externalStoreId&quot;: &quot;example-external-store-id&quot;,
+  &quot;jobPostingId&quot;: &quot;example-job-posting-id&quot;,
+  &quot;applicationId&quot;: &quot;example-application-id-2&quot;,
+  &quot;status&quot;: &quot;APPLIED&quot;,
+  &quot;occurredAt&quot;: 1788755770000
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>08 Sep 2026 10:37</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>09 Sep 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>08 Sep 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>08 Sep 2026  10:37</span>
       </span>
     </div>
   </main>
