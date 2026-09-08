@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">48 endpoints</span>
+  <span class="docs-header-badge">49 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -632,6 +632,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="766">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">Transaction - Void</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="787">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Transaction - Sync (rounding journal test, erpmpos 001)</span>
           </div>
         
         
@@ -2165,7 +2170,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-95">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">TRANSACTION</span>
-        <span class="section-count">2 endpoint</span>
+        <span class="section-count">3 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -2272,6 +2277,55 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   ]
 }
 "></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="787" data-search="transaction - sync (rounding journal test, erpmpos 001) {{odoohost}}/api/inventory/transaction/sync ">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/sync">{{odoohost}}/api/inventory/transaction/sync</span>
+              <span class="endpoint-name">Transaction - Sync (rounding journal test, erpmpos 001)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;dev-003&quot;,
+  &quot;mpos_order_id&quot;: &quot;trx-rounding-001&quot;,
+  &quot;reff_sys&quot;: &quot;REF-ROUNDING-001&quot;,
+  &quot;lines&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
+      &quot;qty&quot;: 1,
+      &quot;price_unit&quot;: 15000,
+      &quot;discount&quot;: 0
+    }
+  ],
+  &quot;payments&quot;: [
+    {
+      &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
+      &quot;amount&quot;: 15000
+    }
+  ],
+  &quot;rounding&quot;: 350
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
           </div>
@@ -2797,9 +2851,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>08 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>08 Sep 2026 10:37</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>07 Sep 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>08 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
