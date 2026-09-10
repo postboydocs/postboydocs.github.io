@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">55 endpoints</span>
+  <span class="docs-header-badge">56 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -498,6 +498,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="743">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Menu - Get (list)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="801">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Menu - Get (list, by mpos_branch_id)</span>
           </div>
         
         
@@ -770,7 +775,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>BUNDLE</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -1065,7 +1070,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;900001&quot;,
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;mpos_product_id&quot;: &quot;test-modifier-001&quot;,
   &quot;name&quot;: &quot;Pedes Sedikit (Test)&quot;,
   &quot;list_price&quot;: 2000,
@@ -1076,54 +1081,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
-            
-              <div class="divider"></div>
-              <div class="detail-row">
-                <span class="detail-label">Last Response</span>
-                <div>
-                  <div class="response-meta">
-                    <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">214 ms</span>
-                    <span class="response-time">2026-09-09 23:16</span>
-                  </div>
-                  <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;status&quot;: {
-    &quot;rspcode&quot;: &quot;00&quot;,
-    &quot;rspdesc&quot;: &quot;OK&quot;
-  },
-  &quot;odoo_product_id&quot;: 3046,
-  &quot;modifier&quot;: {
-    &quot;mpos_product_id&quot;: &quot;test-modifier-001&quot;,
-    &quot;name&quot;: &quot;Pedes Sedikit (Test)&quot;,
-    &quot;mpos_category_id&quot;: null,
-    &quot;list_price&quot;: 2000,
-    &quot;active&quot;: true,
-    &quot;odoo_product_id&quot;: 3046,
-    &quot;is_bundle&quot;: false,
-    &quot;cogs&quot;: 0
-  },
-  &quot;odoo_bom_id&quot;: 42,
-  &quot;bom_lines&quot;: [
-    {
-      &quot;mpos_product_id&quot;: &quot;test-modifier-001&quot;,
-      &quot;odoo_ingredient_id&quot;: 82,
-      &quot;ingredient_name&quot;: &quot;Beras&quot;,
-      &quot;qty&quot;: 1,
-      &quot;uom&quot;: &quot;Pcs&quot;
-    },
-    {
-      &quot;mpos_product_id&quot;: &quot;test-modifier-001&quot;,
-      &quot;odoo_ingredient_id&quot;: 235,
-      &quot;ingredient_name&quot;: &quot;Mie Aceh 3&quot;,
-      &quot;qty&quot;: 1,
-      &quot;uom&quot;: &quot;gram&quot;
-    }
-  ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
-                  </div>
-                </div>
-              </div>
             
           </div>
         </div>
@@ -1327,7 +1284,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-89">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">MENU</span>
-        <span class="section-count">5 endpoint</span>
+        <span class="section-count">6 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -1566,6 +1523,67 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
             </div>
             
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="801" data-search="menu - get (list, by mpos_branch_id) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}}&amp;mpos_branch_id={{branchid}} get (list), dengan param opsional mpos_branch_id -- harus anak langsung dari mpos_company_id (kalau bukan, reject rspcode 20). menu tetap instance-wide, cuma cogs yang jadi per-branch. {{branchid}} isi manual (belum ada di environment variables).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id={{branchId}}">{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id={{branchId}}</span>
+              <span class="endpoint-name">Menu - Get (list, by mpos_branch_id)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get (list), dengan param opsional mpos_branch_id -- harus anak langsung dari mpos_company_id (kalau bukan, reject rspcode 20). Menu tetap instance-wide, cuma cogs yang jadi per-branch. {{branchId}} isi manual (belum ada di Environment variables).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">105 ms</span>
+                    <span class="response-time">2026-09-10 11:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;menus&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;test-branch-check-001&quot;,
+      &quot;name&quot;: &quot;Test Branch Check&quot;,
+      &quot;mpos_category_id&quot;: &quot;cat-001&quot;,
+      &quot;list_price&quot;: 10000,
+      &quot;active&quot;: true,
+      &quot;odoo_product_id&quot;: 3045,
+      &quot;is_bundle&quot;: false,
+      &quot;cogs&quot;: 0
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -2927,7 +2945,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="782" data-search="menu - create (bundle) {{odoohost}}/api/inventory/menu/create ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/create">{{odoohost}}/api/inventory/menu/create</span>
               <span class="endpoint-name">Menu - Create (Bundle)</span>
@@ -2965,7 +2983,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="783" data-search="bundle component - create {{odoohost}}/api/inventory/bundle/component/create ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/create">{{odoohost}}/api/inventory/bundle/component/create</span>
               <span class="endpoint-name">Bundle Component - Create</span>
@@ -2996,7 +3014,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-PUT" data-id="784" data-search="bundle component - update {{odoohost}}/api/inventory/bundle/component/update ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/update">{{odoohost}}/api/inventory/bundle/component/update</span>
               <span class="endpoint-name">Bundle Component - Update</span>
@@ -3027,7 +3045,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-DELETE" data-id="785" data-search="bundle component - delete {{odoohost}}/api/inventory/bundle/component/delete ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/delete">{{odoohost}}/api/inventory/bundle/component/delete</span>
               <span class="endpoint-name">Bundle Component - Delete</span>
@@ -3058,7 +3076,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="786" data-search="bundle component - get {{odoohost}}/api/inventory/bundle/component/get?mpos_company_id={{companyid}}&amp;mpos_product_id=bundle-001 ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/get?mpos_company_id={{companyId}}&amp;mpos_product_id=bundle-001">{{odoohost}}/api/inventory/bundle/component/get?mpos_company_id={{companyId}}&amp;mpos_product_id=bundle-001</span>
               <span class="endpoint-name">Bundle Component - Get</span>
@@ -3087,7 +3105,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>10 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>11 Sep 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
         <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>10 Sep 2026  02:00</span>
       </span>
