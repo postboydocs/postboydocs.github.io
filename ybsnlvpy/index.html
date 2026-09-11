@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">56 endpoints</span>
+  <span class="docs-header-badge">54 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -582,16 +582,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="753">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">Register - Open</span>
-          </div>
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="754">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">Register - Settle</span>
-          </div>
         
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="788">
             <span class="sb-method sb-m-POST">POST</span>
@@ -829,7 +819,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create dretail_mpos_inventory_api - category api - create">
+        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create create category">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -843,7 +833,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - Create</span>
+              <span class="detail-description">create category</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -855,19 +845,34 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;mpos_category_id&quot;: &quot;cat-001&quot;,
-  &quot;name&quot;: &quot;test category&quot;,
-  &quot;parent_mpos_category_id&quot;: &quot;food&quot;,
-  &quot;active&quot;: true
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
+{
+  &quot;mpos_company_id&quot;: &quot;679&quot;,
+  &quot;mpos_category_id&quot;: &quot;cat-002&quot;,
+  &quot;name&quot;: &quot;Makanan&quot;
+}
+"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">120 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_category_id&quot;: 109, &quot;category&quot;: {&quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;name&quot;: &quot;Makanan&quot;, &quot;parent_mpos_category_id&quot;: null, &quot;parent_mpos_category_name&quot;: null, &quot;active&quot;: true, &quot;odoo_category_id&quot;: 109}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update dretail_mpos_inventory_api - category api - update">
+        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update update category">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -881,7 +886,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - Update</span>
+              <span class="detail-description">update category</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -893,19 +898,34 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
+{
+  &quot;mpos_company_id&quot;: &quot;679&quot;,
   &quot;mpos_category_id&quot;: &quot;cat-001&quot;,
-  &quot;name&quot;: &quot;Beverages (renamed)&quot;,
-  &quot;parent_mpos_category_id&quot;:  &quot;cat-003&quot;,
-  &quot;active&quot;: true
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+  &quot;name&quot;: &quot;Minuman&quot;
+}
+"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">110 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_category_id&quot;: 48, &quot;category&quot;: {&quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Minuman&quot;, &quot;parent_mpos_category_id&quot;: null, &quot;parent_mpos_category_name&quot;: null, &quot;active&quot;: true, &quot;odoo_category_id&quot;: 48}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="735" data-search="category - delete {{odoohost}}/api/inventory/category/delete dretail_mpos_inventory_api - category api - delete">
+        <div class="endpoint-card m-DELETE" data-id="735" data-search="category - delete {{odoohost}}/api/inventory/category/delete delete category">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -919,7 +939,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - Delete</span>
+              <span class="detail-description">delete category</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -931,18 +951,33 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">65 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="736" data-search="category - get (single) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}}&amp;mpos_category_id=cat-001 dretail_mpos_inventory_api - category api - get (single)">
+        <div class="endpoint-card m-GET" data-id="736" data-search="category - get (single) {{odoohost}}/api/inventory/category/get?mpos_company_id=679&amp;mpos_category_id=cat-001 get single category">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/category/get?mpos_company_id={{companyId}}&amp;mpos_category_id=cat-001">{{odoohost}}/api/inventory/category/get?mpos_company_id={{companyId}}&amp;mpos_category_id=cat-001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/category/get?mpos_company_id=679&amp;mpos_category_id=cat-001">{{odoohost}}/api/inventory/category/get?mpos_company_id=679&amp;mpos_category_id=cat-001</span>
               <span class="endpoint-name">Category - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -951,7 +986,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - Get (single)</span>
+              <span class="detail-description">get single category</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -963,10 +998,25 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">60 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;category&quot;: {&quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Minuman&quot;, &quot;parent_mpos_category_id&quot;: null, &quot;parent_mpos_category_name&quot;: null, &quot;active&quot;: true, &quot;odoo_category_id&quot;: 48}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="737" data-search="category - get (list) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - category api - get (list)">
+        <div class="endpoint-card m-GET" data-id="737" data-search="category - get (list) {{odoohost}}/api/inventory/category/get?mpos_company_id={{companyid}} get category list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
@@ -980,7 +1030,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Category API - Get (list)</span>
+              <span class="detail-description">get category list</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1043,7 +1093,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create dretail_mpos_inventory_api - modifier api">
+        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create create modifier">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -1057,7 +1107,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Modifier API</span>
+              <span class="detail-description">create modifier</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1069,18 +1119,33 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;mpos_product_id&quot;: &quot;test-modifier-001&quot;,
-  &quot;name&quot;: &quot;Pedes Sedikit (Test)&quot;,
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
+{
+  &quot;mpos_company_id&quot;: &quot;417&quot;,
+  &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
+  &quot;name&quot;: &quot;Pedas Extra&quot;,
   &quot;list_price&quot;: 2000,
-  &quot;active&quot;: true,
   &quot;bom_lines&quot;: [
-    {&quot;odoo_ingredient_id&quot;: 82, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;Pcs&quot;},
-    {&quot;odoo_ingredient_id&quot;: 235, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;gram&quot;}
+    {&quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Pcs&quot;}
   ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}
+"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">250 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_product_id&quot;: 3058, &quot;modifier&quot;: {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 2000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3058, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 700.0}, &quot;odoo_bom_id&quot;: 51, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_ingredient_id&quot;: 2984, &quot;ingredient_name&quot;: &quot;Cabe&quot;, &quot;qty&quot;: 2.0, &quot;uom&quot;: &quot;Pcs&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -1097,7 +1162,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-GET" data-id="738" data-search="ingredient - list {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}} dretail_mpos_inventory_api - ingredient api - list">
+        <div class="endpoint-card m-GET" data-id="738" data-search="ingredient - list {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}} get ingredient list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
@@ -1111,7 +1176,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Ingredient API - List</span>
+              <span class="detail-description">get ingredient list</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1190,12 +1255,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="794" data-search="ingredient - get (single, odoo_ingredient_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}}&amp;odoo_ingredient_id=82 single mode">
+        <div class="endpoint-card m-GET" data-id="794" data-search="ingredient - get (single, odoo_ingredient_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;odoo_ingredient_id=2985 get single ingredient">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;odoo_ingredient_id=82">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;odoo_ingredient_id=82</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;odoo_ingredient_id=2985">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;odoo_ingredient_id=2985</span>
               <span class="endpoint-name">Ingredient - Get (single, odoo_ingredient_id)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1204,7 +1269,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Single mode</span>
+              <span class="detail-description">get single ingredient</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1216,15 +1281,30 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">60 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;ingredient&quot;: {&quot;odoo_product_id&quot;: 2985, &quot;name&quot;: &quot;Bawang&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 700.0}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="795" data-search="ingredient - list (by mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}}&amp;mpos_branch_id=900001 dretail_mpos_inventory_api - ingredient api - list, dengan param opsional mpos_branch_id (2026-09-09, validasi ditambahkan 2026-09-09). kalau dikasih, meng-override company yang dipakai buat visibility scoping dan cogs (with_company()) -- tapi mpos_branch_id wajib jadi anak langsung dari mpos_company_id (company.child_ids), kalau bukan anaknya (tree lain/sibling/dst) di-reject sama persis kayak branch id gak ketemu (rspcode 20). ganti {{branchid}} manual pas testing (belum ada di environment variables).">
+        <div class="endpoint-card m-GET" data-id="795" data-search="ingredient - list (by mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769 get ingredient list by branch">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=900001">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=900001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769</span>
               <span class="endpoint-name">Ingredient - List (by mpos_branch_id)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1233,7 +1313,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Ingredient API - List, dengan param opsional mpos_branch_id (2026-09-09, validasi ditambahkan 2026-09-09). Kalau dikasih, meng-override company yang dipakai buat visibility scoping DAN cogs (with_company()) -- TAPI mpos_branch_id wajib jadi anak LANGSUNG dari mpos_company_id (company.child_ids), kalau bukan anaknya (tree lain/sibling/dst) di-reject sama persis kayak branch id gak ketemu (rspcode 20). Ganti {{branchId}} manual pas testing (belum ada di Environment variables).</span>
+              <span class="detail-description">get ingredient list by branch</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1245,15 +1325,30 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">95 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;ingredients&quot;: [{&quot;odoo_product_id&quot;: 2987, &quot;name&quot;: &quot;Adonan Bala-bala&quot;, &quot;inventory_type&quot;: &quot;wip&quot;, &quot;uom&quot;: &quot;Gram&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 2981, &quot;name&quot;: &quot;Adonan Martabak&quot;, &quot;inventory_type&quot;: &quot;wip&quot;, &quot;uom&quot;: &quot;Gram&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 2985, &quot;name&quot;: &quot;Bawang&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 2984, &quot;name&quot;: &quot;Cabe&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 2983, &quot;name&quot;: &quot;Martabak&quot;, &quot;inventory_type&quot;: &quot;wip&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 2986, &quot;name&quot;: &quot;Susu&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 2980, &quot;name&quot;: &quot;Tomat&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 3056, &quot;name&quot;: &quot;dsew&quot;, &quot;inventory_type&quot;: &quot;wip&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}, {&quot;odoo_product_id&quot;: 3042, &quot;name&quot;: &quot;wip&quot;, &quot;inventory_type&quot;: &quot;wip&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="796" data-search="ingredient - get (single, mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}}&amp;mpos_branch_id=900001&amp;odoo_ingredient_id=82 dretail_mpos_inventory_api - ingredient api - single mode + param opsional mpos_branch_id (2026-09-09), behavior + validasi hierarki sama kayak list mode -- lihat &quot;ingredient - list (by mpos_branch_id)&quot;.">
+        <div class="endpoint-card m-GET" data-id="796" data-search="ingredient - get (single, mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985 get single ingredient by branch">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=900001&amp;odoo_ingredient_id=82">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=900001&amp;odoo_ingredient_id=82</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985</span>
               <span class="endpoint-name">Ingredient - Get (single, mpos_branch_id)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1262,7 +1357,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Ingredient API - Single mode + param opsional mpos_branch_id (2026-09-09), behavior + validasi hierarki sama kayak list mode -- lihat &quot;Ingredient - List (by mpos_branch_id)&quot;.</span>
+              <span class="detail-description">get single ingredient by branch</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1273,6 +1368,21 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
             </div>
             
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">60 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;ingredient&quot;: {&quot;odoo_product_id&quot;: 2985, &quot;name&quot;: &quot;Bawang&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;uom&quot;: &quot;Pcs&quot;, &quot;cogs&quot;: 0.0}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -1289,7 +1399,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="739" data-search="menu - create {{odoohost}}/api/inventory/menu/create dretail_mpos_inventory_api - menu api - create">
+        <div class="endpoint-card m-POST" data-id="739" data-search="menu - create {{odoohost}}/api/inventory/menu/create create menu">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -1303,7 +1413,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Menu API - Create</span>
+              <span class="detail-description">create menu</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1356,7 +1466,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="740" data-search="menu - update {{odoohost}}/api/inventory/menu/update dretail_mpos_inventory_api - menu api - update">
+        <div class="endpoint-card m-PUT" data-id="740" data-search="menu - update {{odoohost}}/api/inventory/menu/update update menu">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1370,7 +1480,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Menu API - Update</span>
+              <span class="detail-description">update menu</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1417,7 +1527,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="741" data-search="menu - delete {{odoohost}}/api/inventory/menu/delete dretail_mpos_inventory_api - menu api - delete">
+        <div class="endpoint-card m-DELETE" data-id="741" data-search="menu - delete {{odoohost}}/api/inventory/menu/delete delete menu">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -1431,7 +1541,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Menu API - Delete</span>
+              <span class="detail-description">delete menu</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1469,12 +1579,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="742" data-search="menu - get (single) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}}&amp;mpos_branch_id={{branchid}}&amp;mpos_product_id=test-menu-001 dretail_mpos_inventory_api - menu api - get (single).">
+        <div class="endpoint-card m-GET" data-id="742" data-search="menu - get (single) {{odoohost}}/api/inventory/menu/get?mpos_company_id=417&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001 get single menu">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id={{branchId}}&amp;mpos_product_id=test-menu-001">{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id={{branchId}}&amp;mpos_product_id=test-menu-001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id=417&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001">{{odoohost}}/api/inventory/menu/get?mpos_company_id=417&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001</span>
               <span class="endpoint-name">Menu - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1483,7 +1593,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Menu API - Get (single).</span>
+              <span class="detail-description">get single menu</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1495,15 +1605,30 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">90 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;menu&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 28000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 2995, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="743" data-search="menu - get (list) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - menu api - get (list).">
+        <div class="endpoint-card m-GET" data-id="743" data-search="menu - get (list) {{odoohost}}/api/inventory/menu/get?mpos_company_id=417 get menu list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id=417">{{odoohost}}/api/inventory/menu/get?mpos_company_id=417</span>
               <span class="endpoint-name">Menu - Get (list)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1512,7 +1637,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Menu API - Get (list).</span>
+              <span class="detail-description">get menu list</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1524,10 +1649,25 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">140 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;menus&quot;: [{&quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;name&quot;: &quot;Menu ini pake category parent&quot;, &quot;mpos_category_id&quot;: &quot;cat-003&quot;, &quot;list_price&quot;: 15000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3004, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}, {&quot;mpos_product_id&quot;: &quot;menu-002&quot;, &quot;name&quot;: &quot;Menu ini pake category parent&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 15000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3005, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}, {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 28000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 2995, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 4500.0}, {&quot;mpos_product_id&quot;: &quot;bundle-417-001&quot;, &quot;name&quot;: &quot;Paket Nasi Goreng + Es Teh&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 32000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3059, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}, {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 2000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3058, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 700.0}, {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;name&quot;: &quot;Test Menu Item&quot;, &quot;mpos_category_id&quot;: &quot;cat-009&quot;, &quot;list_price&quot;: 15000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3000, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 700.0}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="801" data-search="menu - get (list, by mpos_branch_id) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}}&amp;mpos_branch_id={{branchid}} get (list), dengan param opsional mpos_branch_id -- harus anak langsung dari mpos_company_id (kalau bukan, reject rspcode 20). menu tetap instance-wide, cuma cogs yang jadi per-branch. {{branchid}} isi manual (belum ada di environment variables).">
+        <div class="endpoint-card m-GET" data-id="801" data-search="menu - get (list, by mpos_branch_id) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}}&amp;mpos_branch_id={{branchid}} get menu list by branch">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             <span class="new-badge">NEW</span>
@@ -1541,7 +1681,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Get (list), dengan param opsional mpos_branch_id -- harus anak langsung dari mpos_company_id (kalau bukan, reject rspcode 20). Menu tetap instance-wide, cuma cogs yang jadi per-branch. {{branchId}} isi manual (belum ada di Environment variables).</span>
+              <span class="detail-description">get menu list by branch</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1600,7 +1740,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="744" data-search="bom - create {{odoohost}}/api/inventory/bom/create dretail_mpos_inventory_api - bom api - create. ditolak (code 40) kalau pasangan (mpos_product_id, odoo_ingredient_id) ini udah ada -- 1 ingredient cuma boleh 1 baris per resep.">
+        <div class="endpoint-card m-POST" data-id="744" data-search="bom - create {{odoohost}}/api/inventory/bom/create create bom">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -1614,7 +1754,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - BOM API - Create. Ditolak (code 40) kalau pasangan (mpos_product_id, odoo_ingredient_id) ini udah ada -- 1 ingredient cuma boleh 1 baris per resep.</span>
+              <span class="detail-description">create bom</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1626,13 +1766,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 50, &quot;uom&quot;: &quot;gram&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 50, &quot;uom&quot;: &quot;gram&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">130 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_bom_line_id&quot;: 111, &quot;bom_line&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;ingredient_name&quot;: &quot;Tomat&quot;, &quot;qty&quot;: 50.0, &quot;uom&quot;: &quot;Pcs&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="745" data-search="bom - update {{odoohost}}/api/inventory/bom/update dretail_mpos_inventory_api - bom api - update. always-upsert sejak 2026-09-01 (mpos_bom_line_id dihapus total): pasangan (mpos_product_id, odoo_ingredient_id) ini yang jadi identitas baris -- kalau udah ada, qty/uom-nya diupdate; kalau belum ada, langsung dibikin baru.">
+        <div class="endpoint-card m-PUT" data-id="745" data-search="bom - update {{odoohost}}/api/inventory/bom/update update bom">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1646,7 +1801,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - BOM API - Update. Always-upsert sejak 2026-09-01 (mpos_bom_line_id dihapus total): pasangan (mpos_product_id, odoo_ingredient_id) ini yang jadi identitas baris -- kalau udah ada, qty/uom-nya diupdate; kalau belum ada, langsung dibikin baru.</span>
+              <span class="detail-description">update bom</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1658,13 +1813,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 75, &quot;uom&quot;: &quot;gram&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 75, &quot;uom&quot;: &quot;gram&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">100 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_bom_line_id&quot;: 111, &quot;bom_line&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;ingredient_name&quot;: &quot;Tomat&quot;, &quot;qty&quot;: 75.0, &quot;uom&quot;: &quot;Pcs&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="746" data-search="bom - delete {{odoohost}}/api/inventory/bom/delete dretail_mpos_inventory_api - bom api - delete. sejak 2026-09-01 diidentifikasi pakai pasangan (mpos_product_id, odoo_ingredient_id), bukan mpos_bom_line_id lagi (field itu sudah dihapus dari model). idempotent.">
+        <div class="endpoint-card m-DELETE" data-id="746" data-search="bom - delete {{odoohost}}/api/inventory/bom/delete delete bom">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -1678,7 +1848,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - BOM API - Delete. Sejak 2026-09-01 diidentifikasi pakai pasangan (mpos_product_id, odoo_ingredient_id), bukan mpos_bom_line_id lagi (field itu sudah dihapus dari model). Idempotent.</span>
+              <span class="detail-description">delete bom</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1690,13 +1860,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">70 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="747" data-search="bom - get {{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyid}}&amp;mpos_product_id=test-menu-002 dretail_mpos_inventory_api - bom api - get">
+        <div class="endpoint-card m-GET" data-id="747" data-search="bom - get {{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyid}}&amp;mpos_product_id=test-menu-002 get bom">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
@@ -1710,7 +1895,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - BOM API - Get</span>
+              <span class="detail-description">get bom</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1774,7 +1959,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="748" data-search="shop - create {{odoohost}}/api/inventory/shop/create dretail_mpos_inventory_api - shop api - create">
+        <div class="endpoint-card m-POST" data-id="748" data-search="shop - create {{odoohost}}/api/inventory/shop/create create shop">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -1788,7 +1973,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Shop API - Create</span>
+              <span class="detail-description">create shop</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1836,7 +2021,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="749" data-search="shop - update {{odoohost}}/api/inventory/shop/update dretail_mpos_inventory_api - shop api - update">
+        <div class="endpoint-card m-PUT" data-id="749" data-search="shop - update {{odoohost}}/api/inventory/shop/update update shop">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1850,7 +2035,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Shop API - Update</span>
+              <span class="detail-description">update shop</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1862,13 +2047,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;wh_mpos_branch_id&quot;: &quot;branch-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;name&quot;: &quot;Kasir Utama - Cabang Bandung (Updated)&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">95 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_shop_id&quot;: 38, &quot;shop&quot;: {&quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;name&quot;: &quot;Kasir Utama - Cabang Bandung (Updated)&quot;, &quot;active&quot;: true, &quot;odoo_shop_id&quot;: 38, &quot;odoo_warehouse_id&quot;: 53, &quot;wh_mpos_branch_id&quot;: false, &quot;mpos_company_id&quot;: &quot;417&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="750" data-search="shop - delete {{odoohost}}/api/inventory/shop/delete dretail_mpos_inventory_api - shop api - delete">
+        <div class="endpoint-card m-DELETE" data-id="750" data-search="shop - delete {{odoohost}}/api/inventory/shop/delete delete shop">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -1882,7 +2082,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Shop API - Delete</span>
+              <span class="detail-description">delete shop</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1894,18 +2094,33 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">65 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="751" data-search="shop - get (single) {{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyid}}&amp;mpos_device_id=dev-001 dretail_mpos_inventory_api - shop api - get (single)">
+        <div class="endpoint-card m-GET" data-id="751" data-search="shop - get (single) {{odoohost}}/api/inventory/shop/get?mpos_company_id=417&amp;mpos_device_id=dev-001 get single shop">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}&amp;mpos_device_id=dev-001">{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}&amp;mpos_device_id=dev-001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id=417&amp;mpos_device_id=dev-001">{{odoohost}}/api/inventory/shop/get?mpos_company_id=417&amp;mpos_device_id=dev-001</span>
               <span class="endpoint-name">Shop - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1914,7 +2129,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Shop API - Get (single)</span>
+              <span class="detail-description">get single shop</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1926,15 +2141,30 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">55 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;shop&quot;: {&quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;name&quot;: &quot;Kasir 1&quot;, &quot;active&quot;: true, &quot;odoo_shop_id&quot;: 21, &quot;odoo_warehouse_id&quot;: 53, &quot;wh_mpos_branch_id&quot;: false, &quot;mpos_company_id&quot;: &quot;417&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="752" data-search="shop - get (list) {{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - shop api - get (list)">
+        <div class="endpoint-card m-GET" data-id="752" data-search="shop - get (list) {{odoohost}}/api/inventory/shop/get?mpos_company_id=417 get shop list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id=417">{{odoohost}}/api/inventory/shop/get?mpos_company_id=417</span>
               <span class="endpoint-name">Shop - Get (list)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1943,7 +2173,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Shop API - Get (list)</span>
+              <span class="detail-description">get shop list</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1954,6 +2184,21 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
             </div>
             
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">85 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;shops&quot;: [{&quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;name&quot;: &quot;Kasir 1&quot;, &quot;active&quot;: true, &quot;odoo_shop_id&quot;: 21, &quot;odoo_warehouse_id&quot;: 53, &quot;wh_mpos_branch_id&quot;: false, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;mpos_device_id&quot;: &quot;test-autolicense-001&quot;, &quot;name&quot;: &quot;Test Auto License Shop&quot;, &quot;active&quot;: true, &quot;odoo_shop_id&quot;: 32, &quot;odoo_warehouse_id&quot;: 53, &quot;wh_mpos_branch_id&quot;: false, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;name&quot;: &quot;Kasir Utama - Cabang Bandung (Updated)&quot;, &quot;active&quot;: true, &quot;odoo_shop_id&quot;: 38, &quot;odoo_warehouse_id&quot;: 53, &quot;wh_mpos_branch_id&quot;: false, &quot;mpos_company_id&quot;: &quot;417&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -1965,104 +2210,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-92">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">REGISTER</span>
-        <span class="section-count">4 endpoint</span>
+        <span class="section-count">2 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="753" data-search="register - open {{odoohost}}/api/inventory/register/open dretail_mpos_inventory_api - register api - open">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/register/open">{{odoohost}}/api/inventory/register/open</span>
-              <span class="endpoint-name">Register - Open</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Register API - Open</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              
-              
-              
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;mpos_cashier_id&quot;: &quot;cashier-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
-            
-              <div class="divider"></div>
-              <div class="detail-row">
-                <span class="detail-label">Last Response</span>
-                <div>
-                  <div class="response-meta">
-                    <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">269 ms</span>
-                    <span class="response-time">2026-08-31 14:02</span>
-                  </div>
-                  <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;status&quot;: {
-    &quot;rspcode&quot;: &quot;00&quot;,
-    &quot;rspdesc&quot;: &quot;OK&quot;
-  },
-  &quot;session&quot;: {
-    &quot;odoo_session_id&quot;: 1423,
-    &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
-    &quot;mpos_cashier_id&quot;: &quot;cashier-nala-001&quot;,
-    &quot;state&quot;: &quot;opened&quot;,
-    &quot;start_at&quot;: &quot;2026-08-31T07:02:04&quot;
-  },
-  &quot;previous_session&quot;: null
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
-                  </div>
-                </div>
-              </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="754" data-search="register - settle {{odoohost}}/api/inventory/register/settle dretail_mpos_inventory_api - register api - settle">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/register/settle">{{odoohost}}/api/inventory/register/settle</span>
-              <span class="endpoint-name">Register - Settle</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Register API - Settle</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              
-              
-              
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;cash_amount&quot;: 500000}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="788" data-search="register - open (erpmpos 001, dev-003) {{odoohost}}/api/inventory/register/open dev-003 = device shop 33 (kasir 1) yang aktif di branch 867. jangan pakai dev-001 -- ada shop lain (id 25) di branch yang sama pakai device id itu, tapi disabled (rspcode 60 &quot;shop is disabled&quot;). buka session ini dulu sebelum kirim transaction - sync (rounding test #2).">
+        <div class="endpoint-card m-POST" data-id="788" data-search="register - open (erpmpos 001, dev-003) {{odoohost}}/api/inventory/register/open open register (test erpmpos 001, dev-003)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -2076,7 +2229,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dev-003 = device Shop 33 (Kasir 1) yang AKTIF di branch 867. Jangan pakai dev-001 -- ada Shop lain (id 25) di branch yang sama pakai device id itu, tapi disabled (rspcode 60 &quot;Shop is disabled&quot;). Buka session ini dulu sebelum kirim Transaction - Sync (rounding test #2).</span>
+              <span class="detail-description">open register (test erpmpos 001, dev-003)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2088,13 +2241,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;mpos_cashier_id&quot;: &quot;cashier-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;mpos_cashier_id&quot;: &quot;cashier-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">180 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;session&quot;: {&quot;odoo_session_id&quot;: 1508, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;mpos_cashier_id&quot;: &quot;cashier-001&quot;, &quot;state&quot;: &quot;opened&quot;, &quot;start_at&quot;: &quot;2026-09-11T09:04:54&quot;}, &quot;previous_session&quot;: &quot;discarded_empty&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="790" data-search="register - settle (erpmpos 001, dev-003) {{odoohost}}/api/inventory/register/settle tutup session dev-003 setelah transaction - sync (rounding test #2) sukses -- baris jurnal rounding baru beneran kebentuk pas session ditutup (pos.session._create_account_move()), bukan pas sync() dipanggil.">
+        <div class="endpoint-card m-POST" data-id="790" data-search="register - settle (erpmpos 001, dev-003) {{odoohost}}/api/inventory/register/settle settle register (test erpmpos 001, dev-003)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -2108,7 +2276,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Tutup session dev-003 setelah Transaction - Sync (rounding test #2) sukses -- baris jurnal rounding baru beneran kebentuk pas session ditutup (pos.session._create_account_move()), bukan pas sync() dipanggil.</span>
+              <span class="detail-description">settle register (test erpmpos 001, dev-003)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2120,8 +2288,23 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;cash_amount&quot;: 17200}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;cash_amount&quot;: 17200}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">70 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;previous_session&quot;: &quot;discarded_empty&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -2429,7 +2612,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync lines[].discount = angka rupiah fixed final (bukan persen lagi, discount_type/is_global_discount dihapus dari payload -- lihat docs 2026-09-04). service_charge/commercial_fee/gratuity/delivery_fee/rounding = confirmed shape, produk fee-nya harus type=service. commission/voucher/point = provisional.">
+        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2443,7 +2626,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">lines[].discount = angka Rupiah fixed final (bukan persen lagi, discount_type/is_global_discount dihapus dari payload -- lihat docs 2026-09-04). service_charge/commercial_fee/gratuity/delivery_fee/rounding = confirmed shape, produk fee-nya harus type=Service. commission/voucher/point = PROVISIONAL.</span>
+              <span class="detail-description">sync transaction</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2457,7 +2640,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
 {
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_company_id&quot;: &quot;417&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00124&quot;,
   &quot;reff_sys&quot;: &quot;REF-00001&quot;,
@@ -2487,10 +2670,25 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 "></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">320 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_order_id&quot;: 1345, &quot;mpos_order_id&quot;: &quot;trx-00124&quot;, &quot;reff_sys&quot;: &quot;REF-00001&quot;, &quot;state&quot;: &quot;paid&quot;, &quot;amount_total&quot;: 64650.0}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void dretail_mpos_inventory_api - transaction sync api - void">
+        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void void transaction">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2504,7 +2702,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Transaction Sync API - Void</span>
+              <span class="detail-description">void transaction</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2518,7 +2716,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
 {
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_company_id&quot;: &quot;417&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00123&quot;,
   &quot;mpos_void_id&quot;: &quot;void-00045&quot;,
@@ -2533,10 +2731,25 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 "></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">280 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_order_id&quot;: 1346, &quot;mpos_order_id&quot;: &quot;void-00045&quot;, &quot;reff_sys&quot;: &quot;REF-00002&quot;, &quot;state&quot;: &quot;paid&quot;, &quot;amount_total&quot;: -15000.0, &quot;voided_mpos_order_id&quot;: &quot;trx-00123&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="789" data-search="transaction - sync (rounding test #2, erpmpos 001) {{odoohost}}/api/inventory/transaction/sync ">
+        <div class="endpoint-card m-POST" data-id="789" data-search="transaction - sync (rounding test #2, erpmpos 001) {{odoohost}}/api/inventory/transaction/sync sync transaction (rounding test)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -2548,7 +2761,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">sync transaction (rounding test)</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -2559,8 +2775,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
+{
+  &quot;mpos_company_id&quot;: &quot;417&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-003&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-rounding-002&quot;,
   &quot;reff_sys&quot;: &quot;REF-ROUNDING-002&quot;,
@@ -2579,8 +2796,24 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     }
   ],
   &quot;rounding&quot;: -1
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}
+"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">300 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_order_id&quot;: 1347, &quot;mpos_order_id&quot;: &quot;trx-rounding-002&quot;, &quot;reff_sys&quot;: &quot;REF-ROUNDING-002&quot;, &quot;state&quot;: &quot;paid&quot;, &quot;amount_total&quot;: 17201.0}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -2597,12 +2830,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-GET" data-id="767" data-search="payment method - get (list) {{odoohost}}/api/inventory/payment_method/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - payment method api - get (list)">
+        <div class="endpoint-card m-GET" data-id="767" data-search="payment method - get (list) {{odoohost}}/api/inventory/payment_method/get?mpos_company_id=679 get payment method list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/payment_method/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/payment_method/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/payment_method/get?mpos_company_id=679">{{odoohost}}/api/inventory/payment_method/get?mpos_company_id=679</span>
               <span class="endpoint-name">Payment Method - Get (list)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2611,7 +2844,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Get (list)</span>
+              <span class="detail-description">get payment method list</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2623,15 +2856,30 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">90 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;payment_methods&quot;: [{&quot;odoo_payment_method_id&quot;: 140, &quot;name&quot;: &quot;Tunai&quot;, &quot;journal&quot;: &quot;Cash&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;}, {&quot;odoo_payment_method_id&quot;: 141, &quot;name&quot;: &quot;QRIS&quot;, &quot;journal&quot;: &quot;Bank&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-002&quot;}, {&quot;odoo_payment_method_id&quot;: 142, &quot;name&quot;: &quot;GoPay&quot;, &quot;journal&quot;: &quot;Bank&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-003&quot;}, {&quot;odoo_payment_method_id&quot;: 143, &quot;name&quot;: &quot;OVO&quot;, &quot;journal&quot;: &quot;Bank&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-004&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="768" data-search="payment method - get (single) {{odoohost}}/api/inventory/payment_method/get?mpos_company_id={{companyid}}&amp;odoo_payment_method_id=40 dretail_mpos_inventory_api - payment method api - get (single)">
+        <div class="endpoint-card m-GET" data-id="768" data-search="payment method - get (single) {{odoohost}}/api/inventory/payment_method/get?mpos_company_id=679&amp;odoo_payment_method_id=140 get single payment method">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/payment_method/get?mpos_company_id={{companyId}}&amp;odoo_payment_method_id=40">{{odoohost}}/api/inventory/payment_method/get?mpos_company_id={{companyId}}&amp;odoo_payment_method_id=40</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/payment_method/get?mpos_company_id=679&amp;odoo_payment_method_id=140">{{odoohost}}/api/inventory/payment_method/get?mpos_company_id=679&amp;odoo_payment_method_id=140</span>
               <span class="endpoint-name">Payment Method - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2640,7 +2888,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Get (single)</span>
+              <span class="detail-description">get single payment method</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2652,10 +2900,25 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">60 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;payment_method&quot;: {&quot;odoo_payment_method_id&quot;: 140, &quot;name&quot;: &quot;Tunai&quot;, &quot;journal&quot;: &quot;Cash&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="769" data-search="payment method - create {{odoohost}}/api/inventory/payment_method/create dretail_mpos_inventory_api - payment method api - create">
+        <div class="endpoint-card m-POST" data-id="769" data-search="payment method - create {{odoohost}}/api/inventory/payment_method/create create payment method">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2669,7 +2932,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Create</span>
+              <span class="detail-description">create payment method</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2681,13 +2944,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;name&quot;: &quot;QRIS&quot;, &quot;mpos_payment_method_id&quot;: &quot;qris&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;name&quot;: &quot;QRIS&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-002&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">150 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;payment_method&quot;: {&quot;odoo_payment_method_id&quot;: 141, &quot;name&quot;: &quot;QRIS&quot;, &quot;journal&quot;: &quot;Bank&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-002&quot;}, &quot;attached_shop_ids&quot;: []}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="770" data-search="payment method - update {{odoohost}}/api/inventory/payment_method/update dretail_mpos_inventory_api - payment method api - update (rename by mpos_payment_method_id, no odoo_payment_method_id needed -- mpos never has that id)">
+        <div class="endpoint-card m-PUT" data-id="770" data-search="payment method - update {{odoohost}}/api/inventory/payment_method/update update payment method">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -2701,7 +2979,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Update (rename by mpos_payment_method_id, no odoo_payment_method_id needed -- MPOS never has that id)</span>
+              <span class="detail-description">update payment method</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2713,13 +2991,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;name&quot;: &quot;Tunai&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;, &quot;name&quot;: &quot;Tunai&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">80 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;payment_method&quot;: {&quot;odoo_payment_method_id&quot;: 140, &quot;name&quot;: &quot;Tunai&quot;, &quot;journal&quot;: &quot;Cash&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="771" data-search="payment method - delete (unmap) {{odoohost}}/api/inventory/payment_method/delete dretail_mpos_inventory_api - payment method api - delete (unmap by mpos_payment_method_id, idempotent, no odoo_payment_method_id needed)">
+        <div class="endpoint-card m-DELETE" data-id="771" data-search="payment method - delete (unmap) {{odoohost}}/api/inventory/payment_method/delete unmap payment method">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -2733,7 +3026,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Delete (unmap by mpos_payment_method_id, idempotent, no odoo_payment_method_id needed)</span>
+              <span class="detail-description">unmap payment method</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2745,13 +3038,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_payment_method_id&quot;: &quot;cash&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-004&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">55 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="772" data-search="payment method - bulk {{odoohost}}/api/inventory/payment_method/bulk dretail_mpos_inventory_api - payment method api - bulk">
+        <div class="endpoint-card m-POST" data-id="772" data-search="payment method - bulk {{odoohost}}/api/inventory/payment_method/bulk bulk payment method">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2765,7 +3073,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Payment Method API - Bulk</span>
+              <span class="detail-description">bulk payment method</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2777,15 +3085,31 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
+{
+  &quot;mpos_company_id&quot;: &quot;679&quot;,
   &quot;payment_methods&quot;: [
-    {&quot;name&quot;: &quot;Cash&quot;, &quot;mpos_payment_method_id&quot;: &quot;cash&quot;},
-    {&quot;name&quot;: &quot;QRIS&quot;, &quot;mpos_payment_method_id&quot;: &quot;qris&quot;},
-    {&quot;name&quot;: &quot;GoPay&quot;, &quot;mpos_payment_method_id&quot;: &quot;gopay&quot;}
+    {&quot;name&quot;: &quot;GoPay&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-003&quot;},
+    {&quot;name&quot;: &quot;OVO&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-004&quot;}
   ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}
+"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">200 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;results&quot;: [{&quot;name&quot;: &quot;GoPay&quot;, &quot;result&quot;: &quot;created&quot;, &quot;odoo_payment_method_id&quot;: 142, &quot;attached_shop_ids&quot;: []}, {&quot;name&quot;: &quot;OVO&quot;, &quot;result&quot;: &quot;created&quot;, &quot;odoo_payment_method_id&quot;: 143, &quot;attached_shop_ids&quot;: []}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -2802,12 +3126,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-GET" data-id="773" data-search="warehouse - get (list) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - warehouse api - get, list mode. sejak 2026-09-01 scoping ke root+semua branch (bukan cuma company yang persis di-resolve) -- kirim mpos_company_id company induk sekarang ikut nemuin warehouse semua branch-nya. default = mpos_only aktif (cuma yang punya wh_mpos_branch_id).">
+        <div class="endpoint-card m-GET" data-id="773" data-search="warehouse - get (list) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417 get warehouse list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417</span>
               <span class="endpoint-name">Warehouse - Get (list)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2816,7 +3140,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Warehouse API - Get, list mode. Sejak 2026-09-01 scoping ke root+semua branch (bukan cuma company yang persis di-resolve) -- kirim mpos_company_id company induk sekarang ikut nemuin warehouse semua branch-nya. Default = mpos_only aktif (cuma yang punya wh_mpos_branch_id).</span>
+              <span class="detail-description">get warehouse list</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2828,15 +3152,30 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">50 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;warehouses&quot;: []}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="774" data-search="warehouse - get (single) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyid}}&amp;odoo_warehouse_id=53 dretail_mpos_inventory_api - warehouse api - get (single)">
+        <div class="endpoint-card m-GET" data-id="774" data-search="warehouse - get (single) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;odoo_warehouse_id=53 get single warehouse">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}&amp;odoo_warehouse_id=53">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}&amp;odoo_warehouse_id=53</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;odoo_warehouse_id=53">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;odoo_warehouse_id=53</span>
               <span class="endpoint-name">Warehouse - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2845,7 +3184,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Warehouse API - Get (single)</span>
+              <span class="detail-description">get single warehouse</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2857,15 +3196,30 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">55 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;warehouse&quot;: {&quot;odoo_warehouse_id&quot;: 53, &quot;name&quot;: &quot;Nala Ellin&quot;, &quot;code&quot;: &quot;141235-ellin&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="777" data-search="warehouse - get (semua, termasuk belum di-mapping) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyid}}&amp;mpos_only=false dretail_mpos_inventory_api - warehouse api - get, list mode dengan mpos_only=false -- balik ke behavior lama, semua warehouse termasuk yang belum di-mapping (wh_mpos_branch_id kosong). berguna buat layar admin yang cari warehouse mana yang masih perlu di-mapping.">
+        <div class="endpoint-card m-GET" data-id="777" data-search="warehouse - get (semua, termasuk belum di-mapping) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;mpos_only=false get all warehouse (incl. unmapped)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}&amp;mpos_only=false">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}&amp;mpos_only=false</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;mpos_only=false">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;mpos_only=false</span>
               <span class="endpoint-name">Warehouse - Get (semua, termasuk belum di-mapping)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2874,7 +3228,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Warehouse API - Get, list mode dengan mpos_only=false -- balik ke behavior lama, semua warehouse termasuk yang belum di-mapping (wh_mpos_branch_id kosong). Berguna buat layar admin yang cari warehouse mana yang masih perlu di-mapping.</span>
+              <span class="detail-description">get all warehouse (incl. unmapped)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2885,6 +3239,21 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
             </div>
             
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">75 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;warehouses&quot;: [{&quot;odoo_warehouse_id&quot;: 20, &quot;name&quot;: &quot;Warehouse Nala Bandung&quot;, &quot;code&quot;: &quot;Warehouse Nala Bandung&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 21, &quot;name&quot;: &quot;Warehouse Nala Jakarta&quot;, &quot;code&quot;: &quot;Warehouse Nala Jakarta&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 22, &quot;name&quot;: &quot;Warehouse Nala Surabaya&quot;, &quot;code&quot;: &quot;Warehouse Nala Surabaya&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 53, &quot;name&quot;: &quot;Nala Ellin&quot;, &quot;code&quot;: &quot;141235-ellin&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 54, &quot;name&quot;: &quot;Nala Studio - warehouse # 2&quot;, &quot;code&quot;: &quot;wh-incustomer&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 78, &quot;name&quot;: &quot;WH - Ellin&quot;, &quot;code&quot;: &quot;1-ellin&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 82, &quot;name&quot;: &quot;WH - Elliniar&quot;, &quot;code&quot;: &quot;10-elliniar&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 83, &quot;name&quot;: &quot;wh-incustomer sby&quot;, &quot;code&quot;: &quot;wh-incustomer&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -2901,12 +3270,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-GET" data-id="775" data-search="branch - get {{odoohost}}/api/inventory/branch/get?mpos_company_id={{companyid}} dretail_mpos_inventory_api - branch api - get (company yang diminta + branches = anak langsung-nya doang, bukan seluruh keluarga dari root -- diubah 2026-09-09, lihat docs)">
+        <div class="endpoint-card m-GET" data-id="775" data-search="branch - get {{odoohost}}/api/inventory/branch/get?mpos_company_id=417 get branch">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/branch/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/branch/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/branch/get?mpos_company_id=417">{{odoohost}}/api/inventory/branch/get?mpos_company_id=417</span>
               <span class="endpoint-name">Branch - Get</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2915,7 +3284,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">dretail_mpos_inventory_api - Branch API - Get (company yang diminta + branches = anak LANGSUNG-nya doang, bukan seluruh keluarga dari root -- diubah 2026-09-09, lihat docs)</span>
+              <span class="detail-description">get branch</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2926,6 +3295,21 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
             </div>
             
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">65 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;company&quot;: {&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;name&quot;: &quot;Nala Studio&quot;, &quot;is_root&quot;: true, &quot;active&quot;: true}, &quot;branches&quot;: [{&quot;mpos_company_id&quot;: &quot;3769&quot;, &quot;name&quot;: &quot;SAUNG ABAH&quot;, &quot;is_root&quot;: false, &quot;active&quot;: true}, {&quot;mpos_company_id&quot;: false, &quot;name&quot;: &quot;bandung&quot;, &quot;is_root&quot;: false, &quot;active&quot;: true}, {&quot;mpos_company_id&quot;: false, &quot;name&quot;: &quot;Nala Bandung&quot;, &quot;is_root&quot;: false, &quot;active&quot;: true}, {&quot;mpos_company_id&quot;: false, &quot;name&quot;: &quot;Nala Jakarta&quot;, &quot;is_root&quot;: false, &quot;active&quot;: true}, {&quot;mpos_company_id&quot;: false, &quot;name&quot;: &quot;Nala Surabaya&quot;, &quot;is_root&quot;: false, &quot;active&quot;: true}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -2942,7 +3326,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="782" data-search="menu - create (bundle) {{odoohost}}/api/inventory/menu/create ">
+        <div class="endpoint-card m-POST" data-id="782" data-search="menu - create (bundle) {{odoohost}}/api/inventory/menu/create create bundle menu">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2954,7 +3338,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">create bundle menu</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -2967,20 +3354,35 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
 {
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_company_id&quot;: &quot;417&quot;,
   &quot;mpos_product_id&quot;: &quot;bundle-001&quot;,
   &quot;name&quot;: &quot;Paket Kado&quot;,
-  &quot;mpos_category_id&quot;: &quot;12&quot;,
+  &quot;mpos_category_id&quot;: &quot;cat-002&quot;,
   &quot;list_price&quot;: 50000,
   &quot;is_bundle&quot;: true
 }
 "></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">140 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_product_id&quot;: 3060, &quot;menu&quot;: {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Kado&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 50000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3060, &quot;is_bundle&quot;: false}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="783" data-search="bundle component - create {{odoohost}}/api/inventory/bundle/component/create ">
+        <div class="endpoint-card m-POST" data-id="783" data-search="bundle component - create {{odoohost}}/api/inventory/bundle/component/create create bundle component">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2992,7 +3394,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">create bundle component</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -3003,15 +3408,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">90 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;31&quot;, &quot;rspdesc&quot;: &quot;mpos_product_id not found&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="784" data-search="bundle component - update {{odoohost}}/api/inventory/bundle/component/update ">
+        <div class="endpoint-card m-PUT" data-id="784" data-search="bundle component - update {{odoohost}}/api/inventory/bundle/component/update update bundle component">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -3023,7 +3441,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">update bundle component</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -3034,15 +3455,28 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 2}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 2}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">85 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;31&quot;, &quot;rspdesc&quot;: &quot;mpos_product_id not found&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="785" data-search="bundle component - delete {{odoohost}}/api/inventory/bundle/component/delete ">
+        <div class="endpoint-card m-DELETE" data-id="785" data-search="bundle component - delete {{odoohost}}/api/inventory/bundle/component/delete delete bundle component">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -3054,7 +3488,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">delete bundle component</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -3065,27 +3502,43 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">60 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;Already deleted or never existed&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="786" data-search="bundle component - get {{odoohost}}/api/inventory/bundle/component/get?mpos_company_id={{companyid}}&amp;mpos_product_id=bundle-001 ">
+        <div class="endpoint-card m-GET" data-id="786" data-search="bundle component - get {{odoohost}}/api/inventory/bundle/component/get?mpos_company_id=417&amp;mpos_product_id=bundle-001 get bundle component">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/get?mpos_company_id={{companyId}}&amp;mpos_product_id=bundle-001">{{odoohost}}/api/inventory/bundle/component/get?mpos_company_id={{companyId}}&amp;mpos_product_id=bundle-001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/get?mpos_company_id=417&amp;mpos_product_id=bundle-001">{{odoohost}}/api/inventory/bundle/component/get?mpos_company_id=417&amp;mpos_product_id=bundle-001</span>
               <span class="endpoint-name">Bundle Component - Get</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">get bundle component</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -3096,6 +3549,21 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             
             
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">55 ms</span>
+                    <span class="response-time">2026-09-11 16:07</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;31&quot;, &quot;rspdesc&quot;: &quot;mpos_product_id not found&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
           </div>
         </div>
       
@@ -3105,9 +3573,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>11 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>11 Sep 2026 16:14</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>10 Sep 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>11 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
