@@ -1766,8 +1766,44 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 279, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Units&quot;}, {&quot;odoo_ingredient_id&quot;: 292, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;Units&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;001&quot;, &quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 3063, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Units&quot;}, {&quot;odoo_ingredient_id&quot;: 3064, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;Units&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">190 ms</span>
+                    <span class="response-time">2026-09-16 10:13</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;bom_lines&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;,
+      &quot;odoo_ingredient_id&quot;: 3063,
+      &quot;ingredient_name&quot;: &quot;Tea Bag&quot;,
+      &quot;qty&quot;: 2,
+      &quot;uom&quot;: &quot;Pcs&quot;
+    },
+    {
+      &quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;,
+      &quot;odoo_ingredient_id&quot;: 3064,
+      &quot;ingredient_name&quot;: &quot;Beras&quot;,
+      &quot;qty&quot;: 1,
+      &quot;uom&quot;: &quot;Pcs&quot;
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -3558,9 +3594,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>16 Sep 2026 10:06</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>16 Sep 2026 10:13</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>16 Sep 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>16 Sep 2026  10:06</span>
       </span>
     </div>
   </main>
