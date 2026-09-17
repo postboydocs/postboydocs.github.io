@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">54 endpoints</span>
+  <span class="docs-header-badge">57 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -431,6 +431,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="799">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">Modifier - Create (product + BOM)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="806">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Modifier - Update (product + BOM)</span>
           </div>
         
         
@@ -765,7 +770,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>BUNDLE</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -792,6 +797,16 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="786">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Bundle Component - Get</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="804">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Menu - Update (Bundle)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="805">
+            <span class="sb-method sb-m-DELETE">DELETE</span>
+            <span class="sb-ep-name">Menu - Delete (Bundle)</span>
           </div>
         
         
@@ -1088,15 +1103,15 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-102">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">MODIFIER</span>
-        <span class="section-count">1 endpoint</span>
+        <span class="section-count">2 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create create modifier">
+        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create create modifier(s) -- batch via top-level modifiers array, each with its own product + full bom, backward-compatible with old single-modifier payload">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/modifier/create">{{odoohost}}/api/inventory/modifier/create</span>
               <span class="endpoint-name">Modifier - Create (product + BOM)</span>
@@ -1107,7 +1122,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create modifier</span>
+              <span class="detail-description">create modifier(s) -- batch via top-level modifiers array, each with its own product + full BOM, backward-compatible with old single-modifier payload</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1119,17 +1134,13 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
-  &quot;mpos_company_id&quot;: &quot;417&quot;,
-  &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
-  &quot;name&quot;: &quot;Pedas Extra&quot;,
-  &quot;list_price&quot;: 2000,
-  &quot;bom_lines&quot;: [
-    {&quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Pcs&quot;}
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;modifiers&quot;: [
+    {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;list_price&quot;: 2000, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Pcs&quot;}]},
+    {&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;name&quot;: &quot;Less Ice&quot;, &quot;list_price&quot;: 0, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 2990, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;Pcs&quot;}]}
   ]
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -1138,11 +1149,64 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">250 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">84 ms</span>
+                    <span class="response-time">2026-09-17 21:17</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_product_id&quot;: 3058, &quot;modifier&quot;: {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 2000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3058, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 700.0}, &quot;odoo_bom_id&quot;: 51, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_ingredient_id&quot;: 2984, &quot;ingredient_name&quot;: &quot;Cabe&quot;, &quot;qty&quot;: 2.0, &quot;uom&quot;: &quot;Pcs&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;modifiers&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_product_id&quot;: 3058, &quot;modifier&quot;: {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 2000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3058, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 700.0}, &quot;odoo_bom_id&quot;: 51, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_ingredient_id&quot;: 2984, &quot;ingredient_name&quot;: &quot;Cabe&quot;, &quot;qty&quot;: 2.0, &quot;uom&quot;: &quot;Pcs&quot;}]}, {&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;odoo_product_id&quot;: 3059, &quot;modifier&quot;: {&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;name&quot;: &quot;Less Ice&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 0.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3059, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 150.0}, &quot;odoo_bom_id&quot;: 52, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;odoo_ingredient_id&quot;: 2990, &quot;ingredient_name&quot;: &quot;Es Batu&quot;, &quot;qty&quot;: 1.0, &quot;uom&quot;: &quot;Pcs&quot;}]}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="806" data-search="modifier - update (product + bom) {{odoohost}}/api/inventory/modifier/update update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe)">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/modifier/update">{{odoohost}}/api/inventory/modifier/update</span>
+              <span class="endpoint-name">Modifier - Update (product + BOM)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe)</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;modifiers&quot;: [
+    {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;list_price&quot;: 2500, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 3, &quot;uom&quot;: &quot;Pcs&quot;}]},
+    {&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;name&quot;: &quot;Less Ice&quot;, &quot;list_price&quot;: 0, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 2990, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Pcs&quot;}]}
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">79 ms</span>
+                    <span class="response-time">2026-09-17 21:17</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;modifiers&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_product_id&quot;: 3058, &quot;modifier&quot;: {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 2500.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3058, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 1050.0}, &quot;odoo_bom_id&quot;: 51, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_ingredient_id&quot;: 2984, &quot;ingredient_name&quot;: &quot;Cabe&quot;, &quot;qty&quot;: 3.0, &quot;uom&quot;: &quot;Pcs&quot;}]}, {&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;odoo_product_id&quot;: 3059, &quot;modifier&quot;: {&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;name&quot;: &quot;Less Ice&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 0.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3059, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 300.0}, &quot;odoo_bom_id&quot;: 52, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;, &quot;odoo_ingredient_id&quot;: 2990, &quot;ingredient_name&quot;: &quot;Es Batu&quot;, &quot;qty&quot;: 2.0, &quot;uom&quot;: &quot;Pcs&quot;}]}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -1579,12 +1643,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="742" data-search="menu - get (single) {{odoohost}}/api/inventory/menu/get?mpos_company_id=417&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001 get single menu">
+        <div class="endpoint-card m-GET" data-id="742" data-search="menu - get (single) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}}&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001 get single menu -- bundle products excluded (2026-09-17): querying a mpos_product_id that is actually a bundle now returns rspcode 31 (mpos_product_id not found), same as a genuinely unknown id">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id=417&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001">{{odoohost}}/api/inventory/menu/get?mpos_company_id=417&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001">{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id=3769&amp;mpos_product_id=test-menu-001</span>
               <span class="endpoint-name">Menu - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1593,7 +1657,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">get single menu</span>
+              <span class="detail-description">get single menu -- Bundle products excluded (2026-09-17): querying a mpos_product_id that is actually a Bundle now returns rspcode 31 (mpos_product_id not found), same as a genuinely unknown id</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1611,11 +1675,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">90 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">68 ms</span>
+                    <span class="response-time">2026-09-17 15:33</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;menu&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 28000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 2995, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;menu&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;list_price&quot;: 25000, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 5123, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 12500}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -1623,12 +1687,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="743" data-search="menu - get (list) {{odoohost}}/api/inventory/menu/get?mpos_company_id=417 get menu list">
+        <div class="endpoint-card m-GET" data-id="743" data-search="menu - get (list) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}} get menu list -- bundle products excluded (2026-09-17): the menus[] array no longer includes any item where is_pos_bundle=true, use bundle/component/get for a bundle&#39;s own components instead">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id=417">{{odoohost}}/api/inventory/menu/get?mpos_company_id=417</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}</span>
               <span class="endpoint-name">Menu - Get (list)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1637,7 +1701,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">get menu list</span>
+              <span class="detail-description">get menu list -- Bundle products excluded (2026-09-17): the menus[] array no longer includes any item where is_pos_bundle=True, use bundle/component/get for a Bundle&#39;s own components instead</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1655,11 +1719,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">140 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">81 ms</span>
+                    <span class="response-time">2026-09-17 15:33</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;menus&quot;: [{&quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;name&quot;: &quot;Menu ini pake category parent&quot;, &quot;mpos_category_id&quot;: &quot;cat-003&quot;, &quot;list_price&quot;: 15000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3004, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}, {&quot;mpos_product_id&quot;: &quot;menu-002&quot;, &quot;name&quot;: &quot;Menu ini pake category parent&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 15000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3005, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}, {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 28000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 2995, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 4500.0}, {&quot;mpos_product_id&quot;: &quot;bundle-417-001&quot;, &quot;name&quot;: &quot;Paket Nasi Goreng + Es Teh&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 32000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3059, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 0.0}, {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 2000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3058, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 700.0}, {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;name&quot;: &quot;Test Menu Item&quot;, &quot;mpos_category_id&quot;: &quot;cat-009&quot;, &quot;list_price&quot;: 15000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3000, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 700.0}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;menus&quot;: [{&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;list_price&quot;: 25000, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 5123, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 12500}, {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;name&quot;: &quot;Es Teh Manis&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 8000, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 5124, &quot;is_bundle&quot;: false, &quot;cogs&quot;: 3000}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -1667,10 +1731,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="801" data-search="menu - get (list, by mpos_branch_id) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}}&amp;mpos_branch_id={{branchid}} get menu list by branch">
+        <div class="endpoint-card m-GET" data-id="801" data-search="menu - get (list, by mpos_branch_id) {{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyid}}&amp;mpos_branch_id={{branchid}} get menu list by branch -- same bundle exclusion as menu - get (list), see that request&#39;s description">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id={{branchId}}">{{odoohost}}/api/inventory/menu/get?mpos_company_id={{companyId}}&amp;mpos_branch_id={{branchId}}</span>
               <span class="endpoint-name">Menu - Get (list, by mpos_branch_id)</span>
@@ -1681,7 +1745,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">get menu list by branch</span>
+              <span class="detail-description">get menu list by branch -- same Bundle exclusion as Menu - Get (list), see that request&#39;s description</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1766,7 +1830,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;001&quot;, &quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 3063, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Units&quot;}, {&quot;odoo_ingredient_id&quot;: 3064, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;Units&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 3063, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Units&quot;}, {&quot;odoo_ingredient_id&quot;: 3064, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;Units&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -1775,32 +1839,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">190 ms</span>
-                    <span class="response-time">2026-09-16 10:13</span>
+                    <span class="response-time">42 ms</span>
+                    <span class="response-time">2026-09-17 15:25</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;status&quot;: {
-    &quot;rspcode&quot;: &quot;00&quot;,
-    &quot;rspdesc&quot;: &quot;OK&quot;
-  },
-  &quot;bom_lines&quot;: [
-    {
-      &quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;,
-      &quot;odoo_ingredient_id&quot;: 3063,
-      &quot;ingredient_name&quot;: &quot;Tea Bag&quot;,
-      &quot;qty&quot;: 2,
-      &quot;uom&quot;: &quot;Pcs&quot;
-    },
-    {
-      &quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;,
-      &quot;odoo_ingredient_id&quot;: 3064,
-      &quot;ingredient_name&quot;: &quot;Beras&quot;,
-      &quot;qty&quot;: 1,
-      &quot;uom&quot;: &quot;Pcs&quot;
-    }
-  ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;, &quot;odoo_ingredient_id&quot;: 3063, &quot;ingredient_name&quot;: &quot;Ayam Fillet&quot;, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Units&quot;}, {&quot;mpos_product_id&quot;: &quot;test-bom-visibility-001&quot;, &quot;odoo_ingredient_id&quot;: 3064, &quot;ingredient_name&quot;: &quot;Bumbu Marinasi&quot;, &quot;qty&quot;: 1, &quot;uom&quot;: &quot;Units&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -1808,10 +1851,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="745" data-search="bom - update {{odoohost}}/api/inventory/bom/update update bom">
+        <div class="endpoint-card m-PUT" data-id="745" data-search="bom - update {{odoohost}}/api/inventory/bom/update update bom - tipenya addition atau partial , misal existing ada 3 lines , yang di update satu akan melakukan upsert">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/update">{{odoohost}}/api/inventory/bom/update</span>
               <span class="endpoint-name">BOM - Update</span>
@@ -1822,7 +1865,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update bom</span>
+              <span class="detail-description">update bom - tipenya addition atau partial , misal existing ada 3 lines , yang di update satu akan melakukan upsert</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1834,7 +1877,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 75, &quot;uom&quot;: &quot;gram&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;bom_lines&quot;: [{&quot;odoo_ingredient_id&quot;: 2980, &quot;qty&quot;: 75, &quot;uom&quot;: &quot;gram&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -1843,11 +1886,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">100 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">37 ms</span>
+                    <span class="response-time">2026-09-17 15:25</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_bom_line_id&quot;: 111, &quot;bom_line&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;ingredient_name&quot;: &quot;Tomat&quot;, &quot;qty&quot;: 75.0, &quot;uom&quot;: &quot;Pcs&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;ingredient_name&quot;: &quot;Tepung Terigu&quot;, &quot;qty&quot;: 75, &quot;uom&quot;: &quot;gram&quot;}], &quot;odoo_bom_line_id&quot;: 1234, &quot;bom_line&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980, &quot;ingredient_name&quot;: &quot;Tepung Terigu&quot;, &quot;qty&quot;: 75, &quot;uom&quot;: &quot;gram&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -1855,10 +1898,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="746" data-search="bom - delete {{odoohost}}/api/inventory/bom/delete delete bom">
+        <div class="endpoint-card m-DELETE" data-id="746" data-search="bom - delete {{odoohost}}/api/inventory/bom/delete delete whole recipe (all bom lines) for this menu">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/delete">{{odoohost}}/api/inventory/bom/delete</span>
               <span class="endpoint-name">BOM - Delete</span>
@@ -1869,7 +1912,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">delete bom</span>
+              <span class="detail-description">delete whole recipe (all bom lines) for this menu</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1881,7 +1924,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_ingredient_id&quot;: 2980}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -1890,8 +1933,8 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">70 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">25 ms</span>
+                    <span class="response-time">2026-09-17 15:30</span>
                   </div>
                   <div>
                     <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
@@ -3342,7 +3385,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-99">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">BUNDLE</span>
-        <span class="section-count">5 endpoint</span>
+        <span class="section-count">7 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -3350,7 +3393,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="782" data-search="menu - create (bundle) {{odoohost}}/api/inventory/menu/create create bundle menu">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/create">{{odoohost}}/api/inventory/menu/create</span>
               <span class="endpoint-name">Menu - Create (Bundle)</span>
@@ -3373,16 +3416,14 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
-  &quot;mpos_company_id&quot;: &quot;417&quot;,
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;mpos_product_id&quot;: &quot;bundle-001&quot;,
   &quot;name&quot;: &quot;Paket Kado&quot;,
   &quot;mpos_category_id&quot;: &quot;cat-002&quot;,
   &quot;list_price&quot;: 50000,
   &quot;is_bundle&quot;: true
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3391,11 +3432,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">140 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">54 ms</span>
+                    <span class="response-time">2026-09-17 15:33</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_product_id&quot;: 3060, &quot;menu&quot;: {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Kado&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 50000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3060, &quot;is_bundle&quot;: false}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_product_id&quot;: 5200, &quot;menu&quot;: {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Kado&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 50000, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 5200, &quot;is_bundle&quot;: true}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -3403,10 +3444,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="783" data-search="bundle component - create {{odoohost}}/api/inventory/bundle/component/create create bundle component">
+        <div class="endpoint-card m-POST" data-id="783" data-search="bundle component - create {{odoohost}}/api/inventory/bundle/component/create create bundle component -- batch via bundle_lines, mpos_bundle_component_id retired (identity = bundle+component product pair)">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/create">{{odoohost}}/api/inventory/bundle/component/create</span>
               <span class="endpoint-name">Bundle Component - Create</span>
@@ -3417,7 +3458,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create bundle component</span>
+              <span class="detail-description">create bundle component -- batch via bundle_lines, mpos_bundle_component_id retired (identity = bundle+component product pair)</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -3429,7 +3470,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;bundle_lines&quot;: [{&quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 2}, {&quot;mpos_component_product_id&quot;: &quot;test-menu-002&quot;, &quot;qty&quot;: 3}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3438,11 +3479,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">90 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">71 ms</span>
+                    <span class="response-time">2026-09-17 15:50</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;31&quot;, &quot;rspdesc&quot;: &quot;mpos_product_id not found&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;bundle_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;odoo_component_product_id&quot;: 5123, &quot;component_name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;qty&quot;: 2}, {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_component_product_id&quot;: 5124, &quot;component_name&quot;: &quot;Es Teh Manis&quot;, &quot;qty&quot;: 3}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -3450,10 +3491,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="784" data-search="bundle component - update {{odoohost}}/api/inventory/bundle/component/update update bundle component">
+        <div class="endpoint-card m-PUT" data-id="784" data-search="bundle component - update {{odoohost}}/api/inventory/bundle/component/update update bundle component -- upsert via bundle_lines, same param shape as create">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/update">{{odoohost}}/api/inventory/bundle/component/update</span>
               <span class="endpoint-name">Bundle Component - Update</span>
@@ -3464,7 +3505,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update bundle component</span>
+              <span class="detail-description">update bundle component -- upsert via bundle_lines, same param shape as create</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -3476,7 +3517,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 2}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;bundle_lines&quot;: [{&quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 5}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3485,11 +3526,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">85 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">49 ms</span>
+                    <span class="response-time">2026-09-17 15:50</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;31&quot;, &quot;rspdesc&quot;: &quot;mpos_product_id not found&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;bundle_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;odoo_component_product_id&quot;: 5123, &quot;component_name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;qty&quot;: 5}], &quot;odoo_component_id&quot;: 301, &quot;component&quot;: {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;odoo_component_product_id&quot;: 5123, &quot;component_name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;qty&quot;: 5}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -3497,10 +3538,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="785" data-search="bundle component - delete {{odoohost}}/api/inventory/bundle/component/delete delete bundle component">
+        <div class="endpoint-card m-DELETE" data-id="785" data-search="bundle component - delete {{odoohost}}/api/inventory/bundle/component/delete delete one bundle component -- identified by (mpos_product_id, mpos_component_product_id) pair, mpos_bundle_component_id retired">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            
+            <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/component/delete">{{odoohost}}/api/inventory/bundle/component/delete</span>
               <span class="endpoint-name">Bundle Component - Delete</span>
@@ -3511,7 +3552,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">delete bundle component</span>
+              <span class="detail-description">delete one bundle component -- identified by (mpos_product_id, mpos_component_product_id) pair, mpos_bundle_component_id retired</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -3523,7 +3564,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_bundle_component_id&quot;: &quot;bcomp-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3532,11 +3573,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">60 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">26 ms</span>
+                    <span class="response-time">2026-09-17 15:50</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;Already deleted or never existed&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -3544,7 +3585,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="786" data-search="bundle component - get {{odoohost}}/api/inventory/bundle/component/get?mpos_company_id=417&amp;mpos_product_id=bundle-001 get bundle component">
+        <div class="endpoint-card m-GET" data-id="786" data-search="bundle component - get {{odoohost}}/api/inventory/bundle/component/get?mpos_company_id=417&amp;mpos_product_id=bundle-001 get bundle component -- response now includes mpos_component_product_id, mpos_bundle_component_id retired">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
@@ -3558,7 +3599,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">get bundle component</span>
+              <span class="detail-description">get bundle component -- response now includes mpos_component_product_id, mpos_bundle_component_id retired</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -3576,11 +3617,105 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                 <div>
                   <div class="response-meta">
                     <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">55 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
+                    <span class="response-time">33 ms</span>
+                    <span class="response-time">2026-09-17 15:50</span>
                   </div>
                   <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;31&quot;, &quot;rspdesc&quot;: &quot;mpos_product_id not found&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;components&quot;: [{&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-001&quot;, &quot;odoo_component_product_id&quot;: 5123, &quot;component_name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;qty&quot;: 2}, {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;mpos_component_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_component_product_id&quot;: 5124, &quot;component_name&quot;: &quot;Es Teh Manis&quot;, &quot;qty&quot;: 3}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="804" data-search="menu - update (bundle) {{odoohost}}/api/inventory/menu/update update bundle menu -- same param shape as create; note: is_bundle is a no-op here when the product already exists (menu/update only writes name/list_price/active/mpos_category_id), only matters if update() falls into its upsert-create path for a brand-new mpos_product_id">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/update">{{odoohost}}/api/inventory/menu/update</span>
+              <span class="endpoint-name">Menu - Update (Bundle)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">update bundle menu -- same param shape as create; NOTE: is_bundle is a no-op here when the product already exists (menu/update only writes name/list_price/active/mpos_category_id), only matters if update() falls into its upsert-create path for a brand-new mpos_product_id</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Kado Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 55000, &quot;is_bundle&quot;: true}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">58 ms</span>
+                    <span class="response-time">2026-09-17 15:39</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_product_id&quot;: 5200, &quot;menu&quot;: {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Kado Spesial&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 55000, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 5200, &quot;is_bundle&quot;: true}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-DELETE" data-id="805" data-search="menu - delete (bundle) {{odoohost}}/api/inventory/menu/delete delete bundle menu">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">DELETE</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/delete">{{odoohost}}/api/inventory/menu/delete</span>
+              <span class="endpoint-name">Menu - Delete (Bundle)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">delete bundle menu</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">24 ms</span>
+                    <span class="response-time">2026-09-17 15:39</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
               </div>
@@ -3594,9 +3729,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>17 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>18 Sep 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>16 Sep 2026  10:13</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>17 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
