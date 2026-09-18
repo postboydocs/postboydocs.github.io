@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">57 endpoints</span>
+  <span class="docs-header-badge">56 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -740,11 +740,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="774">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Warehouse - Get (single)</span>
-          </div>
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="777">
-            <span class="sb-method sb-m-GET">GET</span>
-            <span class="sb-ep-name">Warehouse - Get (semua, termasuk belum di-mapping)</span>
           </div>
         
         
@@ -1319,12 +1314,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="794" data-search="ingredient - get (single, odoo_ingredient_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;odoo_ingredient_id=2985 get single ingredient">
+        <div class="endpoint-card m-GET" data-id="794" data-search="ingredient - get (single, odoo_ingredient_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}}&amp;odoo_ingredient_id=2985 get single ingredient">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;odoo_ingredient_id=2985">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;odoo_ingredient_id=2985</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;odoo_ingredient_id=2985">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;odoo_ingredient_id=2985</span>
               <span class="endpoint-name">Ingredient - Get (single, odoo_ingredient_id)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1363,12 +1358,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="795" data-search="ingredient - list (by mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769 get ingredient list by branch">
+        <div class="endpoint-card m-GET" data-id="795" data-search="ingredient - list (by mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}}&amp;mpos_branch_id=3769 get ingredient list by branch">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=3769">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=3769</span>
               <span class="endpoint-name">Ingredient - List (by mpos_branch_id)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1407,12 +1402,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="796" data-search="ingredient - get (single, mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985 get single ingredient by branch">
+        <div class="endpoint-card m-GET" data-id="796" data-search="ingredient - get (single, mpos_branch_id) {{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyid}}&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985 get single ingredient by branch">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id=417&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985">{{odoohost}}/api/inventory/ingredient/list?mpos_company_id={{companyId}}&amp;mpos_branch_id=3769&amp;odoo_ingredient_id=2985</span>
               <span class="endpoint-name">Ingredient - Get (single, mpos_branch_id)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2111,7 +2106,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;name&quot;: &quot;Kasir Utama - Cabang Bandung (Updated)&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;name&quot;: &quot;Kasir Utama - Cabang Bandung (Updated)&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -2158,7 +2153,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;417&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -2179,12 +2174,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="751" data-search="shop - get (single) {{odoohost}}/api/inventory/shop/get?mpos_company_id=417&amp;mpos_device_id=dev-001 get single shop">
+        <div class="endpoint-card m-GET" data-id="751" data-search="shop - get (single) {{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyid}}&amp;mpos_device_id=dev-001 get single shop">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id=417&amp;mpos_device_id=dev-001">{{odoohost}}/api/inventory/shop/get?mpos_company_id=417&amp;mpos_device_id=dev-001</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}&amp;mpos_device_id=dev-001">{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}&amp;mpos_device_id=dev-001</span>
               <span class="endpoint-name">Shop - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -2223,12 +2218,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="752" data-search="shop - get (list) {{odoohost}}/api/inventory/shop/get?mpos_company_id=417 get shop list">
+        <div class="endpoint-card m-GET" data-id="752" data-search="shop - get (list) {{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyid}} get shop list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id=417">{{odoohost}}/api/inventory/shop/get?mpos_company_id=417</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/shop/get?mpos_company_id={{companyId}}</span>
               <span class="endpoint-name">Shop - Get (list)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -3008,7 +3003,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;name&quot;: &quot;QRIS&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-002&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;name&quot;: &quot;QRIS&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-002&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3055,7 +3050,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;, &quot;name&quot;: &quot;Tunai&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;, &quot;name&quot;: &quot;Tunai&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3102,7 +3097,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-004&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-004&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3149,15 +3144,13 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
-  &quot;mpos_company_id&quot;: &quot;679&quot;,
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;payment_methods&quot;: [
     {&quot;name&quot;: &quot;GoPay&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-003&quot;},
     {&quot;name&quot;: &quot;OVO&quot;, &quot;mpos_payment_method_id&quot;: &quot;pm-004&quot;}
   ]
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3185,17 +3178,17 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-97">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">WAREHOUSE</span>
-        <span class="section-count">3 endpoint</span>
+        <span class="section-count">2 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-GET" data-id="773" data-search="warehouse - get (list) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417 get warehouse list">
+        <div class="endpoint-card m-GET" data-id="773" data-search="warehouse - get (list) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyid}} get warehouse list">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}</span>
               <span class="endpoint-name">Warehouse - Get (list)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -3234,12 +3227,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="774" data-search="warehouse - get (single) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;odoo_warehouse_id=53 get single warehouse">
+        <div class="endpoint-card m-GET" data-id="774" data-search="warehouse - get (single) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyid}}&amp;odoo_warehouse_id=53 get single warehouse">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;odoo_warehouse_id=53">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;odoo_warehouse_id=53</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}&amp;odoo_warehouse_id=53">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id={{companyId}}&amp;odoo_warehouse_id=53</span>
               <span class="endpoint-name">Warehouse - Get (single)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -3278,50 +3271,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-GET" data-id="777" data-search="warehouse - get (semua, termasuk belum di-mapping) {{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;mpos_only=false get all warehouse (incl. unmapped)">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">GET</span>
-            
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;mpos_only=false">{{odoohost}}/api/inventory/warehouse/get?mpos_company_id=417&amp;mpos_only=false</span>
-              <span class="endpoint-name">Warehouse - Get (semua, termasuk belum di-mapping)</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">get all warehouse (incl. unmapped)</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              
-              
-              
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
-            </div>
-            
-            
-              <div class="divider"></div>
-              <div class="detail-row">
-                <span class="detail-label">Last Response</span>
-                <div>
-                  <div class="response-meta">
-                    <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">75 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
-                  </div>
-                  <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;warehouses&quot;: [{&quot;odoo_warehouse_id&quot;: 20, &quot;name&quot;: &quot;Warehouse Nala Bandung&quot;, &quot;code&quot;: &quot;Warehouse Nala Bandung&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 21, &quot;name&quot;: &quot;Warehouse Nala Jakarta&quot;, &quot;code&quot;: &quot;Warehouse Nala Jakarta&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 22, &quot;name&quot;: &quot;Warehouse Nala Surabaya&quot;, &quot;code&quot;: &quot;Warehouse Nala Surabaya&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 53, &quot;name&quot;: &quot;Nala Ellin&quot;, &quot;code&quot;: &quot;141235-ellin&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 54, &quot;name&quot;: &quot;Nala Studio - warehouse # 2&quot;, &quot;code&quot;: &quot;wh-incustomer&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 78, &quot;name&quot;: &quot;WH - Ellin&quot;, &quot;code&quot;: &quot;1-ellin&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 82, &quot;name&quot;: &quot;WH - Elliniar&quot;, &quot;code&quot;: &quot;10-elliniar&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}, {&quot;odoo_warehouse_id&quot;: 83, &quot;name&quot;: &quot;wh-incustomer sby&quot;, &quot;code&quot;: &quot;wh-incustomer&quot;, &quot;wh_mpos_branch_id&quot;: null, &quot;mpos_company_id&quot;: &quot;417&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
-                  </div>
-                </div>
-              </div>
-            
-          </div>
-        </div>
-      
 
       <!-- Subfolders -->
       
@@ -3334,12 +3283,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-GET" data-id="775" data-search="branch - get {{odoohost}}/api/inventory/branch/get?mpos_company_id=417 get branch">
+        <div class="endpoint-card m-GET" data-id="775" data-search="branch - get {{odoohost}}/api/inventory/branch/get?mpos_company_id={{companyid}} get branch">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/branch/get?mpos_company_id=417">{{odoohost}}/api/inventory/branch/get?mpos_company_id=417</span>
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/branch/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/branch/get?mpos_company_id={{companyId}}</span>
               <span class="endpoint-name">Branch - Get</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -3729,9 +3678,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>18 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>19 Sep 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>17 Sep 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>18 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
