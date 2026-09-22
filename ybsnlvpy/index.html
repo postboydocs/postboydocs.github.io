@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">48 endpoints</span>
+  <span class="docs-header-badge">47 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -619,11 +619,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <span class="sb-ep-name">Transaction - Void</span>
           </div>
         
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="789">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">Transaction - Sync (rounding test #2, erpmpos 001)</span>
-          </div>
-        
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="807">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">Transaction - Sync (PROPOSAL: modifier linked to menu)</span>
@@ -778,7 +773,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create create category">
+        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create create category -- bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). all-or-nothing per batch.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -792,7 +787,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create category</span>
+              <span class="detail-description">create category -- bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). All-or-nothing per batch.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -804,13 +799,13 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;679&quot;,
-  &quot;mpos_category_id&quot;: &quot;cat-002&quot;,
-  &quot;name&quot;: &quot;Makanan&quot;
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+  &quot;categories&quot;: [
+    { &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;name&quot;: &quot;Makanan&quot; },
+    { &quot;mpos_category_id&quot;: &quot;cat-003&quot;, &quot;name&quot;: &quot;Minuman&quot; }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -831,7 +826,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update update category">
+        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update update category -- upsert, bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -845,7 +840,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update category</span>
+              <span class="detail-description">update category -- upsert, bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). Item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -857,13 +852,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;679&quot;,
-  &quot;mpos_category_id&quot;: &quot;cat-001&quot;,
-  &quot;name&quot;: &quot;Minuman&quot;
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+  &quot;categories&quot;: [
+    { &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Minuman Dingin&quot; }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -1407,7 +1401,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="739" data-search="menu - create {{odoohost}}/api/inventory/menu/create create menu">
+        <div class="endpoint-card m-POST" data-id="739" data-search="menu - create {{odoohost}}/api/inventory/menu/create create menu -- bulk via top-level &quot;menus&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). all-or-nothing per batch.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -1421,7 +1415,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create menu</span>
+              <span class="detail-description">create menu -- bulk via top-level &quot;menus&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). All-or-nothing per batch.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1435,10 +1429,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
-  &quot;name&quot;: &quot;Test Menu Item&quot;,
-  &quot;mpos_category_id&quot;: &quot;12&quot;,
-  &quot;list_price&quot;: 15000
+  &quot;menus&quot;: [
+    { &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Test Menu Item&quot;, &quot;mpos_category_id&quot;: &quot;12&quot;, &quot;list_price&quot;: 15000 },
+    { &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;name&quot;: &quot;Test Menu Item 2&quot;, &quot;mpos_category_id&quot;: &quot;12&quot;, &quot;list_price&quot;: 20000 }
+  ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
@@ -1474,7 +1468,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="740" data-search="menu - update {{odoohost}}/api/inventory/menu/update update menu">
+        <div class="endpoint-card m-PUT" data-id="740" data-search="menu - update {{odoohost}}/api/inventory/menu/update update menu -- upsert, bulk via top-level &quot;menus&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1488,7 +1482,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update menu</span>
+              <span class="detail-description">update menu -- upsert, bulk via top-level &quot;menus&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). Item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1502,10 +1496,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;mpos_product_id&quot;: &quot;menu-001&quot;,
-  &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;,
-  &quot;list_price&quot;: 28000,
-  &quot;mpos_category_id&quot;: &quot;12&quot;
+  &quot;menus&quot;: [
+    { &quot;mpos_product_id&quot;: &quot;menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;list_price&quot;: 28000, &quot;mpos_category_id&quot;: &quot;12&quot; }
+  ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
@@ -2330,12 +2323,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-95">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">TRANSACTION</span>
-        <span class="section-count">4 endpoint</span>
+        <span class="section-count">3 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction">
+        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2349,7 +2342,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">sync transaction</span>
+              <span class="detail-description">sync transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2361,12 +2354,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;417&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00124&quot;,
   &quot;reff_sys&quot;: &quot;REF-00001&quot;,
+  &quot;trx_date&quot;: &quot;2026-09-22 14:30:00&quot;,
   &quot;lines&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
@@ -2389,8 +2382,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;commission&quot;: 0,
   &quot;voucher&quot;: 0,
   &quot;point&quot;: 0
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -2411,7 +2403,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void void transaction">
+        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void void transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2425,7 +2417,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">void transaction</span>
+              <span class="detail-description">void transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2437,21 +2429,26 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;417&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00123&quot;,
   &quot;mpos_void_id&quot;: &quot;void-00045&quot;,
   &quot;reff_sys&quot;: &quot;REF-00002&quot;,
+  &quot;trx_date&quot;: &quot;2026-09-22 14:30:00&quot;,
   &quot;lines&quot;: [
-    {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1}
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
+      &quot;qty&quot;: 1
+    }
   ],
   &quot;payments&quot;: [
-    {&quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;amount&quot;: 15000}
+    {
+      &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
+      &quot;amount&quot;: 15000
+    }
   ]
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -2472,76 +2469,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="789" data-search="transaction - sync (rounding test #2, erpmpos 001) {{odoohost}}/api/inventory/transaction/sync sync transaction (rounding test)">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/sync">{{odoohost}}/api/inventory/transaction/sync</span>
-              <span class="endpoint-name">Transaction - Sync (rounding test #2, erpmpos 001)</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">sync transaction (rounding test)</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              
-              
-              
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="
-{
-  &quot;mpos_company_id&quot;: &quot;417&quot;,
-  &quot;mpos_device_id&quot;: &quot;dev-003&quot;,
-  &quot;mpos_order_id&quot;: &quot;trx-rounding-002&quot;,
-  &quot;reff_sys&quot;: &quot;REF-ROUNDING-002&quot;,
-  &quot;lines&quot;: [
-    {
-      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
-      &quot;qty&quot;: 1,
-      &quot;price_unit&quot;: 17201,
-      &quot;discount&quot;: 0
-    }
-  ],
-  &quot;payments&quot;: [
-    {
-      &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
-      &quot;amount&quot;: 17200
-    }
-  ],
-  &quot;rounding&quot;: -1
-}
-"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
-            
-              <div class="divider"></div>
-              <div class="detail-row">
-                <span class="detail-label">Last Response</span>
-                <div>
-                  <div class="response-meta">
-                    <span class="status-badge status-2xx">200</span>
-                    <span class="response-time">300 ms</span>
-                    <span class="response-time">2026-09-11 16:07</span>
-                  </div>
-                  <div>
-                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;odoo_order_id&quot;: 1347, &quot;mpos_order_id&quot;: &quot;trx-rounding-002&quot;, &quot;reff_sys&quot;: &quot;REF-ROUNDING-002&quot;, &quot;state&quot;: &quot;paid&quot;, &quot;amount_total&quot;: 17201.0}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
-                  </div>
-                </div>
-              </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="807" data-search="transaction - sync (proposal: modifier linked to menu) {{odoohost}}/api/inventory/transaction/sync ">
+        <div class="endpoint-card m-POST" data-id="807" data-search="transaction - sync (proposal: modifier linked to menu) {{odoohost}}/api/inventory/transaction/sync sync transaction (proposal: modifier linked to menu). trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -2553,7 +2481,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">sync transaction (PROPOSAL: modifier linked to menu). trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order.</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -2569,6 +2500,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00125&quot;,
   &quot;reff_sys&quot;: &quot;REF-00002&quot;,
+  &quot;trx_date&quot;: &quot;2026-09-22 14:30:00&quot;,
   &quot;lines&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
@@ -3397,9 +3329,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>22 Sep 2026 10:06</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>22 Sep 2026 16:27</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>22 Sep 2026  09:46</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>22 Sep 2026  10:06</span>
       </span>
     </div>
   </main>
