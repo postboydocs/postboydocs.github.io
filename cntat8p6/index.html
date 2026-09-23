@@ -589,6 +589,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
             </div>
             
             
@@ -611,6 +612,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
               
               
               
@@ -663,6 +665,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -693,6 +696,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
               
               
               
@@ -735,6 +739,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
               
               
               
@@ -784,6 +789,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -813,6 +819,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
               
               
               
@@ -862,6 +869,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -903,6 +911,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
               
               
               
@@ -957,6 +966,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               <span class="auth-badge clickable" onclick="showAuthInfo('tokenAuth',event)"><i class="bi bi-key-fill"></i> Bearer Token</span>
+              
               
               
               
@@ -1019,6 +1029,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1065,6 +1076,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
+              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1100,9 +1112,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>23 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>24 Sep 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>22 Sep 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>23 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
@@ -1304,6 +1316,26 @@ function showAuthInfo(type, event) {
       '<div class="auth-modal-val"><code>X-Timestamp</code>: unix time detik<br><code>X-Signature</code>: hex digest hasil HMAC di atas</div></div>' +
       '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
       '<div class="auth-modal-val">30 menit -- request ditolak kalau selisih |now − timestamp| lebih dari itu</div></div>';
+  } else if (type === 'mposBridgeToken') {
+    title.innerHTML = '<i class="bi bi-box-arrow-in-right" style="color:#7c3aed"></i> MPOS Bridge Token — Cara Menghitung';
+    // Secret sengaja TIDAK ditulis (halaman publik) -- token ini membuka
+    // session login Odoo, jadi bocornya secret = bisa login sebagai user MPOS.
+    body.innerHTML =
+      '<div class="auth-modal-row"><div class="auth-modal-label">Algoritma</div>' +
+      '<div class="auth-modal-val">HMAC-SHA256, hasil ditulis hex (huruf kecil)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Data yang ditandatangani</div>' +
+      '<div class="auth-modal-val"><code>{login}.{timestamp}</code><br>timestamp = unix time detik saat itu juga (<code>time()</code> di PHP)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Secret</div>' +
+      '<div class="auth-modal-val">Tidak ditampilkan di halaman publik ini -- minta ke developer dRetail. Simpan hanya di server MPOS, jangan di JavaScript / app Android / iOS.</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Cara kirim</div>' +
+      '<div class="auth-modal-val">POST form (<code>application/x-www-form-urlencoded</code>), BUKAN header, BUKAN JSON:<br><code>login</code>, <code>timestamp</code>, <code>token</code>, <code>redirect</code> (path halaman Odoo tujuan)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Contoh (secret dummy)</div>' +
+      '<div class="auth-modal-val">secret = <code>CONTOH_SECRET_DUMMY</code><br>data = <code>budi.1735900000</code><br>token = <code>5bddda35db27bcdac718644880787669e3cf362e83d681b88671621998e19cd0</code></div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
+      '<div class="auth-modal-val">60 detik -- hitung token saat tombol diklik, bukan saat halaman dibuka</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Hasil</div>' +
+      '<div class="auth-modal-val">Berhasil: redirect ke <code>redirect</code> dalam keadaan sudah login.<br>Gagal: redirect ke <code>/web/login</code>.<br>Hanya user yang disinkron dari MPOS yang bisa login lewat sini.</div></div>' +
+      '<div class="auth-modal-note">Harus dibuka dari browser / WebView (form POST), supaya cookie login tersimpan di browser user.</div>';
   }
 
   overlay.classList.add('show');
