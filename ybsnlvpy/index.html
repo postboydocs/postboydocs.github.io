@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">52 endpoints</span>
+  <span class="docs-header-badge">61 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -741,6 +741,62 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         
       </div>
     
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-109">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>PRODUCT</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="816">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Product - Create (Menu)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="817">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Product - Create (Bundle)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="818">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Product - Create (Modifier)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="819">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Product - Update (Menu)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="820">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Product - Update (Modifier)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="821">
+            <span class="sb-method sb-m-DELETE">DELETE</span>
+            <span class="sb-ep-name">Product - Delete</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="822">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Product - Get (single)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="823">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Product - Get (list, by type)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="824">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Product - Get (list, all)</span>
+          </div>
+        
+        
+      </div>
+    
       <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-99">
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
@@ -832,7 +888,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -886,7 +941,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -939,7 +993,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -987,7 +1040,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -1031,7 +1083,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             
@@ -1110,7 +1161,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1163,7 +1213,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -1229,7 +1278,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             
@@ -1324,7 +1372,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -1369,7 +1416,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -1413,7 +1459,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             
@@ -1470,7 +1515,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -1539,7 +1583,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1606,7 +1649,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1659,7 +1701,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -1704,7 +1745,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -1748,7 +1788,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             
@@ -1823,7 +1862,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1870,7 +1908,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -1919,7 +1956,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -1966,7 +2002,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             
@@ -2046,7 +2081,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -2109,7 +2143,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -2156,7 +2189,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -2205,7 +2237,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -2249,7 +2280,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             
@@ -2307,7 +2337,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -2354,7 +2383,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -2414,7 +2442,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -2491,7 +2518,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -2557,7 +2583,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -2630,7 +2655,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -2675,7 +2699,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -2719,7 +2742,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -2768,7 +2790,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -2816,7 +2837,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -2863,7 +2883,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -2930,7 +2949,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -2974,7 +2992,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             
@@ -3032,7 +3049,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -3088,8 +3104,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposBridgeToken',event)"><i class="bi bi-box-arrow-in-right"></i> MPOS Bridge Token</span>
-              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3124,8 +3139,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposBridgeToken',event)"><i class="bi bi-box-arrow-in-right"></i> MPOS Bridge Token</span>
-              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3160,8 +3174,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposBridgeToken',event)"><i class="bi bi-box-arrow-in-right"></i> MPOS Bridge Token</span>
-              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3196,8 +3209,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposBridgeToken',event)"><i class="bi bi-box-arrow-in-right"></i> MPOS Bridge Token</span>
-              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3232,8 +3244,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposBridgeToken',event)"><i class="bi bi-box-arrow-in-right"></i> MPOS Bridge Token</span>
-              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3242,6 +3253,481 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;redirect&quot;: &quot;/odoo/manufacturing&quot;
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
+      <div class="section-header" id="folder-109">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">PRODUCT</span>
+        <span class="section-count">9 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="816" data-search="product - create (menu) {{odoohost}}/api/inventory/product/create create menu (bisa banyak sekaligus). resep tetap lewat bom/create.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/create">{{odoohost}}/api/inventory/product/create</span>
+              <span class="endpoint-name">Product - Create (Menu)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Create menu (bisa banyak sekaligus). Resep tetap lewat bom/create.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;product_type&quot;: &quot;menu&quot;,
+  &quot;products&quot;: [
+    { &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial&quot;, &quot;mpos_category_id&quot;: &quot;12&quot;, &quot;list_price&quot;: 25000 },
+    { &quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;name&quot;: &quot;Nasi Goreng Kambing&quot;, &quot;mpos_category_id&quot;: &quot;12&quot;, &quot;list_price&quot;: 30000 }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">548 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;odoo_product_id&quot;: 3116, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;odoo_product_id&quot;: 3117, &quot;product_type&quot;: &quot;menu&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="817" data-search="product - create (bundle) {{odoohost}}/api/inventory/product/create create bundle (paket). isi paket tetap lewat bundle/component/create.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/create">{{odoohost}}/api/inventory/product/create</span>
+              <span class="endpoint-name">Product - Create (Bundle)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Create bundle (paket). Isi paket tetap lewat bundle/component/create.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;product_type&quot;: &quot;bundle&quot;,
+  &quot;products&quot;: [
+    { &quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Hemat&quot;, &quot;mpos_category_id&quot;: &quot;12&quot;, &quot;list_price&quot;: 45000 }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">671 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;odoo_product_id&quot;: 3118, &quot;product_type&quot;: &quot;bundle&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="818" data-search="product - create (modifier) {{odoohost}}/api/inventory/product/create create modifier + resep (bom_lines). tanpa mpos_category_id, kategori otomatis &quot;modifier&quot;.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/create">{{odoohost}}/api/inventory/product/create</span>
+              <span class="endpoint-name">Product - Create (Modifier)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Create modifier + resep (bom_lines). Tanpa mpos_category_id, kategori otomatis &quot;Modifier&quot;.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;product_type&quot;: &quot;modifier&quot;,
+  &quot;products&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
+      &quot;name&quot;: &quot;Pedas Extra&quot;,
+      &quot;list_price&quot;: 2000,
+      &quot;bom_lines&quot;: [
+        { &quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Pcs&quot; },
+        { &quot;odoo_ingredient_id&quot;: 2985, &quot;qty&quot;: 3, &quot;uom&quot;: &quot;Pcs&quot; }
+      ]
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">317 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_product_id&quot;: 3119, &quot;product_type&quot;: &quot;modifier&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="819" data-search="product - update (menu) {{odoohost}}/api/inventory/product/update update menu/bundle (upsert). hanya field yang dikirim yang diubah.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/update">{{odoohost}}/api/inventory/product/update</span>
+              <span class="endpoint-name">Product - Update (Menu)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Update menu/bundle (upsert). Hanya field yang dikirim yang diubah.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;product_type&quot;: &quot;menu&quot;,
+  &quot;products&quot;: [
+    { &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial Pedas&quot;, &quot;list_price&quot;: 27000 }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">163 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;odoo_product_id&quot;: 3116, &quot;product_type&quot;: &quot;menu&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="820" data-search="product - update (modifier) {{odoohost}}/api/inventory/product/update update modifier (upsert). bom_lines menggantikan seluruh resep lama.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/update">{{odoohost}}/api/inventory/product/update</span>
+              <span class="endpoint-name">Product - Update (Modifier)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Update modifier (upsert). bom_lines menggantikan seluruh resep lama.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;product_type&quot;: &quot;modifier&quot;,
+  &quot;products&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
+      &quot;name&quot;: &quot;Pedas Extra&quot;,
+      &quot;list_price&quot;: 3000,
+      &quot;bom_lines&quot;: [
+        { &quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 3, &quot;uom&quot;: &quot;Pcs&quot; }
+      ]
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">205 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_product_id&quot;: 3119, &quot;product_type&quot;: &quot;modifier&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-DELETE" data-id="821" data-search="product - delete {{odoohost}}/api/inventory/product/delete delete product. product_type opsional; kalau dikirim harus cocok. modifier: resep ikut terhapus. menu: ditolak kalau masih ada resep.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">DELETE</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/delete">{{odoohost}}/api/inventory/product/delete</span>
+              <span class="endpoint-name">Product - Delete</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Delete product. product_type opsional; kalau dikirim harus cocok. Modifier: resep ikut terhapus. Menu: ditolak kalau masih ada resep.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">266 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="822" data-search="product - get (single) {{odoohost}}/api/inventory/product/get?mpos_company_id={{companyid}}&amp;mpos_product_id=test-menu-001 get satu product, response ada product_type. opsional mpos_branch_id untuk cogs per branch.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/get?mpos_company_id={{companyId}}&amp;mpos_product_id=test-menu-001">{{odoohost}}/api/inventory/product/get?mpos_company_id={{companyId}}&amp;mpos_product_id=test-menu-001</span>
+              <span class="endpoint-name">Product - Get (single)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get satu product, response ada product_type. Opsional mpos_branch_id untuk cogs per branch.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">85 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;product&quot;: {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial Pedas&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot;, &quot;list_price&quot;: 27000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3116, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="823" data-search="product - get (list, by type) {{odoohost}}/api/inventory/product/get?mpos_company_id={{companyid}}&amp;product_type=modifier get list per tipe: menu / bundle / modifier.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/get?mpos_company_id={{companyId}}&amp;product_type=modifier">{{odoohost}}/api/inventory/product/get?mpos_company_id={{companyId}}&amp;product_type=modifier</span>
+              <span class="endpoint-name">Product - Get (list, by type)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get list per tipe: menu / bundle / modifier.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">855 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 3000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3119, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;modifier&quot;, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_ingredient_id&quot;: 3104, &quot;ingredient_name&quot;: &quot;Jagung&quot;, &quot;qty&quot;: 3.0, &quot;uom&quot;: &quot;Pcs&quot;}]}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="824" data-search="product - get (list, all) {{odoohost}}/api/inventory/product/get?mpos_company_id={{companyid}} get list semua tipe (tanpa product_type).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/product/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/product/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-name">Product - Get (list, all)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get list semua tipe (tanpa product_type).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">316 ms</span>
+                    <span class="response-time">2026-09-23 22:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;AB-MENU01&quot;, &quot;name&quot;: &quot;Bakwan Spesial&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot;, &quot;list_price&quot;: 15000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3103, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;AB-MENU03&quot;, &quot;name&quot;: &quot;Es Jeruk&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT02&quot;, &quot;list_price&quot;: 6000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3109, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;AB-MENU02&quot;, &quot;name&quot;: &quot;Es Teh Manis&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot;, &quot;list_price&quot;: 5000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3107, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;AB-MOD01&quot;, &quot;name&quot;: &quot;Extra Keju&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 3000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3106, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;AB-MENU04&quot;, &quot;name&quot;: &quot;Kerupuk&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT03&quot;, &quot;list_price&quot;: 3000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3110, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;test-menu-002&quot;, &quot;name&quot;: &quot;Nasi Goreng Kambing&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot;, &quot;list_price&quot;: 30000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3117, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;name&quot;: &quot;Nasi Goreng Spesial Pedas&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot;, &quot;list_price&quot;: 27000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3116, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;menu&quot;}, {&quot;mpos_product_id&quot;: &quot;AB-BUNDLE01&quot;, &quot;name&quot;: &quot;Paket Bakwan + Es Teh&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot;, &quot;list_price&quot;: 18000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3108, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;bundle&quot;}, {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Hemat&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot;, &quot;list_price&quot;: 45000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3118, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;bundle&quot;}, {&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;name&quot;: &quot;Pedas Extra&quot;, &quot;mpos_category_id&quot;: null, &quot;list_price&quot;: 3000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3119, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;modifier&quot;, &quot;bom_lines&quot;: [{&quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;, &quot;odoo_ingredient_id&quot;: 3104, &quot;ingredient_name&quot;: &quot;Jagung&quot;, &quot;qty&quot;: 3.0, &quot;uom&quot;: &quot;Pcs&quot;}]}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -3280,7 +3766,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -3336,7 +3821,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3383,7 +3867,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -3432,7 +3915,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3480,7 +3962,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             
             
@@ -3524,7 +4005,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
               
             </div>
             <div class="detail-row">
@@ -3573,7 +4053,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               
               <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
               
-              
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
@@ -3604,9 +4083,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>23 Sep 2026 17:09</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>23 Sep 2026 22:58</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>23 Sep 2026  16:07</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>23 Sep 2026  17:09</span>
       </span>
     </div>
   </main>
@@ -3808,26 +4287,6 @@ function showAuthInfo(type, event) {
       '<div class="auth-modal-val"><code>X-Timestamp</code>: unix time detik<br><code>X-Signature</code>: hex digest hasil HMAC di atas</div></div>' +
       '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
       '<div class="auth-modal-val">30 menit -- request ditolak kalau selisih |now − timestamp| lebih dari itu</div></div>';
-  } else if (type === 'mposBridgeToken') {
-    title.innerHTML = '<i class="bi bi-box-arrow-in-right" style="color:#7c3aed"></i> MPOS Bridge Token — Cara Menghitung';
-    // Secret sengaja TIDAK ditulis (halaman publik) -- token ini membuka
-    // session login Odoo, jadi bocornya secret = bisa login sebagai user MPOS.
-    body.innerHTML =
-      '<div class="auth-modal-row"><div class="auth-modal-label">Algoritma</div>' +
-      '<div class="auth-modal-val">HMAC-SHA256, hasil ditulis hex (huruf kecil)</div></div>' +
-      '<div class="auth-modal-row"><div class="auth-modal-label">Data yang ditandatangani</div>' +
-      '<div class="auth-modal-val"><code>{login}.{timestamp}</code><br>timestamp = unix time detik saat itu juga (<code>time()</code> di PHP)</div></div>' +
-      '<div class="auth-modal-row"><div class="auth-modal-label">Secret</div>' +
-      '<div class="auth-modal-val">Tidak ditampilkan di halaman publik ini -- minta ke developer dRetail. Simpan hanya di server MPOS, jangan di JavaScript / app Android / iOS.</div></div>' +
-      '<div class="auth-modal-row"><div class="auth-modal-label">Cara kirim</div>' +
-      '<div class="auth-modal-val">POST form (<code>application/x-www-form-urlencoded</code>), BUKAN header, BUKAN JSON:<br><code>login</code>, <code>timestamp</code>, <code>token</code>, <code>redirect</code> (path halaman Odoo tujuan)</div></div>' +
-      '<div class="auth-modal-row"><div class="auth-modal-label">Contoh (secret dummy)</div>' +
-      '<div class="auth-modal-val">secret = <code>CONTOH_SECRET_DUMMY</code><br>data = <code>budi.1735900000</code><br>token = <code>5bddda35db27bcdac718644880787669e3cf362e83d681b88671621998e19cd0</code></div></div>' +
-      '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
-      '<div class="auth-modal-val">60 detik -- hitung token saat tombol diklik, bukan saat halaman dibuka</div></div>' +
-      '<div class="auth-modal-row"><div class="auth-modal-label">Hasil</div>' +
-      '<div class="auth-modal-val">Berhasil: redirect ke <code>redirect</code> dalam keadaan sudah login.<br>Gagal: redirect ke <code>/web/login</code>.<br>Hanya user yang disinkron dari MPOS yang bisa login lewat sini.</div></div>' +
-      '<div class="auth-modal-note">Harus dibuka dari browser / WebView (form POST), supaya cookie login tersimpan di browser user.</div>';
   }
 
   overlay.classList.add('show');
