@@ -2084,7 +2084,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="748" data-search="shop - create {{odoohost}}/api/inventory/shop/create create shop">
+        <div class="endpoint-card m-POST" data-id="748" data-search="shop - create {{odoohost}}/api/inventory/shop/create create shop -- bulk via top-level &quot;shops&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). all-or-nothing per batch; kalau ada yang gagal, rspdesc diawali index item-nya, mis. &quot;shops[1]: ...&quot;.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2098,7 +2098,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create shop</span>
+              <span class="detail-description">create shop -- bulk via top-level &quot;shops&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). All-or-nothing per batch; kalau ada yang gagal, rspdesc diawali index item-nya, mis. &quot;shops[1]: ...&quot;.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2111,7 +2111,13 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;name&quot;: &quot;Kasir 1&quot;, &quot;active&quot;: true, &quot;wh_mpos_branch_id&quot;: &quot;branch001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;shops&quot;: [
+    { &quot;mpos_device_id&quot;: &quot;dev-001&quot;, &quot;name&quot;: &quot;Kasir 1&quot;, &quot;active&quot;: true, &quot;wh_mpos_branch_id&quot;: &quot;branch001&quot; },
+    { &quot;mpos_device_id&quot;: &quot;dev-002&quot;, &quot;name&quot;: &quot;Kasir 2&quot;, &quot;active&quot;: true, &quot;wh_mpos_branch_id&quot;: &quot;branch001&quot; }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -4185,9 +4191,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>25 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>25 Sep 2026 14:42</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>24 Sep 2026  11:20</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>25 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
