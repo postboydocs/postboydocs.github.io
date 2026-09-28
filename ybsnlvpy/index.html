@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">66 endpoints</span>
+  <span class="docs-header-badge">70 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -479,6 +479,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <span class="sb-ep-name">Ingredient - Bulk (Raw Material/WIP)</span>
           </div>
         
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="836">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Ingredient - Bulk (Andy Bakwan, kategori selalu default)</span>
+          </div>
+        
         
       </div>
     
@@ -563,7 +568,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>SHOP</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -590,6 +595,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="752">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Shop - Get (list)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="837">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Shop - Create (Andy Bakwan, Disable Change Price off)</span>
           </div>
         
         
@@ -625,7 +635,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>TRANSACTION</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -826,7 +836,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>BUNDLE</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -863,6 +873,16 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="805">
             <span class="sb-method sb-m-DELETE">DELETE</span>
             <span class="sb-ep-name">Menu - Delete (Bundle)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="834">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Bundle - Get (list)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="835">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Bundle - Get (single)</span>
           </div>
         
         
@@ -1321,7 +1341,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-88">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">INGREDIENT</span>
-        <span class="section-count">5 endpoint</span>
+        <span class="section-count">6 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -1555,7 +1575,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="830" data-search="ingredient - bulk (raw material/wip) {{odoohost}}/api/inventory/ingredient/bulk upsert raw material/wip by mpos_ingredient_id (kirim ulang = update, bukan dobel). semua item divalidasi dulu: kalau ada yang salah, rspcode 43 + list &quot;errors&quot; (index + alasan), nggak ada yang disimpan. uom selalu pcs saat create (dibenerin lewat upload edit uom), mpos_category_id opsional (kosong = kategori &quot;all&quot;), cost cuma dipakai selama belum ada stock move.">
+        <div class="endpoint-card m-POST" data-id="830" data-search="ingredient - bulk (raw material/wip) {{odoohost}}/api/inventory/ingredient/bulk upsert raw material/wip by mpos_ingredient_id (kirim ulang = update, bukan dobel). semua item divalidasi dulu: kalau ada yang salah, rspcode 43 + list &quot;errors&quot; (index + alasan), nggak ada yang disimpan. uom selalu pcs saat create (dibenerin lewat upload edit uom). mpos_category_id tidak dipakai lagi (2026-09-28) -- categ_id selalu kategori default root company, update tidak pernah nyentuh categ_id. cost cuma dipakai selama belum ada stock move.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -1569,7 +1589,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">upsert Raw Material/WIP by mpos_ingredient_id (kirim ulang = update, bukan dobel). Semua item divalidasi dulu: kalau ada yang salah, rspcode 43 + list &quot;errors&quot; (index + alasan), nggak ada yang disimpan. UoM selalu pcs saat create (dibenerin lewat upload edit UoM), mpos_category_id opsional (kosong = kategori &quot;All&quot;), cost cuma dipakai selama belum ada stock move.</span>
+              <span class="detail-description">upsert Raw Material/WIP by mpos_ingredient_id (kirim ulang = update, bukan dobel). Semua item divalidasi dulu: kalau ada yang salah, rspcode 43 + list &quot;errors&quot; (index + alasan), nggak ada yang disimpan. UoM selalu pcs saat create (dibenerin lewat upload edit UoM). mpos_category_id TIDAK dipakai lagi (2026-09-28) -- categ_id selalu kategori default root company, update tidak pernah nyentuh categ_id. cost cuma dipakai selama belum ada stock move.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1587,6 +1607,44 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;ingredients&quot;: [
     { &quot;mpos_ingredient_id&quot;: &quot;ING-001&quot;, &quot;name&quot;: &quot;Cabai Merah&quot;, &quot;code&quot;: &quot;CBM01&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;cost&quot;: 45000, &quot;active&quot;: true },
     { &quot;mpos_ingredient_id&quot;: &quot;ING-002&quot;, &quot;name&quot;: &quot;Saus Sambal&quot;, &quot;inventory_type&quot;: &quot;wip&quot; }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="836" data-search="ingredient - bulk (andy bakwan, kategori selalu default) {{odoohost}}/api/inventory/ingredient/bulk test perbaikan 2026-09-28: mpos_category_id (ab-cat01/&quot;makanan&quot;, odoo id 114) sengaja dikirim tapi harus diabaikan -- produk hasil create harus jatuh ke kategori default root company andy bakwan (899), bukan 114. cek categ_id-nya lewat ingredient - list atau langsung di odoo.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/bulk">{{odoohost}}/api/inventory/ingredient/bulk</span>
+              <span class="endpoint-name">Ingredient - Bulk (Andy Bakwan, kategori selalu default)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Test perbaikan 2026-09-28: mpos_category_id (AB-CAT01/&quot;Makanan&quot;, odoo id 114) sengaja dikirim TAPI harus diabaikan -- produk hasil create harus jatuh ke kategori default root company Andy Bakwan (899), BUKAN 114. Cek categ_id-nya lewat Ingredient - List atau langsung di Odoo.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;ANDY-BAKWAN-001&quot;,
+  &quot;ingredients&quot;: [
+    { &quot;mpos_ingredient_id&quot;: &quot;AB-ING-TEST-CATDEFAULT&quot;, &quot;name&quot;: &quot;Test Kategori Selalu Default&quot;, &quot;inventory_type&quot;: &quot;raw_material&quot;, &quot;mpos_category_id&quot;: &quot;AB-CAT01&quot; }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
@@ -2221,7 +2279,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-91">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">SHOP</span>
-        <span class="section-count">5 endpoint</span>
+        <span class="section-count">6 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -2477,6 +2535,44 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                   </div>
                 </div>
               </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="837" data-search="shop - create (andy bakwan, disable change price off) {{odoohost}}/api/inventory/shop/create test perbaikan 2026-09-28: shop baru harus otomatis &quot;disable change price&quot; off (unchecked), tanpa perlu di-uncheck manual. cek field disable_pos_change_price di odoo: point of sale &gt; configuration &gt; point of sales &gt; buka shop ini.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/create">{{odoohost}}/api/inventory/shop/create</span>
+              <span class="endpoint-name">Shop - Create (Andy Bakwan, Disable Change Price off)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Test perbaikan 2026-09-28: shop baru harus otomatis &quot;Disable Change Price&quot; OFF (unchecked), tanpa perlu di-uncheck manual. Cek field disable_pos_change_price di Odoo: Point of Sale &gt; Configuration &gt; Point of Sales &gt; buka shop ini.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;ANDY-BAKWAN-001&quot;,
+  &quot;mpos_device_id&quot;: &quot;AB-DEVICE02-TESTPRICE&quot;,
+  &quot;name&quot;: &quot;Kasir 2 - Test Disable Price&quot;,
+  &quot;wh_mpos_branch_id&quot;: &quot;ANDY-BAKWAN-BR01&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
             
           </div>
         </div>
@@ -2788,7 +2884,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="807" data-search="transaction - sync (proposal: modifier linked to menu) {{odoohost}}/api/inventory/transaction/sync sync transaction (proposal: modifier linked to menu). trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/sync">{{odoohost}}/api/inventory/transaction/sync</span>
               <span class="endpoint-name">Transaction - Sync (PROPOSAL: modifier linked to menu)</span>
@@ -4023,7 +4119,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-99">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">BUNDLE</span>
-        <span class="section-count">7 endpoint</span>
+        <span class="section-count">9 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -4368,13 +4464,103 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
+        <div class="endpoint-card m-GET" data-id="834" data-search="bundle - get (list) {{odoohost}}/api/inventory/bundle/get?mpos_company_id={{companyid}} get list semua bundle aktif (product_type selalu &#39;bundle&#39;). sama data-nya kayak product/get?product_type=bundle, cuma dipersempit ke bundle doang.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/bundle/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-name">Bundle - Get (list)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get list semua bundle aktif (product_type selalu &#39;bundle&#39;). Sama data-nya kayak product/get?product_type=bundle, cuma dipersempit ke bundle doang.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">4827 ms</span>
+                    <span class="response-time">2026-09-28 01:42</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;products&quot;: [{&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Kado 1&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 55000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3134, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;bundle&quot;}]}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="835" data-search="bundle - get (single) {{odoohost}}/api/inventory/bundle/get?mpos_company_id={{companyid}}&amp;mpos_product_id=bundle-001 get satu bundle by mpos_product_id. 404-equivalent (rspcode 31) kalau id-nya bukan bundle (misal menu biasa).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bundle/get?mpos_company_id={{companyId}}&amp;mpos_product_id=bundle-001">{{odoohost}}/api/inventory/bundle/get?mpos_company_id={{companyId}}&amp;mpos_product_id=bundle-001</span>
+              <span class="endpoint-name">Bundle - Get (single)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get satu bundle by mpos_product_id. 404-equivalent (rspcode 31) kalau id-nya bukan bundle (misal menu biasa).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">37 ms</span>
+                    <span class="response-time">2026-09-28 01:42</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{&quot;status&quot;: {&quot;rspcode&quot;: &quot;00&quot;, &quot;rspdesc&quot;: &quot;OK&quot;}, &quot;product&quot;: {&quot;mpos_product_id&quot;: &quot;bundle-001&quot;, &quot;name&quot;: &quot;Paket Kado 1&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;list_price&quot;: 55000.0, &quot;active&quot;: true, &quot;odoo_product_id&quot;: 3134, &quot;cogs&quot;: 0.0, &quot;product_type&quot;: &quot;bundle&quot;}}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
 
       <!-- Subfolders -->
       
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>28 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>29 Sep 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
         <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>28 Sep 2026  02:00</span>
       </span>
