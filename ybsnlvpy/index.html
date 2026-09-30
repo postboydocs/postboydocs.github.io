@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">71 endpoints</span>
+  <span class="docs-header-badge">77 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -620,7 +620,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="833">
             <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">Cash In/Out (erpmpos 001, dev-003)</span>
+            <span class="sb-ep-name">Cash In/Out</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="844">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Cash In/Out (dengan akun lawan)</span>
           </div>
         
         
@@ -843,6 +848,42 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="838">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">Tax - Bulk (upsert)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="846">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Tax - Get (list)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="847">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Tax - Get (single by mpos_tax_id)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="848">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Tax - Get (single by odoo_tax_id)</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-111">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>COA</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="842">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">COA - Get (list)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="843">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">COA - Get (filter expense)</span>
           </div>
         
         
@@ -2562,7 +2603,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-92">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">REGISTER</span>
-        <span class="section-count">3 endpoint</span>
+        <span class="section-count">4 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -2663,13 +2704,13 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="833" data-search="cash in/out (erpmpos 001, dev-003) {{odoohost}}/api/inventory/cash/in_out cash in/out kasir ke sesi shop yang lagi buka (register/open dulu). dicatat sama persis kayak tombol cash in/out di layar kasir odoo, jadi ikut dihitung saat tutup register. type: in/out (juga terima &quot;cash in&quot;/&quot;cash_out&quot;), amount &gt; 0. mpos_cash_id = id_kas mpos: kirim ulang id yang sama balikin catatan lama (already_synced: true), nggak dobel.">
+        <div class="endpoint-card m-POST" data-id="833" data-search="cash in/out {{odoohost}}/api/inventory/cash/in_out cash in/out kasir ke sesi shop yang lagi buka (register/open dulu). dicatat sama persis kayak tombol cash in/out di layar kasir odoo, jadi ikut dihitung saat tutup register. type: in/out (juga terima &quot;cash in&quot;/&quot;cash_out&quot;), amount &gt; 0. mpos_cash_id = id_kas mpos: kirim ulang id yang sama balikin catatan lama (already_synced: true), nggak dobel.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/cash/in_out">{{odoohost}}/api/inventory/cash/in_out</span>
-              <span class="endpoint-name">Cash In/Out (erpmpos 001, dev-003)</span>
+              <span class="endpoint-name">Cash In/Out</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
             <i class="bi bi-chevron-right endpoint-chevron"></i>
@@ -2691,13 +2732,83 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;417&quot;,
-  &quot;mpos_device_id&quot;: &quot;dev-003&quot;,
-  &quot;mpos_cash_id&quot;: &quot;KAS-000123&quot;,
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
+  &quot;trx_date&quot;: &quot;2026-09-30 14:30:00&quot;,
+  &quot;mpos_cash_id&quot;: &quot;TEST-1790737094-1&quot;,
   &quot;type&quot;: &quot;out&quot;,
   &quot;amount&quot;: 50000,
-  &quot;reason&quot;: &quot;Beli es batu&quot;,
-  &quot;trx_date&quot;: &quot;2026-09-25 14:30:00&quot;
+  &quot;description&quot;: &quot;Beli es batu&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">1312 ms</span>
+                    <span class="response-time">2026-09-30 09:58</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;odoo_cash_id&quot;: 449,
+  &quot;mpos_cash_id&quot;: &quot;TEST-1790737094-1&quot;,
+  &quot;type&quot;: &quot;out&quot;,
+  &quot;amount&quot;: 50000.0,
+  &quot;description&quot;: &quot;POS/00831-out-Beli es batu&quot;,
+  &quot;date&quot;: &quot;2026-09-30&quot;,
+  &quot;session&quot;: &quot;POS/00831&quot;,
+  &quot;already_synced&quot;: false
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="844" data-search="cash in/out (dengan akun lawan) {{odoohost}}/api/inventory/cash/in_out odoo_account_id opsional: id akun coa (dari coa - get) buat sisi lawan jurnal; kosong = suspense. ganti 812 dengan id asli.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/cash/in_out">{{odoohost}}/api/inventory/cash/in_out</span>
+              <span class="endpoint-name">Cash In/Out (dengan akun lawan)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">odoo_account_id opsional: id akun COA (dari COA - Get) buat sisi lawan jurnal; kosong = Suspense. Ganti 812 dengan id asli.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;001&quot;,
+  &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
+  &quot;mpos_cash_id&quot;: &quot;KAS-000124&quot;,
+  &quot;type&quot;: &quot;out&quot;,
+  &quot;amount&quot;: 50000,
+  &quot;description&quot;: &quot;Beli es batu&quot;,
+  &quot;trx_date&quot;: &quot;2026-09-30 14:30:00&quot;,
+  &quot;odoo_account_id&quot;: 812
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
@@ -4151,7 +4262,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-110">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">TAX</span>
-        <span class="section-count">1 endpoint</span>
+        <span class="section-count">4 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -4239,6 +4350,1056 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       &quot;account_code&quot;: null,
       &quot;active&quot;: true,
       &quot;result&quot;: &quot;created&quot;
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="846" data-search="tax - get (list) {{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyid}} get list semua pajak sales company root, termasuk yang di-archive dan yang belum di-mapping (mpos_tax_id null).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-name">Tax - Get (list)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get list semua pajak Sales company root, termasuk yang di-archive dan yang belum di-mapping (mpos_tax_id null).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">39 ms</span>
+                    <span class="response-time">2026-09-30 11:39</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;taxes&quot;: [
+    {
+      &quot;odoo_tax_id&quot;: 617,
+      &quot;mpos_tax_id&quot;: false,
+      &quot;name&quot;: &quot;11%&quot;,
+      &quot;percent&quot;: 11.0,
+      &quot;amount_type&quot;: &quot;percent&quot;,
+      &quot;is_include&quot;: false,
+      &quot;account_code&quot;: &quot;21221020&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;odoo_tax_id&quot;: 619,
+      &quot;mpos_tax_id&quot;: false,
+      &quot;name&quot;: &quot;0%&quot;,
+      &quot;percent&quot;: 0.0,
+      &quot;amount_type&quot;: &quot;percent&quot;,
+      &quot;is_include&quot;: false,
+      &quot;account_code&quot;: &quot;21221020&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;odoo_tax_id&quot;: 620,
+      &quot;mpos_tax_id&quot;: false,
+      &quot;name&quot;: &quot;0% EXEMPT&quot;,
+      &quot;percent&quot;: 0.0,
+      &quot;amount_type&quot;: &quot;percent&quot;,
+      &quot;is_include&quot;: false,
+      &quot;account_code&quot;: &quot;21221020&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;odoo_tax_id&quot;: 623,
+      &quot;mpos_tax_id&quot;: false,
+      &quot;name&quot;: &quot;12%&quot;,
+      &quot;percent&quot;: 12.0,
+      &quot;amount_type&quot;: &quot;percent&quot;,
+      &quot;is_include&quot;: false,
+      &quot;account_code&quot;: &quot;21221020&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;odoo_tax_id&quot;: 625,
+      &quot;mpos_tax_id&quot;: false,
+      &quot;name&quot;: &quot;20%&quot;,
+      &quot;percent&quot;: 20.0,
+      &quot;amount_type&quot;: &quot;percent&quot;,
+      &quot;is_include&quot;: false,
+      &quot;account_code&quot;: &quot;21221020&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;odoo_tax_id&quot;: 738,
+      &quot;mpos_tax_id&quot;: &quot;tax_10%&quot;,
+      &quot;name&quot;: &quot;Test PPN 10%&quot;,
+      &quot;percent&quot;: 10.0,
+      &quot;amount_type&quot;: &quot;percent&quot;,
+      &quot;is_include&quot;: false,
+      &quot;account_code&quot;: &quot;21221020&quot;,
+      &quot;active&quot;: true
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="847" data-search="tax - get (single by mpos_tax_id) {{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyid}}&amp;mpos_tax_id=tax_10%25 get 1 pajak by mpos_tax_id. nggak ketemu: rspcode 79.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;mpos_tax_id=tax_10%25">{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;mpos_tax_id=tax_10%25</span>
+              <span class="endpoint-name">Tax - Get (single by mpos_tax_id)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get 1 pajak by mpos_tax_id. Nggak ketemu: rspcode 79.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">35 ms</span>
+                    <span class="response-time">2026-09-30 11:39</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;tax&quot;: {
+    &quot;odoo_tax_id&quot;: 738,
+    &quot;mpos_tax_id&quot;: &quot;tax_10%&quot;,
+    &quot;name&quot;: &quot;Test PPN 10%&quot;,
+    &quot;percent&quot;: 10.0,
+    &quot;amount_type&quot;: &quot;percent&quot;,
+    &quot;is_include&quot;: false,
+    &quot;account_code&quot;: &quot;21221020&quot;,
+    &quot;active&quot;: true
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="848" data-search="tax - get (single by odoo_tax_id) {{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyid}}&amp;odoo_tax_id=738 get 1 pajak by odoo_tax_id. kalau mpos_tax_id juga dikirim, mpos_tax_id yang dipakai.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;odoo_tax_id=738">{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;odoo_tax_id=738</span>
+              <span class="endpoint-name">Tax - Get (single by odoo_tax_id)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get 1 pajak by odoo_tax_id. Kalau mpos_tax_id juga dikirim, mpos_tax_id yang dipakai.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">49 ms</span>
+                    <span class="response-time">2026-09-30 11:39</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;tax&quot;: {
+    &quot;odoo_tax_id&quot;: 738,
+    &quot;mpos_tax_id&quot;: &quot;tax_10%&quot;,
+    &quot;name&quot;: &quot;Test PPN 10%&quot;,
+    &quot;percent&quot;: 10.0,
+    &quot;amount_type&quot;: &quot;percent&quot;,
+    &quot;is_include&quot;: false,
+    &quot;account_code&quot;: &quot;21221020&quot;,
+    &quot;active&quot;: true
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
+      <div class="section-header" id="folder-111">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">COA</span>
+        <span class="section-count">2 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-GET" data-id="842" data-search="coa - get (list) {{odoohost}}/api/inventory/coa?mpos_company_id={{companyid}} get list akun coa company root (branch pakai coa root-nya). param opsional: q (kode/nama), account_type, lang (mis. id_id). akun deprecated disembunyikan.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-name">COA - Get (list)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get list akun COA company root (branch pakai COA root-nya). Param opsional: q (kode/nama), account_type, lang (mis. id_ID). Akun deprecated disembunyikan.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">106 ms</span>
+                    <span class="response-time">2026-09-30 11:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;accounts&quot;: [
+    {
+      &quot;odoo_account_id&quot;: 9546,
+      &quot;code&quot;: &quot;11110001&quot;,
+      &quot;name&quot;: &quot;Cash&quot;,
+      &quot;account_type&quot;: &quot;asset_cash&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9654,
+      &quot;code&quot;: &quot;11110002&quot;,
+      &quot;name&quot;: &quot;Cash&quot;,
+      &quot;account_type&quot;: &quot;asset_cash&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9547,
+      &quot;code&quot;: &quot;11110010&quot;,
+      &quot;name&quot;: &quot;Petty Cash&quot;,
+      &quot;account_type&quot;: &quot;asset_cash&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9548,
+      &quot;code&quot;: &quot;11110020&quot;,
+      &quot;name&quot;: &quot;Cash in Hand&quot;,
+      &quot;account_type&quot;: &quot;asset_cash&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9549,
+      &quot;code&quot;: &quot;11120001&quot;,
+      &quot;name&quot;: &quot;Bank Suspense&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9550,
+      &quot;code&quot;: &quot;11120002&quot;,
+      &quot;name&quot;: &quot;Outstanding Receipts&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9551,
+      &quot;code&quot;: &quot;11120003&quot;,
+      &quot;name&quot;: &quot;Outstanding Payments&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9552,
+      &quot;code&quot;: &quot;11120004&quot;,
+      &quot;name&quot;: &quot;Bank&quot;,
+      &quot;account_type&quot;: &quot;asset_cash&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9653,
+      &quot;code&quot;: &quot;11120005&quot;,
+      &quot;name&quot;: &quot;Bank&quot;,
+      &quot;account_type&quot;: &quot;asset_cash&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9655,
+      &quot;code&quot;: &quot;11120006&quot;,
+      &quot;name&quot;: &quot;Bank Suspense Account&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9659,
+      &quot;code&quot;: &quot;11120007&quot;,
+      &quot;name&quot;: &quot;Outstanding Receipts&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9660,
+      &quot;code&quot;: &quot;11120008&quot;,
+      &quot;name&quot;: &quot;Outstanding Payments&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 10613,
+      &quot;code&quot;: &quot;11120009&quot;,
+      &quot;name&quot;: &quot;Debit&quot;,
+      &quot;account_type&quot;: &quot;asset_cash&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9553,
+      &quot;code&quot;: &quot;11210010&quot;,
+      &quot;name&quot;: &quot;Account Receivable&quot;,
+      &quot;account_type&quot;: &quot;asset_receivable&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9554,
+      &quot;code&quot;: &quot;11210011&quot;,
+      &quot;name&quot;: &quot;Account Receivable (PoS)&quot;,
+      &quot;account_type&quot;: &quot;asset_receivable&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9555,
+      &quot;code&quot;: &quot;11210020&quot;,
+      &quot;name&quot;: &quot;Employee Liabilities&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9556,
+      &quot;code&quot;: &quot;11300180&quot;,
+      &quot;name&quot;: &quot;Other Inventory&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9557,
+      &quot;code&quot;: &quot;11410010&quot;,
+      &quot;name&quot;: &quot;Building Rent&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9558,
+      &quot;code&quot;: &quot;11410020&quot;,
+      &quot;name&quot;: &quot;Prepaid Insurance&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9559,
+      &quot;code&quot;: &quot;11410030&quot;,
+      &quot;name&quot;: &quot;Prepaid Advertisement-Free&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9560,
+      &quot;code&quot;: &quot;11510010&quot;,
+      &quot;name&quot;: &quot;Prepaid Tax PPh 21&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9561,
+      &quot;code&quot;: &quot;11510020&quot;,
+      &quot;name&quot;: &quot;Prepaid Tax Pph 22&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9562,
+      &quot;code&quot;: &quot;11510030&quot;,
+      &quot;name&quot;: &quot;Prepaid Tax Pph 23&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9563,
+      &quot;code&quot;: &quot;11510040&quot;,
+      &quot;name&quot;: &quot;Prepaid Tax Pph 25&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9564,
+      &quot;code&quot;: &quot;11510050&quot;,
+      &quot;name&quot;: &quot;Prepaid Tax Pph 28A&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9565,
+      &quot;code&quot;: &quot;11510060&quot;,
+      &quot;name&quot;: &quot;Prepaid Tax 4 (2)&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9566,
+      &quot;code&quot;: &quot;11800000&quot;,
+      &quot;name&quot;: &quot;Down Payment&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9567,
+      &quot;code&quot;: &quot;12210010&quot;,
+      &quot;name&quot;: &quot;Office Building&quot;,
+      &quot;account_type&quot;: &quot;asset_fixed&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9568,
+      &quot;code&quot;: &quot;12210020&quot;,
+      &quot;name&quot;: &quot;Vehicle&quot;,
+      &quot;account_type&quot;: &quot;asset_fixed&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9569,
+      &quot;code&quot;: &quot;12210030&quot;,
+      &quot;name&quot;: &quot;Office Supplies&quot;,
+      &quot;account_type&quot;: &quot;asset_fixed&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9570,
+      &quot;code&quot;: &quot;12281010&quot;,
+      &quot;name&quot;: &quot;Accumulation Building Depreciation&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9571,
+      &quot;code&quot;: &quot;12281020&quot;,
+      &quot;name&quot;: &quot;Accumulation Vehicle Depreciation&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9572,
+      &quot;code&quot;: &quot;12281030&quot;,
+      &quot;name&quot;: &quot;Accumulation Office Supplies Depreciation&quot;,
+      &quot;account_type&quot;: &quot;asset_prepayments&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9658,
+      &quot;code&quot;: &quot;19999991&quot;,
+      &quot;name&quot;: &quot;Liquidity Transfer&quot;,
+      &quot;account_type&quot;: &quot;asset_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9573,
+      &quot;code&quot;: &quot;21100010&quot;,
+      &quot;name&quot;: &quot;Trade Receivable&quot;,
+      &quot;account_type&quot;: &quot;liability_payable&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9574,
+      &quot;code&quot;: &quot;21100020&quot;,
+      &quot;name&quot;: &quot;Shareholder Deposit&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9575,
+      &quot;code&quot;: &quot;21100030&quot;,
+      &quot;name&quot;: &quot;Third-Party Deposit&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9576,
+      &quot;code&quot;: &quot;21100040&quot;,
+      &quot;name&quot;: &quot;Salary Deposit&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9577,
+      &quot;code&quot;: &quot;21210010&quot;,
+      &quot;name&quot;: &quot;Tax Payable Pph 21&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9578,
+      &quot;code&quot;: &quot;21210020&quot;,
+      &quot;name&quot;: &quot;Tax Payable Pph 23&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9579,
+      &quot;code&quot;: &quot;21210030&quot;,
+      &quot;name&quot;: &quot;Tax Payable Pph 25&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9580,
+      &quot;code&quot;: &quot;21210040&quot;,
+      &quot;name&quot;: &quot;Tax Payable 4 (2)&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9581,
+      &quot;code&quot;: &quot;21210050&quot;,
+      &quot;name&quot;: &quot;Tax Payable Pph 29&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9582,
+      &quot;code&quot;: &quot;21221010&quot;,
+      &quot;name&quot;: &quot;VAT Purchase&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9583,
+      &quot;code&quot;: &quot;21221020&quot;,
+      &quot;name&quot;: &quot;VAT Sales&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9584,
+      &quot;code&quot;: &quot;22110010&quot;,
+      &quot;name&quot;: &quot;Bank Loan&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9585,
+      &quot;code&quot;: &quot;22110020&quot;,
+      &quot;name&quot;: &quot;Leasing Deposit&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9586,
+      &quot;code&quot;: &quot;25110010&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Electricity&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9587,
+      &quot;code&quot;: &quot;25110020&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Jamsostek&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9588,
+      &quot;code&quot;: &quot;25110030&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Water&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9589,
+      &quot;code&quot;: &quot;25110040&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Telp &amp; Internet&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9590,
+      &quot;code&quot;: &quot;25110050&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Security Management&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9591,
+      &quot;code&quot;: &quot;25110060&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Bank&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9592,
+      &quot;code&quot;: &quot;25110070&quot;,
+      &quot;name&quot;: &quot;Accrued Payable PBB&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9593,
+      &quot;code&quot;: &quot;25110080&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Business License&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9594,
+      &quot;code&quot;: &quot;25110090&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Insurance&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9595,
+      &quot;code&quot;: &quot;25110100&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Education&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9596,
+      &quot;code&quot;: &quot;25110110&quot;,
+      &quot;name&quot;: &quot;Accrued Payable Health Insurance/BPJS&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9597,
+      &quot;code&quot;: &quot;28110010&quot;,
+      &quot;name&quot;: &quot;Advance Sales&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9598,
+      &quot;code&quot;: &quot;28110020&quot;,
+      &quot;name&quot;: &quot;Customer Deposit&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9599,
+      &quot;code&quot;: &quot;29000000&quot;,
+      &quot;name&quot;: &quot;Interim Stock&quot;,
+      &quot;account_type&quot;: &quot;liability_current&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9600,
+      &quot;code&quot;: &quot;31100010&quot;,
+      &quot;name&quot;: &quot;Authorized Capital&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9601,
+      &quot;code&quot;: &quot;31100020&quot;,
+      &quot;name&quot;: &quot;Paid Capital&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9602,
+      &quot;code&quot;: &quot;31100030&quot;,
+      &quot;name&quot;: &quot;Unpaid Capital&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9603,
+      &quot;code&quot;: &quot;31100040&quot;,
+      &quot;name&quot;: &quot;Prive (Personal Retrieval)&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9604,
+      &quot;code&quot;: &quot;31210010&quot;,
+      &quot;name&quot;: &quot;Capital Reserves&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9605,
+      &quot;code&quot;: &quot;31510010&quot;,
+      &quot;name&quot;: &quot;Past Profit &amp; Loss&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9606,
+      &quot;code&quot;: &quot;31510020&quot;,
+      &quot;name&quot;: &quot;Ongoing Profit &amp; Loss&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9607,
+      &quot;code&quot;: &quot;39000000&quot;,
+      &quot;name&quot;: &quot;Historical Balance&quot;,
+      &quot;account_type&quot;: &quot;equity&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9608,
+      &quot;code&quot;: &quot;41000010&quot;,
+      &quot;name&quot;: &quot;Sales&quot;,
+      &quot;account_type&quot;: &quot;income&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9609,
+      &quot;code&quot;: &quot;42000060&quot;,
+      &quot;name&quot;: &quot;Sales Refund&quot;,
+      &quot;account_type&quot;: &quot;income&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9610,
+      &quot;code&quot;: &quot;42000070&quot;,
+      &quot;name&quot;: &quot;Sales Discount&quot;,
+      &quot;account_type&quot;: &quot;income&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9611,
+      &quot;code&quot;: &quot;51000010&quot;,
+      &quot;name&quot;: &quot;Cost of Goods Sold&quot;,
+      &quot;account_type&quot;: &quot;expense_direct_cost&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9612,
+      &quot;code&quot;: &quot;61100010&quot;,
+      &quot;name&quot;: &quot;Employee Salary&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9613,
+      &quot;code&quot;: &quot;61100020&quot;,
+      &quot;name&quot;: &quot;Employee Bonus / Benefits&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9614,
+      &quot;code&quot;: &quot;61100030&quot;,
+      &quot;name&quot;: &quot;Employee Overtime Pay&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9615,
+      &quot;code&quot;: &quot;61100100&quot;,
+      &quot;name&quot;: &quot;Pph 21 Benefit&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9616,
+      &quot;code&quot;: &quot;63110060&quot;,
+      &quot;name&quot;: &quot;Phone&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9617,
+      &quot;code&quot;: &quot;63110080&quot;,
+      &quot;name&quot;: &quot;Electricity&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9618,
+      &quot;code&quot;: &quot;63110100&quot;,
+      &quot;name&quot;: &quot;Research &amp; Development&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9619,
+      &quot;code&quot;: &quot;63110120&quot;,
+      &quot;name&quot;: &quot;Office Equipment&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9621,
+      &quot;code&quot;: &quot;63110140&quot;,
+      &quot;name&quot;: &quot;Other Necessities&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9620,
+      &quot;code&quot;: &quot;64110020&quot;,
+      &quot;name&quot;: &quot;Post Necessities&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9622,
+      &quot;code&quot;: &quot;65110010&quot;,
+      &quot;name&quot;: &quot;Licensing Fees&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9623,
+      &quot;code&quot;: &quot;65110020&quot;,
+      &quot;name&quot;: &quot;Bank Administration Fees&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9624,
+      &quot;code&quot;: &quot;65110030&quot;,
+      &quot;name&quot;: &quot;Consultant Fees&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9625,
+      &quot;code&quot;: &quot;65110040&quot;,
+      &quot;name&quot;: &quot;Rental Costs&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9626,
+      &quot;code&quot;: &quot;65110050&quot;,
+      &quot;name&quot;: &quot;Insurance Costs&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9627,
+      &quot;code&quot;: &quot;65110060&quot;,
+      &quot;name&quot;: &quot;Building Maintenance Costs&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9628,
+      &quot;code&quot;: &quot;65110070&quot;,
+      &quot;name&quot;: &quot;Taxes&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9629,
+      &quot;code&quot;: &quot;65110080&quot;,
+      &quot;name&quot;: &quot;Asset Maintenance Costs&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9630,
+      &quot;code&quot;: &quot;65110090&quot;,
+      &quot;name&quot;: &quot;Shipping Costs&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9631,
+      &quot;code&quot;: &quot;66110010&quot;,
+      &quot;name&quot;: &quot;Vehicle Fuel&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9632,
+      &quot;code&quot;: &quot;66110020&quot;,
+      &quot;name&quot;: &quot;Vehicle Service&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9633,
+      &quot;code&quot;: &quot;66110030&quot;,
+      &quot;name&quot;: &quot;Vehicle Parking &amp; Toll Fee&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9634,
+      &quot;code&quot;: &quot;66110040&quot;,
+      &quot;name&quot;: &quot;Vehicle Taxes&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9635,
+      &quot;code&quot;: &quot;66110050&quot;,
+      &quot;name&quot;: &quot;Vehicle Insurance&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9636,
+      &quot;code&quot;: &quot;67100010&quot;,
+      &quot;name&quot;: &quot;Office Building&quot;,
+      &quot;account_type&quot;: &quot;expense_depreciation&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9637,
+      &quot;code&quot;: &quot;67100020&quot;,
+      &quot;name&quot;: &quot;Vehicle&quot;,
+      &quot;account_type&quot;: &quot;expense_depreciation&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9638,
+      &quot;code&quot;: &quot;67100030&quot;,
+      &quot;name&quot;: &quot;Office Supplies&quot;,
+      &quot;account_type&quot;: &quot;expense_depreciation&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9639,
+      &quot;code&quot;: &quot;69000000&quot;,
+      &quot;name&quot;: &quot;Other Expenses&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9640,
+      &quot;code&quot;: &quot;81100010&quot;,
+      &quot;name&quot;: &quot;Interest Income&quot;,
+      &quot;account_type&quot;: &quot;income_other&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9641,
+      &quot;code&quot;: &quot;81100020&quot;,
+      &quot;name&quot;: &quot;Deposit Income&quot;,
+      &quot;account_type&quot;: &quot;income_other&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9642,
+      &quot;code&quot;: &quot;81100030&quot;,
+      &quot;name&quot;: &quot;Foreign Exchange Gain&quot;,
+      &quot;account_type&quot;: &quot;income_other&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9643,
+      &quot;code&quot;: &quot;81100040&quot;,
+      &quot;name&quot;: &quot;Other Income&quot;,
+      &quot;account_type&quot;: &quot;income_other&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9644,
+      &quot;code&quot;: &quot;81100050&quot;,
+      &quot;name&quot;: &quot;Gain on Sale of Fixed Assets&quot;,
+      &quot;account_type&quot;: &quot;income_other&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9645,
+      &quot;code&quot;: &quot;91100010&quot;,
+      &quot;name&quot;: &quot;Interest Expense&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9646,
+      &quot;code&quot;: &quot;91100020&quot;,
+      &quot;name&quot;: &quot;Foreign Exchange Loss&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9647,
+      &quot;code&quot;: &quot;91100030&quot;,
+      &quot;name&quot;: &quot;Loss on Sale of Fixed Assets&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9648,
+      &quot;code&quot;: &quot;99900001&quot;,
+      &quot;name&quot;: &quot;Cash Difference Loss&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9649,
+      &quot;code&quot;: &quot;99900002&quot;,
+      &quot;name&quot;: &quot;Cash Difference Gain&quot;,
+      &quot;account_type&quot;: &quot;income&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9650,
+      &quot;code&quot;: &quot;99900003&quot;,
+      &quot;name&quot;: &quot;Cash Discount Loss&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9651,
+      &quot;code&quot;: &quot;99900004&quot;,
+      &quot;name&quot;: &quot;Cash Discount Gain&quot;,
+      &quot;account_type&quot;: &quot;income_other&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9656,
+      &quot;code&quot;: &quot;99900005&quot;,
+      &quot;name&quot;: &quot;Cash Difference Gain&quot;,
+      &quot;account_type&quot;: &quot;income_other&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9657,
+      &quot;code&quot;: &quot;99900006&quot;,
+      &quot;name&quot;: &quot;Cash Difference Loss&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
+    },
+    {
+      &quot;odoo_account_id&quot;: 9652,
+      &quot;code&quot;: &quot;99999900&quot;,
+      &quot;name&quot;: &quot;Undistributed Profits/Losses&quot;,
+      &quot;account_type&quot;: &quot;equity_unaffected&quot;
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="843" data-search="coa - get (filter expense) {{odoohost}}/api/inventory/coa?mpos_company_id={{companyid}}&amp;account_type=expense&amp;q=salary filter q dan account_type; odoo_account_id dari sini dipakai di cash in/out. q dicari di nama inggris.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}&amp;account_type=expense&amp;q=salary">{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}&amp;account_type=expense&amp;q=salary</span>
+              <span class="endpoint-name">COA - Get (filter expense)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Filter q dan account_type; odoo_account_id dari sini dipakai di Cash In/Out. q dicari di nama Inggris.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">99 ms</span>
+                    <span class="response-time">2026-09-30 11:33</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;accounts&quot;: [
+    {
+      &quot;odoo_account_id&quot;: 9612,
+      &quot;code&quot;: &quot;61100010&quot;,
+      &quot;name&quot;: &quot;Employee Salary&quot;,
+      &quot;account_type&quot;: &quot;expense&quot;
     }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
@@ -4697,9 +5858,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>30 Sep 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>30 Sep 2026 11:41</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>29 Sep 2026  13:53</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>30 Sep 2026  02:00</span>
       </span>
     </div>
   </main>
