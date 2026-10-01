@@ -649,9 +649,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <span class="sb-ep-name">Transaction - Sync (PROPOSAL: modifier linked to menu)</span>
           </div>
         
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="839">
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="850">
             <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">Transaction - Sync (mpos_tax_id per line)</span>
+            <span class="sb-ep-name">Transaction - Sync (tax_amount, diskon item + bill_discount)</span>
           </div>
         
         
@@ -739,7 +739,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>REDIRECT</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -2986,22 +2986,19 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="839" data-search="transaction - sync (mpos_tax_id per line) {{odoohost}}/api/inventory/transaction/sync mpos_tax_id per baris (opsional): pajak yang dikirim lewat tax/bulk dipakai menggantikan pajak bawaan produk. kosong = pajak bawaan produk. id tidak dikenal/archived -&gt; rspcode 79. total 61600 = 56000 + ppn 10% (pajak test-tax-1 exclusive).">
+        <div class="endpoint-card m-POST" data-id="850" data-search="transaction - sync (tax_amount, diskon item + bill_discount) {{odoohost}}/api/inventory/transaction/sync ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/sync">{{odoohost}}/api/inventory/transaction/sync</span>
-              <span class="endpoint-name">Transaction - Sync (mpos_tax_id per line)</span>
+              <span class="endpoint-name">Transaction - Sync (tax_amount, diskon item + bill_discount)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">mpos_tax_id per baris (opsional): pajak yang dikirim lewat tax/bulk dipakai menggantikan pajak bawaan produk. Kosong = pajak bawaan produk. ID tidak dikenal/archived -&gt; rspcode 79. Total 61600 = 56000 + PPN 10% (pajak TEST-TAX-1 exclusive).</span>
-            </div>
+            
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -3015,27 +3012,62 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
-  &quot;mpos_order_id&quot;: &quot;trx-tax-001&quot;,
-  &quot;reff_sys&quot;: &quot;REF-TAX-001&quot;,
-  &quot;trx_date&quot;: &quot;2026-09-29 14:30:00&quot;,
+  &quot;mpos_device_id&quot;: &quot;dev-003&quot;,
+  &quot;trx_date&quot;: &quot;2026-10-01 11:00:00&quot;,
+  &quot;mpos_order_id&quot;: &quot;trx-billdisc-001&quot;,
+  &quot;reff_sys&quot;: &quot;REF-BILLDISC-001&quot;,
   &quot;lines&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
       &quot;qty&quot;: 2,
       &quot;price_unit&quot;: 28000,
+      &quot;discount&quot;: 2500,
+      &quot;mpos_tax_id&quot;: &quot;AMT-TAX-10&quot;,
+      &quot;tax_amount&quot;: 4815
+    },
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
+      &quot;qty&quot;: 1,
+      &quot;price_unit&quot;: 10000,
       &quot;discount&quot;: 0,
-      &quot;mpos_tax_id&quot;: &quot;TEST-TAX-1&quot;
+      &quot;mpos_tax_id&quot;: &quot;AMT-TAX-10&quot;,
+      &quot;tax_amount&quot;: 900
     }
   ],
+  &quot;bill_discount&quot;: 6350,
   &quot;payments&quot;: [
     {
       &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
-      &quot;amount&quot;: 61600
+      &quot;amount&quot;: 62865
     }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">6631 ms</span>
+                    <span class="response-time">2026-10-01 10:04</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;odoo_order_id&quot;: 1048,
+  &quot;mpos_order_id&quot;: &quot;trx-billdisc-001&quot;,
+  &quot;reff_sys&quot;: &quot;REF-BILLDISC-001&quot;,
+  &quot;state&quot;: &quot;paid&quot;,
+  &quot;amount_total&quot;: 62865
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -3694,7 +3726,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="826" data-search="rdr_bom_mpos {{odoohost}}/web/login/mpos_bridge redirect ke form bom pakai id mpos (bom dibuat otomatis kalau belum ada). nilai redirect wajib di-url-encode saat dikirim sebagai form field, karena mengandung ? dan &amp;.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/web/login/mpos_bridge">{{odoohost}}/web/login/mpos_bridge</span>
               <span class="endpoint-name">rdr_bom_mpos</span>
@@ -5816,9 +5848,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>01 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>01 Oct 2026 11:10</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>30 Sep 2026  11:41</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>01 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
