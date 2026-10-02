@@ -424,7 +424,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>MODIFIER</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -450,7 +450,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>INGREDIENT</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -527,7 +527,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>BOM</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -1351,7 +1351,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="831" data-search="modifier - create (pakai mpos_ingredient_id) {{odoohost}}/api/inventory/modifier/create sama kayak modifier - create, tapi bahan di bom_lines disebut pakai mpos_ingredient_id (id ingredient mpos hasil ingredient/bulk), bukan odoo_ingredient_id. boleh salah satu; kalau dua-duanya dikirim harus ingredient yang sama. berlaku juga di modifier/update dan bom/create + bom/update.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/modifier/create">{{odoohost}}/api/inventory/modifier/create</span>
               <span class="endpoint-name">Modifier - Create (pakai mpos_ingredient_id)</span>
@@ -1630,7 +1630,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="830" data-search="ingredient - bulk (raw material/wip) {{odoohost}}/api/inventory/ingredient/bulk upsert raw material/wip by mpos_ingredient_id (kirim ulang = update, bukan dobel). semua item divalidasi dulu: kalau ada yang salah, rspcode 43 + list &quot;errors&quot; (index + alasan), nggak ada yang disimpan. uom selalu pcs saat create (dibenerin lewat upload edit uom). mpos_category_id tidak dipakai lagi (2026-09-28) -- categ_id selalu kategori default root company, update tidak pernah nyentuh categ_id. cost cuma dipakai selama belum ada stock move.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/ingredient/bulk">{{odoohost}}/api/inventory/ingredient/bulk</span>
               <span class="endpoint-name">Ingredient - Bulk (Raw Material/WIP)</span>
@@ -2244,7 +2244,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="832" data-search="wip bom - bulk (resep wip) {{odoohost}}/api/inventory/wip_bom/bulk resep wip">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/wip_bom/bulk">{{odoohost}}/api/inventory/wip_bom/bulk</span>
               <span class="endpoint-name">WIP BOM - Bulk (resep WIP)</span>
@@ -5848,9 +5848,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>02 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>03 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>01 Okt 2026  11:10</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>02 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
