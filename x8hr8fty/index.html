@@ -376,6 +376,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <option value="bb934ab8bd714c6e83325eed261e9f89" data-var="externalStoreId">JOOB STAGING</option>
         <option value="1Kq37MlJj9Lp" data-var="jobPostingId">JOOB STAGING</option>
         <option value="wnNg91ol35dX" data-var="joobCompanyId">JOOB STAGING</option>
+        <option value="https://odev.dretail.id/grab_joob/webhook" data-var="GRAB_JOOB_WEBHOOK_URL">ODOO SDR-DEV</option>
+        <option value="https://odoo-staging.dretail.id/grab_joob/webhook" data-var="GRAB_JOOB_WEBHOOK_URL">ODOO STAGING</option>
+        <option value="https://odoo.dretail.id/grab_joob/webhook" data-var="GRAB_JOOB_WEBHOOK_URL">ODOO PROD</option>
       </select>
       <div class="env-host" id="envHostLabel"></div>
     </div>
@@ -1301,12 +1304,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="791" data-search="job posting published (inbound) https://odev.dretail.id/grab_joob/webhook ">
+        <div class="endpoint-card m-POST" data-id="791" data-search="job posting published (inbound) {{grab_joob_webhook_url}} ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="https://odev.dretail.id/grab_joob/webhook">https://odev.dretail.id/grab_joob/webhook</span>
+              <span class="endpoint-url" data-url="{{GRAB_JOOB_WEBHOOK_URL}}">{{GRAB_JOOB_WEBHOOK_URL}}</span>
               <span class="endpoint-name">Job Posting Published (inbound)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1357,12 +1360,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="792" data-search="application status changed (inbound) https://odev.dretail.id/grab_joob/webhook ">
+        <div class="endpoint-card m-POST" data-id="792" data-search="application status changed (inbound) {{grab_joob_webhook_url}} ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="https://odev.dretail.id/grab_joob/webhook">https://odev.dretail.id/grab_joob/webhook</span>
+              <span class="endpoint-url" data-url="{{GRAB_JOOB_WEBHOOK_URL}}">{{GRAB_JOOB_WEBHOOK_URL}}</span>
               <span class="endpoint-name">Application Status Changed (inbound)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1395,12 +1398,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="793" data-search="application created (inbound, no-op) https://odev.dretail.id/grab_joob/webhook ">
+        <div class="endpoint-card m-POST" data-id="793" data-search="application created (inbound, no-op) {{grab_joob_webhook_url}} ">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
             <div class="endpoint-info">
-              <span class="endpoint-url" data-url="https://odev.dretail.id/grab_joob/webhook">https://odev.dretail.id/grab_joob/webhook</span>
+              <span class="endpoint-url" data-url="{{GRAB_JOOB_WEBHOOK_URL}}">{{GRAB_JOOB_WEBHOOK_URL}}</span>
               <span class="endpoint-name">Application Created (inbound, no-op)</span>
             </div>
             <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
@@ -1439,9 +1442,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>06 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>07 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>05 Okt 2026  12:56</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>06 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
