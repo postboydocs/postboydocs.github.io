@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">75 endpoints</span>
+  <span class="docs-header-badge">76 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -853,6 +853,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="848">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Tax - Get (single by odoo_tax_id)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="852">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Tax - Update</span>
           </div>
         
         
@@ -2816,7 +2821,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void void transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order.">
+        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void void sebagian, semua angka dari mpos (odoo tidak menghitung): lines[].qty/discount/tax_amount untuk qty yang di-void; service_charge (dan fee lain) = yang dikembalikan, positif; rounding bertanda sama seperti di penjualannya. payments.amount = total yang dikembalikan. lines kosong = void penuh. trx_date wajib &quot;yyyy-mm-dd hh:mm:ss&quot; wib.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2830,7 +2835,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">void transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order.</span>
+              <span class="detail-description">Void sebagian, semua angka dari MPOS (Odoo tidak menghitung): lines[].qty/discount/tax_amount untuk qty yang di-void; service_charge (dan fee lain) = yang dikembalikan, positif; rounding bertanda sama seperti di penjualannya. payments.amount = total yang dikembalikan. lines kosong = void penuh. trx_date WAJIB &quot;YYYY-MM-DD HH:MM:SS&quot; WIB.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2851,16 +2856,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;reff_sys&quot;: &quot;REF-00002&quot;,
   &quot;trx_date&quot;: &quot;2026-09-22 14:30:00&quot;,
   &quot;lines&quot;: [
-    {
-      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
-      &quot;qty&quot;: 1
-    }
+    { &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1, &quot;discount&quot;: 1250, &quot;tax_amount&quot;: 2408 }
   ],
+  &quot;service_charge&quot;: 2800,
+  &quot;rounding&quot;: 42,
   &quot;payments&quot;: [
-    {
-      &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
-      &quot;amount&quot;: 15000
-    }
+    { &quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;amount&quot;: 32000 }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
@@ -4191,7 +4192,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-110">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">TAX</span>
-        <span class="section-count">4 endpoint</span>
+        <span class="section-count">5 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -4199,7 +4200,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="838" data-search="tax - bulk (upsert) {{odoohost}}/api/inventory/tax/bulk upsert. odoo_account_id opsional: id akun coa (dari coa - get) buat akun pajak; id beda per company, contoh 9583 = vat sales di company 001. kode: 00 ok; 55 ada item tidak valid; 56 percent bukan 0-100; 57 mpos_tax_id dobel; 58 odoo_account_id tidak ada/deprecated; 59 gagal menulis; 68 nama pajak sudah dipakai.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/bulk">{{odoohost}}/api/inventory/tax/bulk</span>
               <span class="endpoint-name">Tax - Bulk (upsert)</span>
@@ -4519,6 +4520,43 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                   </div>
                 </div>
               </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="852" data-search="tax - update {{odoohost}}/api/inventory/tax/update update pajak yang sudah ada. hanya mpos_tax_id wajib; field yang tidak dikirim tetap. bisa name, percent, is_include, active, odoo_account_id. pajak belum ada: 55 (errors[].rspcode 79), buat lewat tax - bulk.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/update">{{odoohost}}/api/inventory/tax/update</span>
+              <span class="endpoint-name">Tax - Update</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Update pajak yang sudah ada. Hanya mpos_tax_id wajib; field yang tidak dikirim tetap. Bisa name, percent, is_include, active, odoo_account_id. Pajak belum ada: 55 (errors[].rspcode 79), buat lewat Tax - Bulk.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_tax_id&quot;: &quot;TEST-TAX-1&quot;,
+  &quot;percent&quot;: 11
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
             
           </div>
         </div>
@@ -5789,9 +5827,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>06 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>07 Oct 2026 01:07</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>05 Okt 2026  12:56</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>06 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
