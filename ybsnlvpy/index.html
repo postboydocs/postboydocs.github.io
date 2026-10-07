@@ -599,7 +599,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>REGISTER</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -867,7 +867,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>COA</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -990,7 +990,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;679&quot;,
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;categories&quot;: [
     { &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;name&quot;: &quot;Makanan&quot; },
     { &quot;mpos_category_id&quot;: &quot;cat-003&quot;, &quot;name&quot;: &quot;Minuman&quot; }
@@ -1044,7 +1044,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;679&quot;,
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;categories&quot;: [
     { &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Minuman Dingin&quot; }
   ]
@@ -1096,7 +1096,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;679&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_category_id&quot;: &quot;cat-002&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -2613,7 +2613,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="790" data-search="register - settle (erpmpos 001, dev-003) {{odoohost}}/api/inventory/register/settle settle register (test erpmpos 001, dev-003)">
+        <div class="endpoint-card m-POST" data-id="790" data-search="register - settle (erpmpos 001, dev-003) {{odoohost}}/api/inventory/register/settle settle register (test erpmpos 001, dev-003) -- no_sett wajib (jadi akhiran label jurnal: &#39;... - no. sett : 21-0082&#39;). total_bill wajib = jumlah bill penjualan sesi; beda dengan odoo -&gt; ditolak (rspcode 69).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2627,7 +2627,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">settle register (test erpmpos 001, dev-003)</span>
+              <span class="detail-description">settle register (test erpmpos 001, dev-003) -- no_sett wajib (jadi akhiran label jurnal: &#39;... - No. Sett : 21-0082&#39;). total_bill wajib = jumlah bill penjualan sesi; beda dengan Odoo -&gt; ditolak (rspcode 69).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2640,7 +2640,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;cash_amount&quot;: 17200}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;cash_amount&quot;: 17200, &quot;no_sett&quot;: &quot;21-0082&quot;, &quot;total_bill&quot;: 1}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -2664,7 +2664,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="844" data-search="cash in/out {{odoohost}}/api/inventory/cash/in_out odoo_account_id opsional: id akun coa (dari coa - get) buat sisi lawan jurnal; kosong = suspense. ganti 812 dengan id asli. kode: 00 ok; 37 akun tidak ada di coa; 38 akun deprecated; 39 akun = akun cash; 51 device tidak ditemukan; 75 type bukan in/out; 76 amount bukan &gt; 0; 77 shop tanpa metode bayar cash; 78 gagal menulis; 80 sesi belum dibuka; 89 format trx_date salah.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/cash/in_out">{{odoohost}}/api/inventory/cash/in_out</span>
               <span class="endpoint-name">Cash In/Out</span>
@@ -2689,7 +2689,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;001&quot;,
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_cash_id&quot;: &quot;KAS-000123&quot;,
   &quot;type&quot;: &quot;out&quot;,
@@ -2975,13 +2975,32 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;mpos_order_id&quot;: &quot;trx-billdisc-002&quot;,
   &quot;reff_sys&quot;: &quot;REF-BILLDISC-002&quot;,
   &quot;lines&quot;: [
-    { &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 2, &quot;price_unit&quot;: 28000, &quot;discount&quot;: 2500, &quot;mpos_tax_id&quot;: &quot;AMT-TAX-10&quot;, &quot;tax_amount&quot;: 4815 },
-    { &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;, &quot;qty&quot;: 1, &quot;price_unit&quot;: 10000, &quot;discount&quot;: 0, &quot;mpos_tax_id&quot;: &quot;AMT-TAX-10&quot;, &quot;tax_amount&quot;: 900 }
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
+      &quot;qty&quot;: 2,
+      &quot;price_unit&quot;: 28000,
+      &quot;discount&quot;: 2500,
+      &quot;mpos_tax_id&quot;: &quot;AMT-TAX-10&quot;,
+      &quot;tax_amount&quot;: 4815
+    },
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
+      &quot;qty&quot;: 1,
+      &quot;price_unit&quot;: 10000,
+      &quot;discount&quot;: 0,
+      &quot;mpos_tax_id&quot;: &quot;AMT-TAX-10&quot;,
+      &quot;tax_amount&quot;: 900
+    }
   ],
   &quot;bill_discount&quot;: 6350,
   &quot;service_charge&quot;: 5715,
+  &quot;rounding&quot;: 1,
+&quot;delivery_fee&quot;:7000,
   &quot;payments&quot;: [
-    { &quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;amount&quot;: 68580 }
+    {
+      &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
+      &quot;amount&quot;: 68580
+    }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
@@ -4295,7 +4314,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="846" data-search="tax - get (list) {{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyid}} get list semua pajak sales company root, yang ke-map ke mpos saja, termasuk yang di-archive. kode: 00 ok; 79 pajak tidak ditemukan atau belum ke-map ke mpos (mode 1 pajak).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}</span>
               <span class="endpoint-name">Tax - Get (list)</span>
@@ -4407,7 +4426,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="847" data-search="tax - get (single by mpos_tax_id) {{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyid}}&amp;mpos_tax_id=tax_10%25 get 1 pajak by mpos_tax_id. nggak ketemu: rspcode 79. kode: 00 ok; 79 pajak tidak ditemukan atau belum ke-map ke mpos (mode 1 pajak).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;mpos_tax_id=tax_10%25">{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;mpos_tax_id=tax_10%25</span>
               <span class="endpoint-name">Tax - Get (single by mpos_tax_id)</span>
@@ -4467,7 +4486,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="848" data-search="tax - get (single by odoo_tax_id) {{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyid}}&amp;odoo_tax_id=738 get 1 pajak by odoo_tax_id. kalau mpos_tax_id juga dikirim, mpos_tax_id yang dipakai. kode: 00 ok; 79 pajak tidak ditemukan atau belum ke-map ke mpos (mode 1 pajak).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;odoo_tax_id=738">{{odoohost}}/api/inventory/tax/get?mpos_company_id={{companyId}}&amp;odoo_tax_id=738</span>
               <span class="endpoint-name">Tax - Get (single by odoo_tax_id)</span>
@@ -4576,7 +4595,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="842" data-search="coa - get (list) {{odoohost}}/api/inventory/coa?mpos_company_id={{companyid}} get list akun coa company root (branch pakai coa root-nya). param opsional: q (kode/nama), account_type, lang (mis. id_id). akun deprecated disembunyikan. kode: 00 ok; 41 account_type tidak valid.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}</span>
               <span class="endpoint-name">COA - Get (list)</span>
@@ -5324,7 +5343,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="843" data-search="coa - get (filter expense) {{odoohost}}/api/inventory/coa?mpos_company_id={{companyid}}&amp;account_type=expense&amp;q=salary filter q dan account_type; odoo_account_id dari sini dipakai di cash in/out. q dicari di nama inggris. kode: 00 ok; 41 account_type tidak valid.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}&amp;account_type=expense&amp;q=salary">{{odoohost}}/api/inventory/coa?mpos_company_id={{companyId}}&amp;account_type=expense&amp;q=salary</span>
               <span class="endpoint-name">COA - Get (filter expense)</span>
@@ -5827,9 +5846,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>07 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>08 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>07 Okt 2026  01:07</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>07 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
