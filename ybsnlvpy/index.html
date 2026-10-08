@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">76 endpoints</span>
+  <span class="docs-header-badge">77 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -867,7 +867,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>COA</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -879,6 +879,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="843">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">COA - Get (filter expense)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="853">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">COA - Get Tablet (Show in MPOS)</span>
           </div>
         
         
@@ -4587,7 +4592,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-111">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">COA</span>
-        <span class="section-count">2 endpoint</span>
+        <span class="section-count">3 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -5398,6 +5403,36 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
+        <div class="endpoint-card m-GET" data-id="853" data-search="coa - get tablet (show in mpos) {{odoohost}}/api/inventory/coa/tablet?mpos_company_id={{companyid}} get akun coa yang ditampilkan di tablet: hanya akun yang dicentang &#39;show in mpos&#39; (accounting &gt; configuration &gt; chart of accounts). company root atau branch sama-sama memakai coa root-nya. param opsional: lang (mis. id_id). akun deprecated disembunyikan. belum ada yang dicentang = 00 dengan daftar kosong. odoo_account_id dari sini dipakai di cash in/out. kode: 00 ok; 13 signature salah; 20 mpos_company_id tidak dikenal.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/coa/tablet?mpos_company_id={{companyId}}">{{odoohost}}/api/inventory/coa/tablet?mpos_company_id={{companyId}}</span>
+              <span class="endpoint-name">COA - Get Tablet (Show in MPOS)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Get akun COA yang ditampilkan di tablet: hanya akun yang dicentang &#39;Show in MPOS&#39; (Accounting &gt; Configuration &gt; Chart of Accounts). Company root atau branch sama-sama memakai COA root-nya. Param opsional: lang (mis. id_ID). Akun deprecated disembunyikan. Belum ada yang dicentang = 00 dengan daftar kosong. odoo_account_id dari sini dipakai di Cash In/Out. Kode: 00 OK; 13 signature salah; 20 mpos_company_id tidak dikenal.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+          </div>
+        </div>
+      
 
       <!-- Subfolders -->
       
@@ -5846,9 +5881,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>08 Oct 2026 10:24</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>09 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>08 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>08 Okt 2026  10:25</span>
       </span>
     </div>
   </main>
