@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">77 endpoints</span>
+  <span class="docs-header-badge">79 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -486,7 +486,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>MENU</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -518,6 +518,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="801">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Menu - Get (list, by mpos_branch_id)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="858">
+            <span class="sb-method sb-m-DELETE">DELETE</span>
+            <span class="sb-ep-name">Menu - Hard Delete</span>
           </div>
         
         
@@ -893,7 +898,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>BUNDLE</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -940,6 +945,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="835">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Bundle - Get (single)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="859">
+            <span class="sb-method sb-m-DELETE">DELETE</span>
+            <span class="sb-ep-name">Menu - Hard Delete (Bundle)</span>
           </div>
         
         
@@ -1678,7 +1688,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-89">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">MENU</span>
-        <span class="section-count">6 endpoint</span>
+        <span class="section-count">7 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -1818,7 +1828,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="741" data-search="menu - delete {{odoohost}}/api/inventory/menu/delete delete menu">
+        <div class="endpoint-card m-DELETE" data-id="741" data-search="menu - delete {{odoohost}}/api/inventory/menu/delete archive menu (active=false), bisa dibalikin lewat update active:true. mpos_product_id wajib di level atas (rspcode 21 kalau kosong, array menus tidak didukung).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -1832,7 +1842,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">delete menu</span>
+              <span class="detail-description">Archive menu (active=False), bisa dibalikin lewat Update active:true. mpos_product_id wajib di level atas (rspcode 21 kalau kosong, array menus tidak didukung).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2019,6 +2029,39 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                   </div>
                 </div>
               </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-DELETE" data-id="858" data-search="menu - hard delete {{odoohost}}/api/inventory/menu/hard_delete hapus fisik, untuk menu yang belum pernah dipakai. ditolak 32 kalau masih ada resep (bom); menu yang sudah punya riwayat ditolak odoo, pakai delete (archive).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">DELETE</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/hard_delete">{{odoohost}}/api/inventory/menu/hard_delete</span>
+              <span class="endpoint-name">Menu - Hard Delete</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Hapus fisik, untuk menu yang belum pernah dipakai. Ditolak 32 kalau masih ada resep (BOM); menu yang sudah punya riwayat ditolak Odoo, pakai Delete (archive).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;menu-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
             
           </div>
         </div>
@@ -4548,7 +4591,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="852" data-search="tax - update {{odoohost}}/api/inventory/tax/update update pajak yang sudah ada. hanya mpos_tax_id wajib; field yang tidak dikirim tetap. bisa name, percent, is_include, active, odoo_account_id. pajak belum ada: 55 (errors[].rspcode 79), buat lewat tax - bulk.">
+        <div class="endpoint-card m-PUT" data-id="852" data-search="tax - update {{odoohost}}/api/inventory/tax/update update pajak yang sudah ada, bisa banyak sekaligus lewat taxes (all or nothing). hanya mpos_tax_id wajib; name, percent, is_include, active, odoo_account_id opsional, yang tidak dikirim tetap. pajak belum ada: 55 (errors[].rspcode 79), buat lewat tax - bulk. nama sudah dipakai: 68.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             <span class="new-badge">NEW</span>
@@ -4562,7 +4605,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Update pajak yang sudah ada. Hanya mpos_tax_id wajib; field yang tidak dikirim tetap. Bisa name, percent, is_include, active, odoo_account_id. Pajak belum ada: 55 (errors[].rspcode 79), buat lewat Tax - Bulk.</span>
+              <span class="detail-description">Update pajak yang sudah ada, bisa banyak sekaligus lewat taxes (all or nothing). Hanya mpos_tax_id wajib; name, percent, is_include, active, odoo_account_id opsional, yang tidak dikirim tetap. Pajak belum ada: 55 (errors[].rspcode 79), buat lewat Tax - Bulk. Nama sudah dipakai: 68.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -4577,8 +4620,20 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;mpos_tax_id&quot;: &quot;TEST-TAX-1&quot;,
-  &quot;percent&quot;: 11
+  &quot;taxes&quot;: [
+    {
+      &quot;mpos_tax_id&quot;: &quot;TEST-TAX-1&quot;,
+      &quot;name&quot;: &quot;Test PPN 11%&quot;,
+      &quot;percent&quot;: 11,
+      &quot;is_include&quot;: true,
+      &quot;odoo_account_id&quot;: 9583,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_tax_id&quot;: &quot;TEST-TAX-2&quot;,
+      &quot;percent&quot;: 11
+    }
+  ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
@@ -5440,7 +5495,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-99">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">BUNDLE</span>
-        <span class="section-count">9 endpoint</span>
+        <span class="section-count">10 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -5737,7 +5792,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-DELETE" data-id="805" data-search="menu - delete (bundle) {{odoohost}}/api/inventory/menu/delete delete bundle menu">
+        <div class="endpoint-card m-DELETE" data-id="805" data-search="menu - delete (bundle) {{odoohost}}/api/inventory/menu/delete archive bundle (active=false). mpos_product_id wajib di level atas (rspcode 21 kalau kosong).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
             
@@ -5751,7 +5806,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">delete bundle menu</span>
+              <span class="detail-description">Archive bundle (active=False). mpos_product_id wajib di level atas (rspcode 21 kalau kosong).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -5875,15 +5930,48 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
+        <div class="endpoint-card m-DELETE" data-id="859" data-search="menu - hard delete (bundle) {{odoohost}}/api/inventory/menu/hard_delete hapus fisik bundle yang belum pernah dipakai. ditolak 99 kalau komponen masih ada.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">DELETE</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/menu/hard_delete">{{odoohost}}/api/inventory/menu/hard_delete</span>
+              <span class="endpoint-name">Menu - Hard Delete (Bundle)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Hapus fisik bundle yang belum pernah dipakai. Ditolak 99 kalau komponen masih ada.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_product_id&quot;: &quot;bundle-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
 
       <!-- Subfolders -->
       
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>12 Oct 2026 09:34</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>13 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>12 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>12 Okt 2026  09:34</span>
       </span>
     </div>
   </main>
