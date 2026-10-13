@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">79 endpoints</span>
+  <span class="docs-header-badge">78 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -642,11 +642,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="766">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">Transaction - Void</span>
-          </div>
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="807">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">Transaction - Sync (PROPOSAL: modifier linked to menu)</span>
           </div>
         
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="850">
@@ -977,7 +972,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create create category -- bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). all-or-nothing per batch.">
+        <div class="endpoint-card m-POST" data-id="733" data-search="category - create {{odoohost}}/api/inventory/category/create create category -- bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). all-or-nothing per batch. subcategory: isi parent_mpos_category_id dengan mpos_category_id induknya. induk boleh dikirim di call yang sama asal ditulis lebih dulu di array. maksimal 2 tingkat: induk harus kategori paling atas (induk yang sudah punya induk ditolak, code 27).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -991,7 +986,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create category -- bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). All-or-nothing per batch.</span>
+              <span class="detail-description">create category -- bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). All-or-nothing per batch. Subcategory: isi parent_mpos_category_id dengan mpos_category_id induknya. Induk boleh dikirim di call yang sama asal ditulis lebih dulu di array. Maksimal 2 tingkat: induk harus kategori paling atas (induk yang sudah punya induk ditolak, code 27).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1007,8 +1002,19 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;categories&quot;: [
-    { &quot;mpos_category_id&quot;: &quot;cat-002&quot;, &quot;name&quot;: &quot;Makanan&quot; },
-    { &quot;mpos_category_id&quot;: &quot;cat-003&quot;, &quot;name&quot;: &quot;Minuman&quot; }
+    {
+      &quot;mpos_category_id&quot;: &quot;cat-002&quot;,
+      &quot;name&quot;: &quot;Makanan&quot;
+    },
+    {
+      &quot;mpos_category_id&quot;: &quot;cat-003&quot;,
+      &quot;name&quot;: &quot;Minuman&quot;
+    },
+    {
+      &quot;mpos_category_id&quot;: &quot;cat-004&quot;,
+      &quot;name&quot;: &quot;Kopi&quot;,
+      &quot;parent_mpos_category_id&quot;: &quot;cat-003&quot;
+    }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
@@ -1031,7 +1037,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update update category -- upsert, bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja.">
+        <div class="endpoint-card m-PUT" data-id="734" data-search="category - update {{odoohost}}/api/inventory/category/update update category -- upsert, bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja. parent_mpos_category_id memindahkan kategori ke induk baru. maksimal 2 tingkat: induk harus kategori paling atas (code 27), dan kategori yang sudah punya subcategory tidak bisa diberi induk (code 26).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1045,7 +1051,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update category -- upsert, bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). Item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja.</span>
+              <span class="detail-description">update category -- upsert, bulk via top-level &quot;categories&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). Item yang belum ada di-create, yang sudah ada di-update field yang dikirim aja. parent_mpos_category_id memindahkan kategori ke induk baru. Maksimal 2 tingkat: induk harus kategori paling atas (code 27), dan kategori yang sudah punya subcategory tidak bisa diberi induk (code 26).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1061,7 +1067,15 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
   &quot;categories&quot;: [
-    { &quot;mpos_category_id&quot;: &quot;cat-001&quot;, &quot;name&quot;: &quot;Minuman Dingin&quot; }
+    {
+      &quot;mpos_category_id&quot;: &quot;cat-001&quot;,
+      &quot;name&quot;: &quot;Minuman Dingin&quot;
+    },
+    {
+      &quot;mpos_category_id&quot;: &quot;cat-004&quot;,
+      &quot;name&quot;: &quot;Kopi Susu&quot;,
+      &quot;parent_mpos_category_id&quot;: &quot;cat-003&quot;
+    }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
@@ -2788,7 +2802,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-95">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">TRANSACTION</span>
-        <span class="section-count">4 endpoint</span>
+        <span class="section-count">3 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -2928,66 +2942,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                   </div>
                 </div>
               </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="807" data-search="transaction - sync (proposal: modifier linked to menu) {{odoohost}}/api/inventory/transaction/sync sync transaction (proposal: modifier linked to menu). trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order.">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/sync">{{odoohost}}/api/inventory/transaction/sync</span>
-              <span class="endpoint-name">Transaction - Sync (PROPOSAL: modifier linked to menu)</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">sync transaction (PROPOSAL: modifier linked to menu). trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order.</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              
-              
-              
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;417&quot;,
-  &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
-  &quot;mpos_order_id&quot;: &quot;trx-00125&quot;,
-  &quot;reff_sys&quot;: &quot;REF-00002&quot;,
-  &quot;trx_date&quot;: &quot;2026-09-22 14:30:00&quot;,
-  &quot;lines&quot;: [
-    {
-      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
-      &quot;qty&quot;: 2,
-      &quot;price_unit&quot;: 28000,
-      &quot;discount&quot;: 0
-    },
-    {
-      &quot;mpos_product_id&quot;: &quot;modifier-test-001&quot;,
-      &quot;qty&quot;: 2,
-      &quot;price_unit&quot;: 5000,
-      &quot;discount&quot;: 0,
-      &quot;mpos_parent_product_modifier_id&quot;: &quot;test-menu-001&quot;
-    }
-  ],
-  &quot;payments&quot;: [
-    {
-      &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
-      &quot;amount&quot;: 66000
-    }
-  ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
             
           </div>
         </div>
@@ -5969,9 +5923,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>13 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>13 Oct 2026 17:02</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>12 Okt 2026  09:34</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>13 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
