@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">78 endpoints</span>
+  <span class="docs-header-badge">87 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -597,6 +597,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <span class="sb-ep-name">Shop - Get (list)</span>
           </div>
         
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="865">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Shop - Create (Andy Shop, cek Pos Credit Limit otomatis)</span>
+          </div>
+        
         
       </div>
     
@@ -647,6 +652,21 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="850">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">Transaction - Sync (tax_amount, diskon item + bill_discount)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="866">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Transaction - Sync (bon / MOP Pending, dengan member)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="867">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Transaction - Settle Pending (pelunasan bon)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="871">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Transaction - Settle Pending (kirim ulang, already_settled)</span>
           </div>
         
         
@@ -884,6 +904,42 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="853">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">COA - Get Tablet (Show in MPOS)</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-112">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>MEMBER</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="860">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Member - Create</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="861">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Member - Update</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="862">
+            <span class="sb-method sb-m-DELETE">DELETE</span>
+            <span class="sb-ep-name">Member - Delete</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="863">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Member - Get (single)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="864">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Member - Get (list)</span>
           </div>
         
         
@@ -2355,12 +2411,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-91">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">SHOP</span>
-        <span class="section-count">5 endpoint</span>
+        <span class="section-count">6 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="748" data-search="shop - create {{odoohost}}/api/inventory/shop/create create shop -- bulk via top-level &quot;shops&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). all-or-nothing per batch; kalau ada yang gagal, rspdesc diawali index item-nya, mis. &quot;shops[1]: ...&quot;.">
+        <div class="endpoint-card m-POST" data-id="748" data-search="shop - create {{odoohost}}/api/inventory/shop/create create shop -- bulk via top-level &quot;shops&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). all-or-nothing per batch; kalau ada yang gagal, rspdesc diawali index item-nya, mis. &quot;shops[1]: ...&quot;. pos credit limit otomatis dicentang dengan default limit 25.000.000 (system parameter dretail_mpos_inventory_api.default_credit_limit) untuk cabang yang belum menyalakannya (cabang yang sudah menyala dibiarkan). semua mop yang berlaku untuk cabang (milik cabang, induk, dan yang diizinkan, termasuk tunai kecuali bayar-nanti) otomatis menempel di shop baru; daftar ada di respons payment_methods. produk gratuity (tip product), commercial fee, dan delivery fee otomatis terpasang di shop (dicari lewat mpos_product_id/nama di perusahaan induk, dibuat kalau belum ada).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2374,7 +2430,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create shop -- bulk via top-level &quot;shops&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). All-or-nothing per batch; kalau ada yang gagal, rspdesc diawali index item-nya, mis. &quot;shops[1]: ...&quot;.</span>
+              <span class="detail-description">create shop -- bulk via top-level &quot;shops&quot; array (isi 1 item = sama kayak payload flat lama, masih didukung). All-or-nothing per batch; kalau ada yang gagal, rspdesc diawali index item-nya, mis. &quot;shops[1]: ...&quot;. Pos Credit Limit otomatis dicentang dengan Default Limit 25.000.000 (System Parameter dretail_mpos_inventory_api.default_credit_limit) untuk cabang yang belum menyalakannya (cabang yang sudah menyala dibiarkan). Semua MOP yang berlaku untuk cabang (milik cabang, induk, dan yang diizinkan, termasuk tunai kecuali bayar-nanti) otomatis menempel di Shop baru; daftar ada di respons payment_methods. Produk Gratuity (Tip Product), Commercial Fee, dan Delivery Fee otomatis terpasang di Shop (dicari lewat mpos_product_id/nama di perusahaan induk, dibuat kalau belum ada).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2615,6 +2671,49 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
+        <div class="endpoint-card m-POST" data-id="865" data-search="shop - create (andy shop, cek pos credit limit otomatis) {{odoohost}}/api/inventory/shop/create uji task 302: shop baru di cabang andy soekarno hatta otomatis mencentang pos credit limit dengan default limit 25.000.000 (system parameter dretail_mpos_inventory_api.default_credit_limit). cabang yang sudah menyala dibiarkan. company andy-shop-001, gudang andyshop-br01. semua mop yang berlaku untuk cabang (milik cabang, induk, dan yang diizinkan, termasuk tunai kecuali bayar-nanti) otomatis menempel di shop baru; daftar ada di respons payment_methods. produk gratuity (tip product), commercial fee, dan delivery fee otomatis terpasang di shop (dicari lewat mpos_product_id/nama di perusahaan induk, dibuat kalau belum ada).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/shop/create">{{odoohost}}/api/inventory/shop/create</span>
+              <span class="endpoint-name">Shop - Create (Andy Shop, cek Pos Credit Limit otomatis)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Uji task 302: Shop baru di cabang Andy Soekarno Hatta otomatis mencentang Pos Credit Limit dengan Default Limit 25.000.000 (System Parameter dretail_mpos_inventory_api.default_credit_limit). Cabang yang sudah menyala dibiarkan. Company ANDY-SHOP-001, gudang andyshop-br01. Semua MOP yang berlaku untuk cabang (milik cabang, induk, dan yang diizinkan, termasuk tunai kecuali bayar-nanti) otomatis menempel di Shop baru; daftar ada di respons payment_methods. Produk Gratuity (Tip Product), Commercial Fee, dan Delivery Fee otomatis terpasang di Shop (dicari lewat mpos_product_id/nama di perusahaan induk, dibuat kalau belum ada).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;ANDY-SHOP-001&quot;,
+  &quot;shops&quot;: [
+    {
+      &quot;mpos_device_id&quot;: &quot;andyshop-001&quot;,
+      &quot;name&quot;: &quot;Kasir Andy 1&quot;,
+      &quot;active&quot;: true,
+      &quot;wh_mpos_branch_id&quot;: &quot;andyshop-br01&quot;
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
 
       <!-- Subfolders -->
       
@@ -2802,12 +2901,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-95">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">TRANSACTION</span>
-        <span class="section-count">3 endpoint</span>
+        <span class="section-count">6 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order.">
+        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order. payments[].name opsional: nama mop dari mpos; kalau beda dengan nama di odoo, nama mop diperbarui setelah order berhasil (nama bentrok dengan mop lain = transaksi tetap masuk, respons membawa payment_name_warnings).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2821,7 +2920,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">sync transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order.</span>
+              <span class="detail-description">sync transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order. payments[].name opsional: nama MOP dari MPOS; kalau beda dengan nama di Odoo, nama MOP diperbarui setelah order berhasil (nama bentrok dengan MOP lain = transaksi tetap masuk, respons membawa payment_name_warnings).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2851,6 +2950,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;payments&quot;: [
     {
       &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
+      &quot;name&quot;: &quot;Cash&quot;,
       &quot;amount&quot;: 64650
     }
   ],
@@ -2883,7 +2983,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void void sebagian, semua angka dari mpos (odoo tidak menghitung): lines[].qty/discount/tax_amount untuk qty yang di-void; service_charge (dan fee lain) = yang dikembalikan, positif; rounding bertanda sama seperti di penjualannya. payments.amount = total yang dikembalikan. lines kosong = void penuh. trx_date wajib &quot;yyyy-mm-dd hh:mm:ss&quot; wib.">
+        <div class="endpoint-card m-POST" data-id="766" data-search="transaction - void {{odoohost}}/api/inventory/transaction/void void sebagian, semua angka dari mpos (odoo tidak menghitung): lines[].qty/discount/tax_amount untuk qty yang di-void; service_charge (dan fee lain) = yang dikembalikan, positif; rounding bertanda sama seperti di penjualannya. payments.amount = total yang dikembalikan. lines kosong = void penuh. trx_date wajib &quot;yyyy-mm-dd hh:mm:ss&quot; wib. payments[].name opsional: nama mop dari mpos; kalau beda dengan nama di odoo, nama mop diperbarui setelah order berhasil (nama bentrok dengan mop lain = transaksi tetap masuk, respons membawa payment_name_warnings).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2897,7 +2997,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Void sebagian, semua angka dari MPOS (Odoo tidak menghitung): lines[].qty/discount/tax_amount untuk qty yang di-void; service_charge (dan fee lain) = yang dikembalikan, positif; rounding bertanda sama seperti di penjualannya. payments.amount = total yang dikembalikan. lines kosong = void penuh. trx_date WAJIB &quot;YYYY-MM-DD HH:MM:SS&quot; WIB.</span>
+              <span class="detail-description">Void sebagian, semua angka dari MPOS (Odoo tidak menghitung): lines[].qty/discount/tax_amount untuk qty yang di-void; service_charge (dan fee lain) = yang dikembalikan, positif; rounding bertanda sama seperti di penjualannya. payments.amount = total yang dikembalikan. lines kosong = void penuh. trx_date WAJIB &quot;YYYY-MM-DD HH:MM:SS&quot; WIB. payments[].name opsional: nama MOP dari MPOS; kalau beda dengan nama di Odoo, nama MOP diperbarui setelah order berhasil (nama bentrok dengan MOP lain = transaksi tetap masuk, respons membawa payment_name_warnings).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2923,7 +3023,8 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;service_charge&quot;: 2800,
   &quot;rounding&quot;: 42,
   &quot;payments&quot;: [
-    { &quot;mpos_payment_method_id&quot;: &quot;cash&quot;, &quot;amount&quot;: 32000 }
+    { &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
+ &quot;name&quot;: &quot;Cash&quot;, &quot;amount&quot;: 32000 }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
@@ -2946,7 +3047,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="850" data-search="transaction - sync (tax_amount, diskon item + bill_discount) {{odoohost}}/api/inventory/transaction/sync ">
+        <div class="endpoint-card m-POST" data-id="850" data-search="transaction - sync (tax_amount, diskon item + bill_discount) {{odoohost}}/api/inventory/transaction/sync payments[].name opsional: nama mop dari mpos; kalau beda dengan nama di odoo, nama mop diperbarui setelah order berhasil (nama bentrok dengan mop lain = transaksi tetap masuk, respons membawa payment_name_warnings).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2958,7 +3059,10 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             <i class="bi bi-chevron-right endpoint-chevron"></i>
           </div>
           <div class="endpoint-detail">
-            
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">payments[].name opsional: nama MOP dari MPOS; kalau beda dengan nama di Odoo, nama MOP diperbarui setelah order berhasil (nama bentrok dengan MOP lain = transaksi tetap masuk, respons membawa payment_name_warnings).</span>
+            </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
               
@@ -3001,6 +3105,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;payments&quot;: [
     {
       &quot;mpos_payment_method_id&quot;: &quot;cash&quot;,
+      &quot;name&quot;: &quot;Cash&quot;,
       &quot;amount&quot;: 68580
     }
   ]
@@ -3027,6 +3132,255 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;reff_sys&quot;: &quot;REF-BILLDISC-001&quot;,
   &quot;state&quot;: &quot;paid&quot;,
   &quot;amount_total&quot;: 62865
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="866" data-search="transaction - sync (bon / mop pending, dengan member) {{odoohost}}/api/inventory/transaction/sync penjualan bon: dibayar mop pending, wajib mpos_member_id (member dari member api). tanpa member ditolak 78, member tidak dikenal 101. order tersimpan atas nama member dan piutangnya dibukukan (jurnal piutang), lalu dilunasi lewat settle pending. field mpos: customer_id (= mpos_member_id) dan customer_name. customer free input: kirim hanya customer_name (tanpa customer_id), boleh untuk tunai, bon ditolak 78.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/sync">{{odoohost}}/api/inventory/transaction/sync</span>
+              <span class="endpoint-name">Transaction - Sync (bon / MOP Pending, dengan member)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Penjualan bon: dibayar MOP pending, wajib mpos_member_id (member dari Member API). Tanpa member ditolak 78, member tidak dikenal 101. Order tersimpan atas nama member dan piutangnya dibukukan (jurnal piutang), lalu dilunasi lewat Settle Pending. Field MPOS: customer_id (= mpos_member_id) dan customer_name. Customer Free Input: kirim hanya customer_name (tanpa customer_id), boleh untuk tunai, bon ditolak 78.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;pos_jkt_2&quot;,
+  &quot;mpos_order_id&quot;: &quot;trx-bon-101&quot;,
+  &quot;reff_sys&quot;: &quot;REF-trx-bon-101&quot;,
+  &quot;trx_date&quot;: &quot;2026-10-14 15:25:10&quot;,
+  &quot;lines&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
+      &quot;qty&quot;: 2,
+      &quot;price_unit&quot;: 5000.0,
+      &quot;discount&quot;: 0
+    }
+  ],
+  &quot;payments&quot;: [
+    {
+      &quot;mpos_payment_method_id&quot;: &quot;pending&quot;,
+      &quot;name&quot;: &quot;Pending&quot;,
+      &quot;amount&quot;: 10000
+    }
+  ],
+  &quot;customer_id&quot;: &quot;mem-201&quot;,
+  &quot;customer_name&quot;: &quot;Budi Santoso&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">930 ms</span>
+                    <span class="response-time">2026-10-14 15:26</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;odoo_order_id&quot;: 1145,
+  &quot;mpos_order_id&quot;: &quot;trx-bon-101&quot;,
+  &quot;reff_sys&quot;: &quot;REF-trx-bon-101&quot;,
+  &quot;state&quot;: &quot;paid&quot;,
+  &quot;amount_total&quot;: 10000.0,
+  &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+  &quot;customer_id&quot;: &quot;mem-201&quot;,
+  &quot;customer_name&quot;: &quot;Budi Santoso&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="867" data-search="transaction - settle pending (pelunasan bon) {{odoohost}}/api/inventory/transaction/settle_pending pelunasan bon (task 50): order bon yang dilunasi wajib disebut di mpos_order_ids; boleh bayar sebagian (odoo tidak memaksa lunas), lebih dari sisa piutang ditolak 96. mpos_settlement_id dikirim ulang = tidak bayar dua kali (already_settled). butuh sesi pos terbuka (register - open). urutan uji: transaction - sync (bon) -&gt; settle pending.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/settle_pending">{{odoohost}}/api/inventory/transaction/settle_pending</span>
+              <span class="endpoint-name">Transaction - Settle Pending (pelunasan bon)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Pelunasan bon (task 50): order bon yang dilunasi wajib disebut di mpos_order_ids; boleh bayar sebagian (Odoo tidak memaksa lunas), lebih dari sisa piutang ditolak 96. mpos_settlement_id dikirim ulang = tidak bayar dua kali (already_settled). Butuh sesi POS terbuka (Register - Open). Urutan uji: Transaction - Sync (bon) -&gt; Settle Pending.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;pos_jkt_2&quot;,
+  &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+  &quot;mpos_settlement_id&quot;: &quot;stl-101&quot;,
+  &quot;mpos_order_ids&quot;: [
+    &quot;trx-bon-101&quot;
+  ],
+  &quot;payments&quot;: [
+    {
+      &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;,
+      &quot;name&quot;: &quot;MOP-CASH-RENAME&quot;,
+      &quot;amount&quot;: 10000
+    }
+  ],
+  &quot;cashier_name&quot;: &quot;Budi&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">377 ms</span>
+                    <span class="response-time">2026-10-14 15:26</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+  &quot;odoo_payment_ids&quot;: [
+    162
+  ],
+  &quot;settled_amount&quot;: 10000.0,
+  &quot;orders&quot;: [
+    {
+      &quot;mpos_order_id&quot;: &quot;trx-bon-101&quot;,
+      &quot;outstanding_before&quot;: 10000.0,
+      &quot;outstanding_after&quot;: 0.0
+    }
+  ],
+  &quot;member_outstanding_total&quot;: 0.0
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="871" data-search="transaction - settle pending (kirim ulang, already_settled) {{odoohost}}/api/inventory/transaction/settle_pending mpos_settlement_id yang sama dikirim lagi: tidak membayar dua kali, hasil pertama dikembalikan dengan already_settled.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/transaction/settle_pending">{{odoohost}}/api/inventory/transaction/settle_pending</span>
+              <span class="endpoint-name">Transaction - Settle Pending (kirim ulang, already_settled)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">mpos_settlement_id yang sama dikirim lagi: tidak membayar dua kali, hasil pertama dikembalikan dengan already_settled.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;pos_jkt_2&quot;,
+  &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+  &quot;mpos_settlement_id&quot;: &quot;stl-101&quot;,
+  &quot;mpos_order_ids&quot;: [
+    &quot;trx-bon-101&quot;
+  ],
+  &quot;payments&quot;: [
+    {
+      &quot;mpos_payment_method_id&quot;: &quot;pm-001&quot;,
+      &quot;name&quot;: &quot;MOP-CASH-RENAME&quot;,
+      &quot;amount&quot;: 10000
+    }
+  ],
+  &quot;cashier_name&quot;: &quot;Budi&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">65 ms</span>
+                    <span class="response-time">2026-10-14 15:26</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+  &quot;odoo_payment_ids&quot;: [
+    162
+  ],
+  &quot;settled_amount&quot;: 10000.0,
+  &quot;orders&quot;: [
+    {
+      &quot;mpos_order_id&quot;: &quot;trx-bon-101&quot;,
+      &quot;outstanding_before&quot;: 0.0,
+      &quot;outstanding_after&quot;: 0.0
+    }
+  ],
+  &quot;member_outstanding_total&quot;: 0.0,
+  &quot;already_settled&quot;: true
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
                   </div>
                 </div>
@@ -4545,7 +4899,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="852" data-search="tax - update {{odoohost}}/api/inventory/tax/update update pajak yang sudah ada, bisa banyak sekaligus lewat taxes (all or nothing). hanya mpos_tax_id wajib; name, percent, is_include, active, odoo_account_id opsional, yang tidak dikirim tetap. pajak belum ada: 55 (errors[].rspcode 79), buat lewat tax - bulk. nama sudah dipakai: 68.">
+        <div class="endpoint-card m-PUT" data-id="852" data-search="tax - update {{odoohost}}/api/inventory/tax/update update pajak, bisa banyak sekaligus lewat taxes (all or nothing). pajak yang sudah ada: hanya mpos_tax_id wajib; name, percent, is_include, active, odoo_account_id opsional, yang tidak dikirim tetap. pajak belum ada: otomatis dibuat (insert), jadi name dan percent wajib; respons menandai created/updated. nama sudah dipakai: 68.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -4559,7 +4913,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Update pajak yang sudah ada, bisa banyak sekaligus lewat taxes (all or nothing). Hanya mpos_tax_id wajib; name, percent, is_include, active, odoo_account_id opsional, yang tidak dikirim tetap. Pajak belum ada: 55 (errors[].rspcode 79), buat lewat Tax - Bulk. Nama sudah dipakai: 68.</span>
+              <span class="detail-description">Update pajak, bisa banyak sekaligus lewat taxes (all or nothing). Pajak yang sudah ada: hanya mpos_tax_id wajib; name, percent, is_include, active, odoo_account_id opsional, yang tidak dikirim tetap. Pajak belum ada: otomatis dibuat (insert), jadi name dan percent wajib; respons menandai created/updated. Nama sudah dipakai: 68.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -5446,6 +5800,595 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <!-- Subfolders -->
       
     
+      <div class="section-header" id="folder-112">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">MEMBER</span>
+        <span class="section-count">5 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="860" data-search="member - create {{odoohost}}/api/inventory/member/create create member (pelanggan, bisa ngutang) -- bulk via top-level &quot;members&quot; array, isi 1 item = payload flat biasa. all-or-nothing per batch. wajib: mpos_member_id + name. gender p/w, tanggal yyyy-mm-dd. category/group dikirim sebagai nama (dibuat otomatis). credit_limit = batas hutang di pos, berlaku untuk semua cabang. mpos_member_id yang sudah ada (termasuk yang diarsipkan) ditolak, code 102.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/create">{{odoohost}}/api/inventory/member/create</span>
+              <span class="endpoint-name">Member - Create</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">create member (pelanggan, bisa ngutang) -- bulk via top-level &quot;members&quot; array, isi 1 item = payload flat biasa. All-or-nothing per batch. Wajib: mpos_member_id + name. gender P/W, tanggal YYYY-MM-DD. category/group dikirim sebagai nama (dibuat otomatis). credit_limit = batas hutang di POS, berlaku untuk semua cabang. mpos_member_id yang sudah ada (termasuk yang diarsipkan) ditolak, code 102.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;members&quot;: [
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+      &quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;phone&quot;: &quot;081234567890&quot;,
+      &quot;email&quot;: &quot;budi@example.com&quot;,
+      &quot;gender&quot;: &quot;P&quot;,
+      &quot;birthday&quot;: &quot;1990-05-17&quot;,
+      &quot;ktp&quot;: &quot;3171000000000001&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+      &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+      &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+      &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+      &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+      &quot;category&quot;: &quot;Gold&quot;,
+      &quot;group&quot;: &quot;Karyawan&quot;,
+      &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+      &quot;term_of_payment&quot;: 14,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 500000,
+&quot;active&quot;: true
+    },
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-202&quot;,
+      &quot;name&quot;: &quot;Siti Aminah&quot;,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+&quot;active&quot;: true
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">5982 ms</span>
+                    <span class="response-time">2026-10-14 06:04</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;members&quot;: [
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+      &quot;odoo_partner_id&quot;: 2326,
+      &quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;phone&quot;: &quot;081234567890&quot;,
+      &quot;email&quot;: &quot;budi@example.com&quot;,
+      &quot;gender&quot;: &quot;P&quot;,
+      &quot;birthday&quot;: &quot;1990-05-17&quot;,
+      &quot;ktp&quot;: &quot;3171000000000001&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+      &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+      &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+      &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+      &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+      &quot;category&quot;: &quot;Gold&quot;,
+      &quot;group&quot;: &quot;Karyawan&quot;,
+      &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+      &quot;term_of_payment&quot;: 14,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 500000.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 500000.0,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-202&quot;,
+      &quot;odoo_partner_id&quot;: 2327,
+      &quot;name&quot;: &quot;Siti Aminah&quot;,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;email&quot;: null,
+      &quot;gender&quot;: null,
+      &quot;birthday&quot;: null,
+      &quot;ktp&quot;: null,
+      &quot;address&quot;: null,
+      &quot;address2&quot;: null,
+      &quot;address3&quot;: null,
+      &quot;address4&quot;: null,
+      &quot;address5&quot;: null,
+      &quot;category&quot;: null,
+      &quot;group&quot;: null,
+      &quot;exp_date&quot;: null,
+      &quot;term_of_payment&quot;: 0,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 0.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 0.0,
+      &quot;active&quot;: true
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="861" data-search="member - update {{odoohost}}/api/inventory/member/update update member -- upsert, bulk via &quot;members&quot;. id yang belum ada dibuat (wajib name), yang sudah ada hanya field yang dikirim yang berubah. category/group null = dilepas. &quot;active&quot;: true mengaktifkan lagi member yang diarsipkan.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/update">{{odoohost}}/api/inventory/member/update</span>
+              <span class="endpoint-name">Member - Update</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">update member -- upsert, bulk via &quot;members&quot;. Id yang belum ada dibuat (wajib name), yang sudah ada hanya field yang dikirim yang berubah. category/group null = dilepas. &quot;active&quot;: true mengaktifkan lagi member yang diarsipkan.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;members&quot;: [
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+&quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;phone&quot;: &quot;081200000000&quot;,
+      &quot;credit_limit&quot;: 750000,
+      &quot;category&quot;: &quot;Platinum&quot;,
+&quot;active&quot;: true
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">411 ms</span>
+                    <span class="response-time">2026-10-14 06:04</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;members&quot;: [
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+      &quot;odoo_partner_id&quot;: 2326,
+      &quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;phone&quot;: &quot;081200000000&quot;,
+      &quot;email&quot;: &quot;budi@example.com&quot;,
+      &quot;gender&quot;: &quot;P&quot;,
+      &quot;birthday&quot;: &quot;1990-05-17&quot;,
+      &quot;ktp&quot;: &quot;3171000000000001&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+      &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+      &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+      &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+      &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+      &quot;category&quot;: &quot;Platinum&quot;,
+      &quot;group&quot;: &quot;Karyawan&quot;,
+      &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+      &quot;term_of_payment&quot;: 14,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 750000.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 750000.0,
+      &quot;active&quot;: true
+    }
+  ],
+  &quot;odoo_partner_id&quot;: 2326,
+  &quot;member&quot;: {
+    &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+    &quot;odoo_partner_id&quot;: 2326,
+    &quot;name&quot;: &quot;Budi Santoso&quot;,
+    &quot;phone&quot;: &quot;081200000000&quot;,
+    &quot;email&quot;: &quot;budi@example.com&quot;,
+    &quot;gender&quot;: &quot;P&quot;,
+    &quot;birthday&quot;: &quot;1990-05-17&quot;,
+    &quot;ktp&quot;: &quot;3171000000000001&quot;,
+    &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+    &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+    &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+    &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+    &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+    &quot;category&quot;: &quot;Platinum&quot;,
+    &quot;group&quot;: &quot;Karyawan&quot;,
+    &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+    &quot;term_of_payment&quot;: 14,
+    &quot;apply_as_mitra&quot;: false,
+    &quot;credit_limit&quot;: 750000.0,
+    &quot;total_credit&quot;: 0.0,
+    &quot;available_credit&quot;: 750000.0,
+    &quot;active&quot;: true
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-DELETE" data-id="862" data-search="member - delete {{odoohost}}/api/inventory/member/delete delete member = diarsipkan, bukan dihapus (kontak yang punya transaksi/hutang tidak boleh hilang). idempotent. banyak sekaligus: &quot;mpos_member_ids&quot;: [&quot;mem-201&quot;,&quot;mem-202&quot;].">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">DELETE</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/delete">{{odoohost}}/api/inventory/member/delete</span>
+              <span class="endpoint-name">Member - Delete</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">delete member = diarsipkan, bukan dihapus (kontak yang punya transaksi/hutang tidak boleh hilang). Idempotent. Banyak sekaligus: &quot;mpos_member_ids&quot;: [&quot;mem-201&quot;,&quot;mem-202&quot;].</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_member_id&quot;: &quot;mem-202&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">442 ms</span>
+                    <span class="response-time">2026-10-14 06:04</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="863" data-search="member - get (single) {{odoohost}}/api/inventory/member/get?mpos_company_id={{companyid}}&amp;mpos_member_id=mem-201 get satu member, termasuk credit_limit, total_credit (hutang berjalan) dan available_credit (sisa).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;mpos_member_id=mem-201">{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;mpos_member_id=mem-201</span>
+              <span class="endpoint-name">Member - Get (single)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">get satu member, termasuk credit_limit, total_credit (hutang berjalan) dan available_credit (sisa).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">6637 ms</span>
+                    <span class="response-time">2026-10-14 06:04</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;member&quot;: {
+    &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+    &quot;odoo_partner_id&quot;: 2326,
+    &quot;name&quot;: &quot;Budi Santoso&quot;,
+    &quot;phone&quot;: &quot;081200000000&quot;,
+    &quot;email&quot;: &quot;budi@example.com&quot;,
+    &quot;gender&quot;: &quot;P&quot;,
+    &quot;birthday&quot;: &quot;1990-05-17&quot;,
+    &quot;ktp&quot;: &quot;3171000000000001&quot;,
+    &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+    &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+    &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+    &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+    &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+    &quot;category&quot;: &quot;Platinum&quot;,
+    &quot;group&quot;: &quot;Karyawan&quot;,
+    &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+    &quot;term_of_payment&quot;: 14,
+    &quot;apply_as_mitra&quot;: false,
+    &quot;credit_limit&quot;: 750000.0,
+    &quot;total_credit&quot;: 0.0,
+    &quot;available_credit&quot;: 750000.0,
+    &quot;active&quot;: true
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="864" data-search="member - get (list) {{odoohost}}/api/inventory/member/get?mpos_company_id={{companyid}}&amp;limit=100&amp;offset=0 get daftar member (termasuk yang diarsipkan, active=false). limit default 500 maks 2000, offset untuk halaman berikutnya, total = jumlah semua.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0">{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0</span>
+              <span class="endpoint-name">Member - Get (list)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">get daftar member (termasuk yang diarsipkan, active=false). limit default 500 maks 2000, offset untuk halaman berikutnya, total = jumlah semua.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">181 ms</span>
+                    <span class="response-time">2026-10-14 06:04</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;total&quot;: 6,
+  &quot;members&quot;: [
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-001&quot;,
+      &quot;odoo_partner_id&quot;: 2322,
+      &quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;phone&quot;: &quot;081234567890&quot;,
+      &quot;email&quot;: &quot;budi@example.com&quot;,
+      &quot;gender&quot;: &quot;P&quot;,
+      &quot;birthday&quot;: &quot;1990-05-17&quot;,
+      &quot;ktp&quot;: &quot;3171000000000001&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+      &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+      &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+      &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+      &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+      &quot;category&quot;: &quot;Gold&quot;,
+      &quot;group&quot;: &quot;Karyawan&quot;,
+      &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+      &quot;term_of_payment&quot;: 14,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 500000.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 500000.0,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-002&quot;,
+      &quot;odoo_partner_id&quot;: 2323,
+      &quot;name&quot;: &quot;Siti Aminah&quot;,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;email&quot;: null,
+      &quot;gender&quot;: null,
+      &quot;birthday&quot;: null,
+      &quot;ktp&quot;: null,
+      &quot;address&quot;: null,
+      &quot;address2&quot;: null,
+      &quot;address3&quot;: null,
+      &quot;address4&quot;: null,
+      &quot;address5&quot;: null,
+      &quot;category&quot;: null,
+      &quot;group&quot;: null,
+      &quot;exp_date&quot;: null,
+      &quot;term_of_payment&quot;: 0,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 0.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 0.0,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-101&quot;,
+      &quot;odoo_partner_id&quot;: 2324,
+      &quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;phone&quot;: &quot;081234567890&quot;,
+      &quot;email&quot;: &quot;budi@example.com&quot;,
+      &quot;gender&quot;: &quot;P&quot;,
+      &quot;birthday&quot;: &quot;1990-05-17&quot;,
+      &quot;ktp&quot;: &quot;3171000000000001&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+      &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+      &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+      &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+      &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+      &quot;category&quot;: &quot;Gold&quot;,
+      &quot;group&quot;: &quot;Karyawan&quot;,
+      &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+      &quot;term_of_payment&quot;: 14,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 500000.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 500000.0,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-102&quot;,
+      &quot;odoo_partner_id&quot;: 2325,
+      &quot;name&quot;: &quot;Siti Aminah&quot;,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;email&quot;: null,
+      &quot;gender&quot;: null,
+      &quot;birthday&quot;: null,
+      &quot;ktp&quot;: null,
+      &quot;address&quot;: null,
+      &quot;address2&quot;: null,
+      &quot;address3&quot;: null,
+      &quot;address4&quot;: null,
+      &quot;address5&quot;: null,
+      &quot;category&quot;: null,
+      &quot;group&quot;: null,
+      &quot;exp_date&quot;: null,
+      &quot;term_of_payment&quot;: 0,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 0.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 0.0,
+      &quot;active&quot;: false
+    },
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-201&quot;,
+      &quot;odoo_partner_id&quot;: 2326,
+      &quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;phone&quot;: &quot;081200000000&quot;,
+      &quot;email&quot;: &quot;budi@example.com&quot;,
+      &quot;gender&quot;: &quot;P&quot;,
+      &quot;birthday&quot;: &quot;1990-05-17&quot;,
+      &quot;ktp&quot;: &quot;3171000000000001&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1&quot;,
+      &quot;address2&quot;: &quot;RT 01 RW 02&quot;,
+      &quot;address3&quot;: &quot;Kel. Menteng&quot;,
+      &quot;address4&quot;: &quot;Kec. Menteng&quot;,
+      &quot;address5&quot;: &quot;Jakarta Pusat&quot;,
+      &quot;category&quot;: &quot;Platinum&quot;,
+      &quot;group&quot;: &quot;Karyawan&quot;,
+      &quot;exp_date&quot;: &quot;2027-01-31&quot;,
+      &quot;term_of_payment&quot;: 14,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 750000.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 750000.0,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_member_id&quot;: &quot;mem-202&quot;,
+      &quot;odoo_partner_id&quot;: 2327,
+      &quot;name&quot;: &quot;Siti Aminah&quot;,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;email&quot;: null,
+      &quot;gender&quot;: null,
+      &quot;birthday&quot;: null,
+      &quot;ktp&quot;: null,
+      &quot;address&quot;: null,
+      &quot;address2&quot;: null,
+      &quot;address3&quot;: null,
+      &quot;address4&quot;: null,
+      &quot;address5&quot;: null,
+      &quot;category&quot;: null,
+      &quot;group&quot;: null,
+      &quot;exp_date&quot;: null,
+      &quot;term_of_payment&quot;: 0,
+      &quot;apply_as_mitra&quot;: false,
+      &quot;credit_limit&quot;: 0.0,
+      &quot;total_credit&quot;: 0.0,
+      &quot;available_credit&quot;: 0.0,
+      &quot;active&quot;: false
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
       <div class="section-header" id="folder-99">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">BUNDLE</span>
@@ -5923,9 +6866,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>14 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>15 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>13 Okt 2026  17:02</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>14 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
