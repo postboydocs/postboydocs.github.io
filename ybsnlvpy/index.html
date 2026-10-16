@@ -2906,7 +2906,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order. payments[].name opsional: nama mop dari mpos; kalau beda dengan nama di odoo, nama mop diperbarui setelah order berhasil (nama bentrok dengan mop lain = transaksi tetap masuk, respons membawa payment_name_warnings).">
+        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order. payments[].name opsional: nama mop dari mpos; kalau beda dengan nama di odoo, nama mop diperbarui setelah order berhasil (nama bentrok dengan mop lain = transaksi tetap masuk, respons membawa payment_name_warnings).
+
+lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf untuk item itu (jumlah per baris, seperti tax_amount) dan staf penerimanya. komisi = tanggungan resto, tidak menambah total tagihan/pembayaran pelanggan. item tanpa komisi: tidak usah kirim kedua field (atau commission 0).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -2920,7 +2922,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">sync transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order. payments[].name opsional: nama MOP dari MPOS; kalau beda dengan nama di Odoo, nama MOP diperbarui setelah order berhasil (nama bentrok dengan MOP lain = transaksi tetap masuk, respons membawa payment_name_warnings).</span>
+              <span class="detail-description">sync transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order. payments[].name opsional: nama MOP dari MPOS; kalau beda dengan nama di Odoo, nama MOP diperbarui setelah order berhasil (nama bentrok dengan MOP lain = transaksi tetap masuk, respons membawa payment_name_warnings).
+
+lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf untuk item itu (jumlah per baris, seperti tax_amount) dan staf penerimanya. Komisi = tanggungan resto, TIDAK menambah total tagihan/pembayaran pelanggan. Item tanpa komisi: tidak usah kirim kedua field (atau commission 0).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -2944,7 +2948,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
       &quot;qty&quot;: 2,
       &quot;price_unit&quot;: 28000,
-      &quot;discount&quot;: 0
+      &quot;discount&quot;: 0,
+      &quot;commission&quot;: 2500,
+      &quot;mpos_staff_id&quot;: &quot;STF-1001&quot;
     }
   ],
   &quot;payments&quot;: [
@@ -6866,9 +6872,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>16 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>17 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>15 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>16 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
