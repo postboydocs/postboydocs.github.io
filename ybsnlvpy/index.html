@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">87 endpoints</span>
+  <span class="docs-header-badge">93 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -940,6 +940,47 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="864">
             <span class="sb-method sb-m-GET">GET</span>
             <span class="sb-ep-name">Member - Get (list)</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-113">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>VENDOR</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="876">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Vendor - Create</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="877">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Vendor - Update</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="878">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Vendor - Get (single)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="879">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Vendor - Get (list)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="880">
+            <span class="sb-method sb-m-DELETE">DELETE</span>
+            <span class="sb-ep-name">Vendor - Delete</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="881">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Vendor - Get (list, setelah delete)</span>
           </div>
         
         
@@ -6395,6 +6436,547 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
       <!-- Subfolders -->
       
     
+      <div class="section-header" id="folder-113">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">VENDOR</span>
+        <span class="section-count">6 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="876" data-search="vendor - create {{odoohost}}/api/inventory/vendor/create create vendor (supplier mpos -&gt; kontak vendor odoo, milik root, terlihat semua cabang) -- bulk via top-level &quot;vendors&quot; array, isi 1 item = payload flat biasa. all-or-nothing per batch. wajib: mpos_vendor_id + name. mpos_vendor_id yang sudah ada diperbarui (upsert), yang diarsipkan diaktifkan lagi. top = hari (termin bayar). odoo_account_id = akun payable dari coa api (code 106 kalau bukan payable/tidak ada). bank_name/account_number/receiver_name = satu rekening bank; account_number wajib kalau vendor belum punya rekening. ppn dan standing_instruction hanya dibawa.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/create">{{odoohost}}/api/inventory/vendor/create</span>
+              <span class="endpoint-name">Vendor - Create</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">create vendor (Supplier MPOS -&gt; kontak vendor Odoo, milik root, terlihat semua cabang) -- bulk via top-level &quot;vendors&quot; array, isi 1 item = payload flat biasa. All-or-nothing per batch. Wajib: mpos_vendor_id + name. mpos_vendor_id yang sudah ada diperbarui (upsert), yang diarsipkan diaktifkan lagi. top = hari (termin bayar). odoo_account_id = akun Payable dari COA API (code 106 kalau bukan Payable/tidak ada). bank_name/account_number/receiver_name = satu rekening bank; account_number wajib kalau vendor belum punya rekening. ppn dan standing_instruction hanya dibawa.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;vendors&quot;: [
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+      &quot;code&quot;: &quot;AND0001&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1, Jakarta&quot;,
+      &quot;phone&quot;: &quot;081234567890&quot;,
+      &quot;email&quot;: &quot;andy.test1@example.com&quot;,
+      &quot;top&quot;: 30,
+      &quot;pic&quot;: &quot;Andy&quot;,
+      &quot;ppn&quot;: 11,
+      &quot;standing_instruction&quot;: 1,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;bank_name&quot;: &quot;BCA&quot;,
+      &quot;account_number&quot;: &quot;1234567890&quot;,
+      &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-002&quot;,
+      &quot;code&quot;: &quot;AND0002&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Dua&quot;,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;top&quot;: 14,
+      &quot;active&quot;: true
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">1484 ms</span>
+                    <span class="response-time">2026-10-19 08:08</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;vendors&quot;: [
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+      &quot;odoo_partner_id&quot;: 2339,
+      &quot;code&quot;: &quot;AND0001&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1, Jakarta&quot;,
+      &quot;phone&quot;: &quot;081234567890&quot;,
+      &quot;email&quot;: &quot;andy.test1@example.com&quot;,
+      &quot;top&quot;: 30,
+      &quot;pic&quot;: &quot;Andy&quot;,
+      &quot;ppn&quot;: 11.0,
+      &quot;standing_instruction&quot;: true,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;account_code&quot;: &quot;21100010&quot;,
+      &quot;bank_name&quot;: &quot;BCA&quot;,
+      &quot;account_number&quot;: &quot;1234567890&quot;,
+      &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-002&quot;,
+      &quot;odoo_partner_id&quot;: 2340,
+      &quot;code&quot;: &quot;AND0002&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Dua&quot;,
+      &quot;address&quot;: null,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;email&quot;: null,
+      &quot;top&quot;: 14,
+      &quot;pic&quot;: null,
+      &quot;ppn&quot;: 0.0,
+      &quot;standing_instruction&quot;: false,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;account_code&quot;: &quot;21100010&quot;,
+      &quot;bank_name&quot;: null,
+      &quot;account_number&quot;: null,
+      &quot;receiver_name&quot;: null,
+      &quot;active&quot;: true
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="877" data-search="vendor - update {{odoohost}}/api/inventory/vendor/update update parsial vendor: hanya key yang dikirim yang berubah. mpos_vendor_id yang belum ada dibuat baru. active:true mengaktifkan vendor yang diarsipkan.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/update">{{odoohost}}/api/inventory/vendor/update</span>
+              <span class="endpoint-name">Vendor - Update</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">update parsial vendor: hanya key yang dikirim yang berubah. mpos_vendor_id yang belum ada dibuat baru. active:true mengaktifkan vendor yang diarsipkan.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+  &quot;phone&quot;: &quot;081200000000&quot;,
+  &quot;top&quot;: 45,
+  &quot;ppn&quot;: 0
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">139 ms</span>
+                    <span class="response-time">2026-10-19 08:08</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;vendors&quot;: [
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+      &quot;odoo_partner_id&quot;: 2339,
+      &quot;code&quot;: &quot;AND0001&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1, Jakarta&quot;,
+      &quot;phone&quot;: &quot;081200000000&quot;,
+      &quot;email&quot;: &quot;andy.test1@example.com&quot;,
+      &quot;top&quot;: 45,
+      &quot;pic&quot;: &quot;Andy&quot;,
+      &quot;ppn&quot;: 0.0,
+      &quot;standing_instruction&quot;: true,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;account_code&quot;: &quot;21100010&quot;,
+      &quot;bank_name&quot;: &quot;BCA&quot;,
+      &quot;account_number&quot;: &quot;1234567890&quot;,
+      &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;active&quot;: true
+    }
+  ],
+  &quot;odoo_partner_id&quot;: 2339,
+  &quot;vendor&quot;: {
+    &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+    &quot;odoo_partner_id&quot;: 2339,
+    &quot;code&quot;: &quot;AND0001&quot;,
+    &quot;name&quot;: &quot;Andy Test Vendor Satu&quot;,
+    &quot;address&quot;: &quot;Jl. Melati No. 1, Jakarta&quot;,
+    &quot;phone&quot;: &quot;081200000000&quot;,
+    &quot;email&quot;: &quot;andy.test1@example.com&quot;,
+    &quot;top&quot;: 45,
+    &quot;pic&quot;: &quot;Andy&quot;,
+    &quot;ppn&quot;: 0.0,
+    &quot;standing_instruction&quot;: true,
+    &quot;odoo_account_id&quot;: 9337,
+    &quot;account_code&quot;: &quot;21100010&quot;,
+    &quot;bank_name&quot;: &quot;BCA&quot;,
+    &quot;account_number&quot;: &quot;1234567890&quot;,
+    &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
+    &quot;active&quot;: true
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="878" data-search="vendor - get (single) {{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyid}}&amp;mpos_vendor_id=ven-andy-001 get satu vendor, termasuk top (hari), akun hutang (odoo_account_id + account_code) dan rekening bank. tidak ketemu = code 104.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;mpos_vendor_id=ven-andy-001">{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;mpos_vendor_id=ven-andy-001</span>
+              <span class="endpoint-name">Vendor - Get (single)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">get satu vendor, termasuk top (hari), akun hutang (odoo_account_id + account_code) dan rekening bank. Tidak ketemu = code 104.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">50 ms</span>
+                    <span class="response-time">2026-10-19 08:08</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;vendor&quot;: {
+    &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+    &quot;odoo_partner_id&quot;: 2339,
+    &quot;code&quot;: &quot;AND0001&quot;,
+    &quot;name&quot;: &quot;Andy Test Vendor Satu&quot;,
+    &quot;address&quot;: &quot;Jl. Melati No. 1, Jakarta&quot;,
+    &quot;phone&quot;: &quot;081200000000&quot;,
+    &quot;email&quot;: &quot;andy.test1@example.com&quot;,
+    &quot;top&quot;: 45,
+    &quot;pic&quot;: &quot;Andy&quot;,
+    &quot;ppn&quot;: 0.0,
+    &quot;standing_instruction&quot;: true,
+    &quot;odoo_account_id&quot;: 9337,
+    &quot;account_code&quot;: &quot;21100010&quot;,
+    &quot;bank_name&quot;: &quot;BCA&quot;,
+    &quot;account_number&quot;: &quot;1234567890&quot;,
+    &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
+    &quot;active&quot;: true
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="879" data-search="vendor - get (list) {{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyid}}&amp;limit=100&amp;offset=0 daftar vendor mpos milik company, paging limit (default 500, maks 2000) + offset, ada total. vendor yang diarsipkan ikut tampil dengan active=false.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0">{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0</span>
+              <span class="endpoint-name">Vendor - Get (list)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">daftar vendor MPOS milik company, paging limit (default 500, maks 2000) + offset, ada total. Vendor yang diarsipkan ikut tampil dengan active=false.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">51 ms</span>
+                    <span class="response-time">2026-10-19 08:08</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;total&quot;: 2,
+  &quot;vendors&quot;: [
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+      &quot;odoo_partner_id&quot;: 2339,
+      &quot;code&quot;: &quot;AND0001&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1, Jakarta&quot;,
+      &quot;phone&quot;: &quot;081200000000&quot;,
+      &quot;email&quot;: &quot;andy.test1@example.com&quot;,
+      &quot;top&quot;: 45,
+      &quot;pic&quot;: &quot;Andy&quot;,
+      &quot;ppn&quot;: 0.0,
+      &quot;standing_instruction&quot;: true,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;account_code&quot;: &quot;21100010&quot;,
+      &quot;bank_name&quot;: &quot;BCA&quot;,
+      &quot;account_number&quot;: &quot;1234567890&quot;,
+      &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-002&quot;,
+      &quot;odoo_partner_id&quot;: 2340,
+      &quot;code&quot;: &quot;AND0002&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Dua&quot;,
+      &quot;address&quot;: null,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;email&quot;: null,
+      &quot;top&quot;: 14,
+      &quot;pic&quot;: null,
+      &quot;ppn&quot;: 0.0,
+      &quot;standing_instruction&quot;: false,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;account_code&quot;: &quot;21100010&quot;,
+      &quot;bank_name&quot;: null,
+      &quot;account_number&quot;: null,
+      &quot;receiver_name&quot;: null,
+      &quot;active&quot;: true
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-DELETE" data-id="880" data-search="vendor - delete {{odoohost}}/api/inventory/vendor/delete arsipkan vendor (bukan hapus permanen, karena bill/po tetap menunjuk kontaknya). idempoten: id tidak dikenal atau sudah diarsipkan tetap sukses. bisa mpos_vendor_id atau list mpos_vendor_ids.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">DELETE</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/delete">{{odoohost}}/api/inventory/vendor/delete</span>
+              <span class="endpoint-name">Vendor - Delete</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">arsipkan vendor (bukan hapus permanen, karena bill/PO tetap menunjuk kontaknya). Idempoten: id tidak dikenal atau sudah diarsipkan tetap sukses. Bisa mpos_vendor_id atau list mpos_vendor_ids.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_vendor_id&quot;: &quot;ven-andy-002&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">59 ms</span>
+                    <span class="response-time">2026-10-19 08:08</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  }
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="881" data-search="vendor - get (list, setelah delete) {{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyid}}&amp;limit=100&amp;offset=0 daftar vendor setelah delete: vendor yang diarsipkan masih tampil dengan active=false.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0">{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0</span>
+              <span class="endpoint-name">Vendor - Get (list, setelah delete)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">daftar vendor setelah delete: vendor yang diarsipkan masih tampil dengan active=false.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">42 ms</span>
+                    <span class="response-time">2026-10-19 08:08</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;total&quot;: 2,
+  &quot;vendors&quot;: [
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
+      &quot;odoo_partner_id&quot;: 2339,
+      &quot;code&quot;: &quot;AND0001&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;address&quot;: &quot;Jl. Melati No. 1, Jakarta&quot;,
+      &quot;phone&quot;: &quot;081200000000&quot;,
+      &quot;email&quot;: &quot;andy.test1@example.com&quot;,
+      &quot;top&quot;: 45,
+      &quot;pic&quot;: &quot;Andy&quot;,
+      &quot;ppn&quot;: 0.0,
+      &quot;standing_instruction&quot;: true,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;account_code&quot;: &quot;21100010&quot;,
+      &quot;bank_name&quot;: &quot;BCA&quot;,
+      &quot;account_number&quot;: &quot;1234567890&quot;,
+      &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
+      &quot;active&quot;: true
+    },
+    {
+      &quot;mpos_vendor_id&quot;: &quot;ven-andy-002&quot;,
+      &quot;odoo_partner_id&quot;: 2340,
+      &quot;code&quot;: &quot;AND0002&quot;,
+      &quot;name&quot;: &quot;Andy Test Vendor Dua&quot;,
+      &quot;address&quot;: null,
+      &quot;phone&quot;: &quot;081298765432&quot;,
+      &quot;email&quot;: null,
+      &quot;top&quot;: 14,
+      &quot;pic&quot;: null,
+      &quot;ppn&quot;: 0.0,
+      &quot;standing_instruction&quot;: false,
+      &quot;odoo_account_id&quot;: 9337,
+      &quot;account_code&quot;: &quot;21100010&quot;,
+      &quot;bank_name&quot;: null,
+      &quot;account_number&quot;: null,
+      &quot;receiver_name&quot;: null,
+      &quot;active&quot;: false
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
       <div class="section-header" id="folder-99">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">BUNDLE</span>
@@ -6872,9 +7454,9 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>19 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>19 Oct 2026 10:05</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>18 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>19 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
