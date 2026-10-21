@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">93 endpoints</span>
+  <span class="docs-header-badge">94 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -532,7 +532,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>BOM</span>
-        
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
       </div>
       <div class="sidebar-endpoints">
         
@@ -559,6 +559,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="832">
             <span class="sb-method sb-m-POST">POST</span>
             <span class="sb-ep-name">WIP BOM - Bulk (resep WIP)</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="883">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">BOM - Get (banyak menu)</span>
           </div>
         
         
@@ -913,7 +918,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>MEMBER</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -2239,7 +2244,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-90">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">BOM</span>
-        <span class="section-count">5 endpoint</span>
+        <span class="section-count">6 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
@@ -2496,6 +2501,78 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="883" data-search="bom - get (banyak menu) {{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyid}}&amp;mpos_product_ids=pi-192354,pi-192361 ambil resep beberapa menu sekaligus. mpos_product_ids dipisah koma, maksimal 100. hasilnya di &quot;boms&quot;, satu item per menu (mpos_product_id, odoo_bom_id, cogs, bom_lines). menu yang tidak ketemu dapat status 31 sendiri, menu lain tetap terisi.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyId}}&amp;mpos_product_ids=PI-192354,PI-192361">{{odoohost}}/api/inventory/bom/get?mpos_company_id={{companyId}}&amp;mpos_product_ids=PI-192354,PI-192361</span>
+              <span class="endpoint-name">BOM - Get (banyak menu)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Ambil resep beberapa menu sekaligus. mpos_product_ids dipisah koma, maksimal 100. Hasilnya di &quot;boms&quot;, satu item per menu (mpos_product_id, odoo_bom_id, cogs, bom_lines). Menu yang tidak ketemu dapat status 31 sendiri, menu lain tetap terisi.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
+              
+              
+            </div>
+            
+            
+              <div class="divider"></div>
+              <div class="detail-row">
+                <span class="detail-label">Last Response</span>
+                <div>
+                  <div class="response-meta">
+                    <span class="status-badge status-2xx">200</span>
+                    <span class="response-time">5673 ms</span>
+                    <span class="response-time">2026-10-21 07:06</span>
+                  </div>
+                  <div>
+                    <div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;status&quot;: {
+    &quot;rspcode&quot;: &quot;00&quot;,
+    &quot;rspdesc&quot;: &quot;OK&quot;
+  },
+  &quot;boms&quot;: [
+    {
+      &quot;mpos_product_id&quot;: &quot;PI-192354&quot;,
+      &quot;status&quot;: {
+        &quot;rspcode&quot;: &quot;00&quot;,
+        &quot;rspdesc&quot;: &quot;OK&quot;
+      },
+      &quot;odoo_bom_id&quot;: 235,
+      &quot;cogs&quot;: 0,
+      &quot;bom_lines&quot;: []
+    },
+    {
+      &quot;mpos_product_id&quot;: &quot;PI-192361&quot;,
+      &quot;status&quot;: {
+        &quot;rspcode&quot;: &quot;00&quot;,
+        &quot;rspdesc&quot;: &quot;OK&quot;
+      },
+      &quot;odoo_bom_id&quot;: 236,
+      &quot;cogs&quot;: 0,
+      &quot;bom_lines&quot;: []
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div>
+                  </div>
+                </div>
+              </div>
             
           </div>
         </div>
@@ -5913,7 +5990,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-POST" data-id="860" data-search="member - create {{odoohost}}/api/inventory/member/create create member (pelanggan, bisa ngutang) -- bulk via top-level &quot;members&quot; array, isi 1 item = payload flat biasa. all-or-nothing per batch. wajib: mpos_member_id + name. gender p/w, tanggal yyyy-mm-dd. category/group dikirim sebagai nama (dibuat otomatis). credit_limit = batas hutang di pos, berlaku untuk semua cabang. mpos_member_id yang sudah ada (termasuk yang diarsipkan) ditolak, code 102.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/create">{{odoohost}}/api/inventory/member/create</span>
               <span class="endpoint-name">Member - Create</span>
@@ -6047,7 +6124,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-PUT" data-id="861" data-search="member - update {{odoohost}}/api/inventory/member/update update member -- upsert, bulk via &quot;members&quot;. id yang belum ada dibuat (wajib name), yang sudah ada hanya field yang dikirim yang berubah. category/group null = dilepas. &quot;active&quot;: true mengaktifkan lagi member yang diarsipkan.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/update">{{odoohost}}/api/inventory/member/update</span>
               <span class="endpoint-name">Member - Update</span>
@@ -6163,7 +6240,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-DELETE" data-id="862" data-search="member - delete {{odoohost}}/api/inventory/member/delete delete member = diarsipkan, bukan dihapus (kontak yang punya transaksi/hutang tidak boleh hilang). idempotent. banyak sekaligus: &quot;mpos_member_ids&quot;: [&quot;mem-201&quot;,&quot;mem-202&quot;].">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/delete">{{odoohost}}/api/inventory/member/delete</span>
               <span class="endpoint-name">Member - Delete</span>
@@ -6219,7 +6296,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-GET" data-id="863" data-search="member - get (single) {{odoohost}}/api/inventory/member/get?mpos_company_id={{companyid}}&amp;mpos_member_id=mem-201 get satu member, termasuk credit_limit, total_credit (hutang berjalan) dan available_credit (sisa).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;mpos_member_id=mem-201">{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;mpos_member_id=mem-201</span>
               <span class="endpoint-name">Member - Get (single)</span>
@@ -6293,7 +6370,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-GET" data-id="864" data-search="member - get (list) {{odoohost}}/api/inventory/member/get?mpos_company_id={{companyid}}&amp;limit=100&amp;offset=0 get daftar member (termasuk yang diarsipkan, active=false). limit default 500 maks 2000, offset untuk halaman berikutnya, total = jumlah semua.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0">{{odoohost}}/api/inventory/member/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0</span>
               <span class="endpoint-name">Member - Get (list)</span>
@@ -7509,9 +7586,9 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>21 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>21 Oct 2026 07:06</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>20 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>21 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
