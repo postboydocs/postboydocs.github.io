@@ -349,7 +349,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 <header class="docs-header">
   <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
   <span class="docs-header-title">DRETAIL MPOS INVENTORY API</span>
-  <span class="docs-header-badge">94 endpoints</span>
+  <span class="docs-header-badge">93 endpoints</span>
 </header>
 
 <!-- NOT FOUND -->
@@ -436,11 +436,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="806">
             <span class="sb-method sb-m-PUT">PUT</span>
             <span class="sb-ep-name">Modifier - Update (product + BOM)</span>
-          </div>
-        
-          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="831">
-            <span class="sb-method sb-m-POST">POST</span>
-            <span class="sb-ep-name">Modifier - Create (pakai mpos_ingredient_id)</span>
           </div>
         
         
@@ -1366,12 +1361,12 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
       <div class="section-header" id="folder-102">
         <i class="bi bi-folder-fill section-icon"></i>
         <span class="section-name">MODIFIER</span>
-        <span class="section-count">3 endpoint</span>
+        <span class="section-count">2 endpoint</span>
       </div>
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create create modifier(s) -- batch via top-level modifiers array, each with its own product + full bom, backward-compatible with old single-modifier payload">
+        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create create modifier(s) -- batch via top-level modifiers array, each with its own product + full bom, backward-compatible with old single-modifier payload odoo_ingredient_id boleh berisi id mpos berawalan ing-/wip-/mod- (dicari sebagai mpos_ingredient_id); selain itu dianggap id odoo.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -1385,7 +1380,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create modifier(s) -- batch via top-level modifiers array, each with its own product + full BOM, backward-compatible with old single-modifier payload</span>
+              <span class="detail-description">create modifier(s) -- batch via top-level modifiers array, each with its own product + full BOM, backward-compatible with old single-modifier payload odoo_ingredient_id boleh berisi id MPOS berawalan ING-/WIP-/MOD- (dicari sebagai mpos_ingredient_id); selain itu dianggap id Odoo.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1447,7 +1442,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="806" data-search="modifier - update (product + bom) {{odoohost}}/api/inventory/modifier/update update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe)">
+        <div class="endpoint-card m-PUT" data-id="806" data-search="modifier - update (product + bom) {{odoohost}}/api/inventory/modifier/update update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe) odoo_ingredient_id boleh berisi id mpos berawalan ing-/wip-/mod- (dicari sebagai mpos_ingredient_id); selain itu dianggap id odoo.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1461,7 +1456,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe)</span>
+              <span class="detail-description">update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe) odoo_ingredient_id boleh berisi id MPOS berawalan ING-/WIP-/MOD- (dicari sebagai mpos_ingredient_id); selain itu dianggap id Odoo.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1519,55 +1514,6 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
                   </div>
                 </div>
               </div>
-            
-          </div>
-        </div>
-      
-        <div class="endpoint-card m-POST" data-id="831" data-search="modifier - create (pakai mpos_ingredient_id) {{odoohost}}/api/inventory/modifier/create sama kayak modifier - create, tapi bahan di bom_lines disebut pakai mpos_ingredient_id (id ingredient mpos hasil ingredient/bulk), bukan odoo_ingredient_id. boleh salah satu; kalau dua-duanya dikirim harus ingredient yang sama. berlaku juga di modifier/update dan bom/create + bom/update.">
-          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
-            <span class="method-badge">POST</span>
-            
-            <div class="endpoint-info">
-              <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/modifier/create">{{odoohost}}/api/inventory/modifier/create</span>
-              <span class="endpoint-name">Modifier - Create (pakai mpos_ingredient_id)</span>
-            </div>
-            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
-            <i class="bi bi-chevron-right endpoint-chevron"></i>
-          </div>
-          <div class="endpoint-detail">
-            <div class="detail-row">
-              <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">sama kayak Modifier - Create, tapi bahan di bom_lines disebut pakai mpos_ingredient_id (id ingredient MPOS hasil ingredient/bulk), bukan odoo_ingredient_id. Boleh salah satu; kalau dua-duanya dikirim harus ingredient yang sama. Berlaku juga di modifier/update dan bom/create + bom/update.</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Auth</span>
-              
-              
-              
-              <span class="auth-badge clickable" onclick="showAuthInfo('mposInventoryHmac',event)"><i class="bi bi-shield-lock"></i> MPOS Inventory HMAC</span>
-              
-              
-            </div>
-            <div class="detail-row">
-              <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
-  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;modifiers&quot;: [
-    {
-      &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
-      &quot;name&quot;: &quot;Pedas Extra&quot;,
-      &quot;list_price&quot;: 2000,
-      &quot;bom_lines&quot;: [
-        {
-          &quot;mpos_ingredient_id&quot;: &quot;ING-001&quot;,
-          &quot;qty&quot;: 2,
-          &quot;uom&quot;: &quot;Pcs&quot;
-        }
-      ]
-    }
-  ]
-}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
-            </div>
             
           </div>
         </div>
@@ -6576,7 +6522,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="876" data-search="vendor - create {{odoohost}}/api/inventory/vendor/create create vendor (supplier mpos -&gt; kontak vendor odoo, milik root, terlihat semua cabang) -- bulk via top-level &quot;vendors&quot; array, isi 1 item = payload flat biasa. all-or-nothing per batch. wajib: mpos_vendor_id + name. mpos_vendor_id yang sudah ada diperbarui (upsert), yang diarsipkan diaktifkan lagi. top = hari (termin bayar). odoo_account_id = akun payable dari coa api (code 106 kalau bukan payable/tidak ada). bank_name/account_number/receiver_name = satu rekening bank; account_number wajib kalau vendor belum punya rekening. ppn dan standing_instruction hanya dibawa.">
+        <div class="endpoint-card m-POST" data-id="876" data-search="vendor - create {{odoohost}}/api/inventory/vendor/create create vendor (supplier mpos -&gt; kontak vendor odoo, milik root, terlihat semua cabang secara default) -- bulk via top-level &quot;vendors&quot; array, isi 1 item = payload flat biasa. all-or-nothing per batch. wajib: mpos_vendor_id + name. mpos_vendor_id yang sudah ada diperbarui (upsert), yang diarsipkan diaktifkan lagi. top = hari (termin bayar). odoo_account_id (opsional) = akun payable dari coa api (code 106 kalau bukan payable/tidak ada); tidak dikirim = akun default odoo. bank_name/account_number/receiver_name = satu rekening bank; account_number wajib kalau vendor belum punya rekening. ppn dan standing_instruction (opsional, default false) hanya dibawa. allowed_branch (opsional): &quot;all&quot; atau daftar mpos_branch_id; tidak dikirim = all. {{branchid}} isi manual.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -6590,7 +6536,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create vendor (Supplier MPOS -&gt; kontak vendor Odoo, milik root, terlihat semua cabang) -- bulk via top-level &quot;vendors&quot; array, isi 1 item = payload flat biasa. All-or-nothing per batch. Wajib: mpos_vendor_id + name. mpos_vendor_id yang sudah ada diperbarui (upsert), yang diarsipkan diaktifkan lagi. top = hari (termin bayar). odoo_account_id = akun Payable dari COA API (code 106 kalau bukan Payable/tidak ada). bank_name/account_number/receiver_name = satu rekening bank; account_number wajib kalau vendor belum punya rekening. ppn dan standing_instruction hanya dibawa.</span>
+              <span class="detail-description">create vendor (Supplier MPOS -&gt; kontak vendor Odoo, milik root, terlihat semua cabang secara default) -- bulk via top-level &quot;vendors&quot; array, isi 1 item = payload flat biasa. All-or-nothing per batch. Wajib: mpos_vendor_id + name. mpos_vendor_id yang sudah ada diperbarui (upsert), yang diarsipkan diaktifkan lagi. top = hari (termin bayar). odoo_account_id (opsional) = akun Payable dari COA API (code 106 kalau bukan Payable/tidak ada); tidak dikirim = akun default Odoo. bank_name/account_number/receiver_name = satu rekening bank; account_number wajib kalau vendor belum punya rekening. ppn dan standing_instruction (opsional, default false) hanya dibawa. allowed_branch (opsional): &quot;all&quot; atau daftar mpos_branch_id; tidak dikirim = all. {{branchId}} isi manual.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -6616,12 +6562,11 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
       &quot;top&quot;: 30,
       &quot;pic&quot;: &quot;Andy&quot;,
       &quot;ppn&quot;: 11,
-      &quot;standing_instruction&quot;: 1,
-      &quot;odoo_account_id&quot;: 9337,
       &quot;bank_name&quot;: &quot;BCA&quot;,
       &quot;account_number&quot;: &quot;1234567890&quot;,
       &quot;receiver_name&quot;: &quot;Andy Test Vendor Satu&quot;,
-      &quot;active&quot;: true
+      &quot;active&quot;: true,
+      &quot;allowed_branch&quot;: &quot;all&quot;
     },
     {
       &quot;mpos_vendor_id&quot;: &quot;ven-andy-002&quot;,
@@ -6629,7 +6574,10 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
       &quot;name&quot;: &quot;Andy Test Vendor Dua&quot;,
       &quot;phone&quot;: &quot;081298765432&quot;,
       &quot;top&quot;: 14,
-      &quot;active&quot;: true
+      &quot;active&quot;: true,
+      &quot;allowed_branch&quot;: [
+        &quot;{{mposbranchId}}&quot;
+      ]
     }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
@@ -6698,7 +6646,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="877" data-search="vendor - update {{odoohost}}/api/inventory/vendor/update update parsial vendor: hanya key yang dikirim yang berubah. mpos_vendor_id yang belum ada dibuat baru. active:true mengaktifkan vendor yang diarsipkan.">
+        <div class="endpoint-card m-PUT" data-id="877" data-search="vendor - update {{odoohost}}/api/inventory/vendor/update update parsial vendor: hanya key yang dikirim yang berubah. mpos_vendor_id yang belum ada dibuat baru. active:true mengaktifkan vendor yang diarsipkan. allowed_branch (opsional) mengganti daftar cabang yang diizinkan; tidak dikirim = tidak berubah.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             <span class="new-badge">NEW</span>
@@ -6712,7 +6660,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update parsial vendor: hanya key yang dikirim yang berubah. mpos_vendor_id yang belum ada dibuat baru. active:true mengaktifkan vendor yang diarsipkan.</span>
+              <span class="detail-description">update parsial vendor: hanya key yang dikirim yang berubah. mpos_vendor_id yang belum ada dibuat baru. active:true mengaktifkan vendor yang diarsipkan. allowed_branch (opsional) mengganti daftar cabang yang diizinkan; tidak dikirim = tidak berubah.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -6730,7 +6678,10 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
   &quot;mpos_vendor_id&quot;: &quot;ven-andy-001&quot;,
   &quot;phone&quot;: &quot;081200000000&quot;,
   &quot;top&quot;: 45,
-  &quot;ppn&quot;: 0
+  &quot;ppn&quot;: 0,
+  &quot;allowed_branch&quot;: [
+    &quot;{{mposbranchId}}&quot;
+  ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
@@ -7586,9 +7537,9 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>21 Oct 2026 07:06</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>22 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>21 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>21 Okt 2026  07:06</span>
       </span>
     </div>
   </main>
