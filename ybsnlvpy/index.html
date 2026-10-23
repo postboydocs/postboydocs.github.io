@@ -3577,7 +3577,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="885" data-search="transaction - sync bulk {{odoohost}}/api/inventory/transaction/sync/bulk sync banyak transaksi sekaligus (maks 50 per request); tiap item = body transaction - sync tanpa mpos_company_id (cukup di atas). tiap transaksi berdiri sendiri: satu gagal tidak membatalkan yang lain, dan kirim ulang aman (idempotent di mpos_order_id, jawabannya already_synced). rspcode 00 di atas hanya berarti batch terbaca: baca results[] (index, mpos_order_id, status + field order) dan hitungan synced / already_synced / failed. kode level batch: 20 company tidak dikenal; 21 transactions kosong / bukan list; 108 lebih dari 50. kode tiap item sama dengan transaction - sync; 109 = error tak terduga di item itu (tidak ada yang tersimpan untuknya). alur: register/open, kirim semua bill lewat bulk, perbaiki yang failed lalu kirim ulang, baru register/settle (total_bill harus cocok, kalau tidak kode 69).">
+        <div class="endpoint-card m-POST" data-id="885" data-search="transaction - sync bulk {{odoohost}}/api/inventory/transaction/sync/bulk max 50 tran">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             <span class="new-badge">NEW</span>
@@ -3591,7 +3591,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Sync BANYAK transaksi sekaligus (maks 50 per request); tiap item = body Transaction - Sync tanpa mpos_company_id (cukup di atas). Tiap transaksi berdiri sendiri: satu gagal tidak membatalkan yang lain, dan kirim ulang aman (idempotent di mpos_order_id, jawabannya already_synced). rspcode 00 di atas hanya berarti batch terbaca: BACA results[] (index, mpos_order_id, status + field order) dan hitungan synced / already_synced / failed. Kode level batch: 20 company tidak dikenal; 21 transactions kosong / bukan list; 108 lebih dari 50. Kode tiap item sama dengan Transaction - Sync; 109 = error tak terduga di item itu (tidak ada yang tersimpan untuknya). Alur: register/open, kirim semua bill lewat bulk, perbaiki yang failed lalu kirim ulang, baru register/settle (total_bill harus cocok, kalau tidak kode 69).</span>
+              <span class="detail-description">max 50 tran</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -7681,9 +7681,9 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>23 Oct 2026 10:19</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>23 Oct 2026 10:22</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>23 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>23 Okt 2026  10:19</span>
       </span>
     </div>
   </main>
