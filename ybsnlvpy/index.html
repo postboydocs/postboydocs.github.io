@@ -959,7 +959,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>VENDOR</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -6669,7 +6669,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-POST" data-id="876" data-search="vendor - create {{odoohost}}/api/inventory/vendor/create create vendor (supplier mpos -&gt; kontak vendor odoo, milik root, terlihat semua cabang secara default) -- bulk via top-level &quot;vendors&quot; array, isi 1 item = payload flat biasa. all-or-nothing per batch. wajib: mpos_vendor_id + name. mpos_vendor_id yang sudah ada diperbarui (upsert), yang diarsipkan diaktifkan lagi. top = hari (termin bayar). odoo_account_id (opsional) = akun payable dari coa api (code 106 kalau bukan payable/tidak ada); tidak dikirim = akun default odoo. bank_name/account_number/receiver_name = satu rekening bank; account_number wajib kalau vendor belum punya rekening. ppn dan standing_instruction (opsional, default false) hanya dibawa. allowed_branch (opsional): &quot;all&quot; atau daftar mpos_branch_id; tidak dikirim = all. {{branchid}} isi manual.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/create">{{odoohost}}/api/inventory/vendor/create</span>
               <span class="endpoint-name">Vendor - Create</span>
@@ -6793,7 +6793,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-PUT" data-id="877" data-search="vendor - update {{odoohost}}/api/inventory/vendor/update update parsial vendor: hanya key yang dikirim yang berubah. mpos_vendor_id yang belum ada dibuat baru. active:true mengaktifkan vendor yang diarsipkan. allowed_branch (opsional) mengganti daftar cabang yang diizinkan; tidak dikirim = tidak berubah.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/update">{{odoohost}}/api/inventory/vendor/update</span>
               <span class="endpoint-name">Vendor - Update</span>
@@ -6896,7 +6896,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-GET" data-id="878" data-search="vendor - get (single) {{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyid}}&amp;mpos_vendor_id=ven-andy-001 get satu vendor, termasuk top (hari), akun hutang (odoo_account_id + account_code) dan rekening bank. tidak ketemu = code 104.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;mpos_vendor_id=ven-andy-001">{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;mpos_vendor_id=ven-andy-001</span>
               <span class="endpoint-name">Vendor - Get (single)</span>
@@ -6965,7 +6965,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-GET" data-id="879" data-search="vendor - get (list) {{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyid}}&amp;limit=100&amp;offset=0 daftar vendor mpos milik company, paging limit (default 500, maks 2000) + offset, ada total. vendor yang diarsipkan ikut tampil dengan active=false.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0">{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0</span>
               <span class="endpoint-name">Vendor - Get (list)</span>
@@ -7056,7 +7056,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-DELETE" data-id="880" data-search="vendor - delete {{odoohost}}/api/inventory/vendor/delete arsipkan vendor (bukan hapus permanen, karena bill/po tetap menunjuk kontaknya). idempoten: id tidak dikenal atau sudah diarsipkan tetap sukses. bisa mpos_vendor_id atau list mpos_vendor_ids.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">DELETE</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/delete">{{odoohost}}/api/inventory/vendor/delete</span>
               <span class="endpoint-name">Vendor - Delete</span>
@@ -7112,7 +7112,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
         <div class="endpoint-card m-GET" data-id="881" data-search="vendor - get (list, setelah delete) {{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyid}}&amp;limit=100&amp;offset=0 daftar vendor setelah delete: vendor yang diarsipkan masih tampil dengan active=false.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0">{{odoohost}}/api/inventory/vendor/get?mpos_company_id={{companyId}}&amp;limit=100&amp;offset=0</span>
               <span class="endpoint-name">Vendor - Get (list, setelah delete)</span>
@@ -7681,9 +7681,9 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>26 Oct 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>27 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>25 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>26 Okt 2026  02:00</span>
       </span>
     </div>
   </main>
