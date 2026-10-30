@@ -7423,40 +7423,41 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
               <span class="detail-label">Request Body</span>
               <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
   &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
-  &quot;mpos_branch_id&quot;: &quot;001-01&quot;,
-  &quot;mpos_clearance_id&quot;: &quot;CLR-20261030-001&quot;,
-  &quot;trx_date&quot;: &quot;2026-10-30 10:00:00&quot;,
-  &quot;reference&quot;: &quot;Clearing QRIS 30 Okt&quot;,
+  &quot;mpos_branch_id&quot;: &quot;3439&quot;,
+  &quot;mpos_clearance_id&quot;: &quot;342312134&quot;,
+  &quot;trx_date&quot;: &quot;2026-10-30 15:15:15&quot;,
+  &quot;reference&quot;: &quot;1234114763261030006&quot;,
   &quot;post&quot;: true,
   &quot;lines&quot;: [
     {
-      &quot;mpos_payment_method_id&quot;: &quot;qris&quot;,
-      &quot;label&quot;: &quot;Clearing QRIS&quot;,
-      &quot;position&quot;: &quot;c&quot;
-    },
-    {
-      &quot;account_code&quot;: &quot;11110010&quot;,
-      &quot;label&quot;: &quot;Payment&quot;,
-      &quot;position&quot;: &quot;d&quot;,
+      &quot;mpos_payment_method_id&quot;: &quot;MST-cash&quot;,
+      &quot;label&quot;: &quot;Cash Clearance - 1234114763261030006 - Cash - EDC CREDIT BRI 291026&quot;,
+      &quot;position&quot;: &quot;c&quot;,
       &quot;amount&quot;: 1000000
     },
     {
-      &quot;account_code&quot;: &quot;61100010&quot;,
-      &quot;label&quot;: &quot;MDR&quot;,
+      &quot;odoo_account_id&quot;: 8636,
+      &quot;label&quot;: &quot;Cash Clearance - 1234114763261030006 - Receive Money - EDC CREDIT BRI 291026&quot;,
       &quot;position&quot;: &quot;d&quot;,
-      &quot;amount&quot;: 25000
+      &quot;amount&quot;: 960000
     },
     {
-      &quot;account_code&quot;: &quot;61100020&quot;,
-      &quot;label&quot;: &quot;Shortage&quot;,
+      &quot;odoo_account_id&quot;: 8637,
+      &quot;label&quot;: &quot;Cash Clearance - 1234114763261030006 - MDR - EDC CREDIT BRI 291026&quot;,
       &quot;position&quot;: &quot;d&quot;,
-      &quot;amount&quot;: 25000
+      &quot;amount&quot;: 20000
     },
     {
-      &quot;account_code&quot;: &quot;41000010&quot;,
-      &quot;label&quot;: &quot;Excess&quot;,
+      &quot;odoo_account_id&quot;: 8638,
+      &quot;label&quot;: &quot;Cash Clearance - 1234114763261030006 - Shortage - EDC CREDIT BRI 291026&quot;,
+      &quot;position&quot;: &quot;d&quot;,
+      &quot;amount&quot;: 30000
+    },
+    {
+      &quot;odoo_account_id&quot;: 8639,
+      &quot;label&quot;: &quot;Cash Clearance - 1234114763261030006 - Excess - EDC CREDIT BRI 291026&quot;,
       &quot;position&quot;: &quot;c&quot;,
-      &quot;amount&quot;: 50000
+      &quot;amount&quot;: 10000
     }
   ]
 }"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
@@ -8037,9 +8038,9 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>30 Oct 2026 14:50</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>31 Oct 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>30 Okt 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>30 Okt 2026  14:50</span>
       </span>
     </div>
   </main>
