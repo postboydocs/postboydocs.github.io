@@ -1418,7 +1418,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create create modifier(s) -- batch via top-level modifiers array, each with its own product + full bom, backward-compatible with old single-modifier payload odoo_ingredient_id boleh berisi id mpos berawalan ing-/wip-/mod- (dicari sebagai mpos_ingredient_id); selain itu dianggap id odoo.">
+        <div class="endpoint-card m-POST" data-id="799" data-search="modifier - create (product + bom) {{odoohost}}/api/inventory/modifier/create create modifier(s) -- batch via top-level modifiers array, each with its own product + full bom, backward-compatible with old single-modifier payload odoo_ingredient_id boleh berisi id mpos berawalan ing-/wip-/mod- (dicari sebagai mpos_ingredient_id); selain itu dianggap id odoo. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). odoo menampilkan &quot;name - option&quot;.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -1432,7 +1432,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">create modifier(s) -- batch via top-level modifiers array, each with its own product + full BOM, backward-compatible with old single-modifier payload odoo_ingredient_id boleh berisi id MPOS berawalan ING-/WIP-/MOD- (dicari sebagai mpos_ingredient_id); selain itu dianggap id Odoo.</span>
+              <span class="detail-description">create modifier(s) -- batch via top-level modifiers array, each with its own product + full BOM, backward-compatible with old single-modifier payload odoo_ingredient_id boleh berisi id MPOS berawalan ING-/WIP-/MOD- (dicari sebagai mpos_ingredient_id); selain itu dianggap id Odoo. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). Odoo menampilkan &quot;name - option&quot;.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1450,7 +1450,8 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;modifiers&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
-      &quot;name&quot;: &quot;Pedas Extra&quot;,
+      &quot;name&quot;: &quot;LEVEL PEDAS&quot;,
+      &quot;option&quot;: &quot;Extra&quot;,
       &quot;list_price&quot;: 2000,
       &quot;bom_lines&quot;: [
         {
@@ -1462,7 +1463,8 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     },
     {
       &quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;,
-      &quot;name&quot;: &quot;Less Ice&quot;,
+      &quot;name&quot;: &quot;ICE&quot;,
+      &quot;option&quot;: &quot;Less&quot;,
       &quot;list_price&quot;: 0,
       &quot;bom_lines&quot;: [
         {
@@ -1494,7 +1496,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="806" data-search="modifier - update (product + bom) {{odoohost}}/api/inventory/modifier/update update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe) odoo_ingredient_id boleh berisi id mpos berawalan ing-/wip-/mod- (dicari sebagai mpos_ingredient_id); selain itu dianggap id odoo.">
+        <div class="endpoint-card m-PUT" data-id="806" data-search="modifier - update (product + bom) {{odoohost}}/api/inventory/modifier/update update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe) odoo_ingredient_id boleh berisi id mpos berawalan ing-/wip-/mod- (dicari sebagai mpos_ingredient_id); selain itu dianggap id odoo. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). odoo menampilkan &quot;name - option&quot;.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -1508,7 +1510,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe) odoo_ingredient_id boleh berisi id MPOS berawalan ING-/WIP-/MOD- (dicari sebagai mpos_ingredient_id); selain itu dianggap id Odoo.</span>
+              <span class="detail-description">update modifier(s) -- same batch payload as create, full upsert per modifier (replaces whole recipe) odoo_ingredient_id boleh berisi id MPOS berawalan ING-/WIP-/MOD- (dicari sebagai mpos_ingredient_id); selain itu dianggap id Odoo. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). Odoo menampilkan &quot;name - option&quot;.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -1526,7 +1528,8 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
   &quot;modifiers&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
-      &quot;name&quot;: &quot;Pedas Extra&quot;,
+      &quot;name&quot;: &quot;LEVEL PEDAS&quot;,
+      &quot;option&quot;: &quot;Extra&quot;,
       &quot;list_price&quot;: 2500,
       &quot;bom_lines&quot;: [
         {
@@ -1538,7 +1541,8 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     },
     {
       &quot;mpos_product_id&quot;: &quot;modifier-less-ice-001&quot;,
-      &quot;name&quot;: &quot;Less Ice&quot;,
+      &quot;name&quot;: &quot;ICE&quot;,
+      &quot;option&quot;: &quot;Less&quot;,
       &quot;list_price&quot;: 0,
       &quot;bom_lines&quot;: [
         {
@@ -2924,7 +2928,11 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;mpos_cashier_id&quot;: &quot;cashier-001&quot;}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;mpos_kasir&quot;,
+  &quot;mpos_cashier_id&quot;: &quot;cashier-001&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -2972,7 +2980,13 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
             </div>
             <div class="detail-row">
               <span class="detail-label">Request Body</span>
-              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{&quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;, &quot;mpos_device_id&quot;: &quot;dev-003&quot;, &quot;cash_amount&quot;: 17200, &quot;no_sett&quot;: &quot;21-0082&quot;, &quot;total_bill&quot;: 1}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;mpos_company_id&quot;: &quot;{{companyId}}&quot;,
+  &quot;mpos_device_id&quot;: &quot;mpos_kasir&quot;,
+  &quot;cash_amount&quot;: 17200,
+  &quot;no_sett&quot;: &quot;21-0082&quot;,
+  &quot;total_bill&quot;: 1
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
             </div>
             
               <div class="divider"></div>
@@ -3130,9 +3144,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
 
       <!-- Folder direct requests -->
       
-        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order. payments[].name opsional: nama mop dari mpos; kalau beda dengan nama di odoo, nama mop diperbarui setelah order berhasil (nama bentrok dengan mop lain = transaksi tetap masuk, respons membawa payment_name_warnings).
-
-lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf untuk item itu (jumlah per baris, seperti tax_amount) dan staf penerimanya. komisi = tanggungan resto, tidak menambah total tagihan/pembayaran pelanggan. item tanpa komisi: tidak usah kirim kedua field (atau commission 0).">
+        <div class="endpoint-card m-POST" data-id="765" data-search="transaction - sync {{odoohost}}/api/inventory/transaction/sync sync transaction. trx_date wajib -- &quot;yyyy-mm-dd hh:mm:ss&quot; wib (asia/jakarta), dikonversi ke utc buat pos.order.date_order. payments[].name opsional: nama mop dari mpos; kalau beda dengan nama di odoo, nama mop diperbarui setelah order berhasil (nama bentrok dengan mop lain = transaksi tetap masuk, respons membawa payment_name_warnings).lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf untuk item itu (jumlah per baris, seperti tax_amount) dan staf penerimanya. komisi = tanggungan resto, tidak menambah total tagihan/pembayaran pelanggan. item tanpa komisi: tidak usah kirim kedua field (atau commission 0).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -3146,9 +3158,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">sync transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order. payments[].name opsional: nama MOP dari MPOS; kalau beda dengan nama di Odoo, nama MOP diperbarui setelah order berhasil (nama bentrok dengan MOP lain = transaksi tetap masuk, respons membawa payment_name_warnings).
-
-lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf untuk item itu (jumlah per baris, seperti tax_amount) dan staf penerimanya. Komisi = tanggungan resto, TIDAK menambah total tagihan/pembayaran pelanggan. Item tanpa komisi: tidak usah kirim kedua field (atau commission 0).</span>
+              <span class="detail-description">sync transaction. trx_date WAJIB -- &quot;YYYY-MM-DD HH:MM:SS&quot; WIB (Asia/Jakarta), dikonversi ke UTC buat pos.order.date_order. payments[].name opsional: nama MOP dari MPOS; kalau beda dengan nama di Odoo, nama MOP diperbarui setelah order berhasil (nama bentrok dengan MOP lain = transaksi tetap masuk, respons membawa payment_name_warnings).lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf untuk item itu (jumlah per baris, seperti tax_amount) dan staf penerimanya. Komisi = tanggungan resto, TIDAK menambah total tagihan/pembayaran pelanggan. Item tanpa komisi: tidak usah kirim kedua field (atau commission 0).</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -3166,7 +3176,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
   &quot;mpos_device_id&quot;: &quot;dev-001&quot;,
   &quot;mpos_order_id&quot;: &quot;trx-00124&quot;,
   &quot;reff_sys&quot;: &quot;REF-00001&quot;,
-  &quot;trx_date&quot;: &quot;2026-09-22 14:30:00&quot;,
+  &quot;trx_date&quot;: &quot;{{trx_date}}&quot;,
   &quot;lines&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;test-menu-001&quot;,
@@ -4508,7 +4518,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           </div>
         </div>
       
-        <div class="endpoint-card m-POST" data-id="818" data-search="product - create (modifier) {{odoohost}}/api/inventory/product/create create modifier + resep (bom_lines). tanpa mpos_category_id, kategori otomatis &quot;modifier&quot;.">
+        <div class="endpoint-card m-POST" data-id="818" data-search="product - create (modifier) {{odoohost}}/api/inventory/product/create create modifier + resep (bom_lines). tanpa mpos_category_id, kategori otomatis &quot;modifier&quot;. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). odoo menampilkan &quot;name - option&quot;.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
             
@@ -4522,7 +4532,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Create modifier + resep (bom_lines). Tanpa mpos_category_id, kategori otomatis &quot;Modifier&quot;.</span>
+              <span class="detail-description">Create modifier + resep (bom_lines). Tanpa mpos_category_id, kategori otomatis &quot;Modifier&quot;. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). Odoo menampilkan &quot;name - option&quot;.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -4541,7 +4551,8 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
   &quot;products&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
-      &quot;name&quot;: &quot;Pedas Extra&quot;,
+      &quot;name&quot;: &quot;LEVEL PEDAS&quot;,
+      &quot;option&quot;: &quot;Extra&quot;,
       &quot;list_price&quot;: 2000,
       &quot;bom_lines&quot;: [
         { &quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 2, &quot;uom&quot;: &quot;Pcs&quot; },
@@ -4624,7 +4635,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           </div>
         </div>
       
-        <div class="endpoint-card m-PUT" data-id="820" data-search="product - update (modifier) {{odoohost}}/api/inventory/product/update update modifier (upsert). bom_lines menggantikan seluruh resep lama.">
+        <div class="endpoint-card m-PUT" data-id="820" data-search="product - update (modifier) {{odoohost}}/api/inventory/product/update update modifier (upsert). bom_lines menggantikan seluruh resep lama. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). odoo menampilkan &quot;name - option&quot;.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
             
@@ -4638,7 +4649,7 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
           <div class="endpoint-detail">
             <div class="detail-row">
               <span class="detail-label">Deskripsi</span>
-              <span class="detail-description">Update modifier (upsert). bom_lines menggantikan seluruh resep lama.</span>
+              <span class="detail-description">Update modifier (upsert). bom_lines menggantikan seluruh resep lama. name = grup, option = pilihan (opsional; tidak dikirim = nilai lama tetap, kosong = dihapus). Odoo menampilkan &quot;name - option&quot;.</span>
             </div>
             <div class="detail-row">
               <span class="detail-label">Auth</span>
@@ -4657,7 +4668,8 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
   &quot;products&quot;: [
     {
       &quot;mpos_product_id&quot;: &quot;modifier-pedas-extra-001&quot;,
-      &quot;name&quot;: &quot;Pedas Extra&quot;,
+      &quot;name&quot;: &quot;LEVEL PEDAS&quot;,
+      &quot;option&quot;: &quot;Extra&quot;,
       &quot;list_price&quot;: 3000,
       &quot;bom_lines&quot;: [
         { &quot;odoo_ingredient_id&quot;: 2984, &quot;qty&quot;: 3, &quot;uom&quot;: &quot;Pcs&quot; }
@@ -8038,9 +8050,9 @@ lines[].commission + lines[].mpos_staff_id (opsional, per item): komisi staf unt
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>05 Nov 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>06 Nov 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>04 Nov 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>05 Nov 2026  02:00</span>
       </span>
     </div>
   </main>
