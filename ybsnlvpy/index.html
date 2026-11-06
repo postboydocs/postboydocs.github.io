@@ -1021,7 +1021,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>CASHCLEARANCE</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -7409,7 +7409,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="889" data-search="cash clearance - create {{odoohost}}/api/inventory/cashclearance/create clearing satu mop, bentuk lines seragam dengan journal - create. satu baris boleh pakai mpos_payment_method_id sebagai ganti akun (akun = akun bawaan jurnal mop); baris itu boleh tanpa amount, odoo mengisi sebesar yang menyeimbangkan (sisi d/c ikut menyeimbangkan). akun lain: account_code atau odoo_account_id; total d = total c. mpos_branch_id, reference, post (default true) opsional. kirim ulang aman (idempotent di mpos_clearance_id, already_synced). kode: 37/38 akun, 54 cabang, 89 tanggal, 115 mop tidak ada, 116 mop belum punya jurnal/akun bawaan jurnal, 117 baris tidak valid, 118 tidak ada selisih/posisi tidak cocok, 119 ditolak odoo, 120 jurnal misc tidak ada, 121 tidak seimbang, 122 partner wajib.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/cashclearance/create">{{odoohost}}/api/inventory/cashclearance/create</span>
               <span class="endpoint-name">Cash Clearance - Create</span>
@@ -7481,7 +7481,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="890" data-search="cash clearance - create bulk {{odoohost}}/api/inventory/cashclearance/create/bulk banyak clearing sekaligus (maks 100); tiap item = body cash clearance - create tanpa mpos_company_id. tiap item berdiri sendiri, kirim ulang aman. rspcode 00 hanya berarti batch terbaca: baca results[] dan hitungan synced / already_synced / failed.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{odoohost}}/api/inventory/cashclearance/create/bulk">{{odoohost}}/api/inventory/cashclearance/create/bulk</span>
               <span class="endpoint-name">Cash Clearance - Create Bulk</span>
@@ -8050,9 +8050,9 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>06 Nov 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>07 Nov 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
-        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>05 Nov 2026  02:00</span>
+        <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>06 Nov 2026  02:00</span>
       </span>
     </div>
   </main>
