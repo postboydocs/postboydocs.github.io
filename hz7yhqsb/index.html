@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SWEGGER-GAJIYA</title>
+<link rel="icon" type="image/svg+xml" href="https://cdn.simpleicons.org/postman"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --c-get:      #49cc90; --c-get-bg:    #edfaf3; --c-get-bd:    #b7ecce;
+  --c-post:     #fca130; --c-post-bg:   #fff8ee; --c-post-bd:   #fddaa0;
+  --c-put:      #61affe; --c-put-bg:    #eef5ff; --c-put-bd:    #b3d4ff;
+  --c-delete:   #f93e3e; --c-delete-bg: #fff0f0; --c-delete-bd: #ffb3b3;
+  --c-patch:    #50e3c2; --c-patch-bg:  #edfaf7; --c-patch-bd:  #a8f0e0;
+  --c-head:     #9012fe; --c-head-bg:   #f5eeff; --c-head-bd:   #d4aaff;
+  --sidebar-w: 240px;
+  --sidebar-w-extended: 400px;
+  --header-h:  64px;
+  --txt:       #1e293b;
+  --txt-muted: #64748b;
+  --border:    #e2e8f0;
+  --bg:        #f8fafc;
+  --card-bg:   #ffffff;
+  --radius:    10px;
+}
+
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--txt); min-height: 100vh; }
+
+.docs-header {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); z-index: 100;
+  background: linear-gradient(135deg, #0f1117 0%, #1a1a2e 60%, #16213e 100%);
+  display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,.4);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.docs-header-logo {
+  width: 34px; height: 34px; background: rgba(255,255,255,.18); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; color: #fff;
+}
+.docs-header-title { font-size: 1.05rem; font-weight: 700; color: #fff; letter-spacing: -.01em; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.docs-header-badge {
+  background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3);
+  color: #fff; border-radius: 20px; padding: .15rem .65rem; font-size: .72rem; font-weight: 600; white-space: nowrap;
+}
+
+.docs-layout { display: flex; padding-top: var(--header-h); min-height: 100vh; }
+
+.docs-sidebar {
+  width: var(--sidebar-w); flex-shrink: 0;
+  position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow-y: auto;
+  background: var(--card-bg); border-right: 1px solid var(--border); padding: 1rem 0;
+}
+.sidebar-label { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--txt-muted); padding: .5rem 1.25rem .25rem; }
+.sidebar-item {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .38rem 1.25rem; cursor: pointer;
+  font-size: .8rem; color: var(--txt-muted); text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.sidebar-item:hover { background: #f1f5f9; color: var(--txt); }
+.sidebar-item.active { background: #ede9fe; color: #6d28d9; font-weight: 600; }
+.sidebar-sub { padding-left: 1rem; }
+.sidebar-sub .sidebar-item { font-size: .75rem; padding-left: 1.25rem; }
+
+.sidebar-folder-toggle { cursor: pointer; }
+.sidebar-folder-toggle .sb-chevron { font-size: .55rem; color: var(--txt-muted); transition: transform .2s; flex-shrink: 0; }
+.sidebar-folder-toggle.open .sb-chevron { transform: rotate(90deg); }
+.sidebar-endpoints { display: none; }
+.sidebar-folder-toggle.open + .sidebar-endpoints { display: block; }
+.sidebar-ep {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .3rem .75rem .3rem 2rem;
+  font-size: .72rem; color: var(--txt-muted); cursor: pointer;
+  transition: background .12s, color .12s; border-radius: 0;
+  text-decoration: none; line-height: 1.3;
+}
+.sidebar-ep:hover { background: #f1f5f9; color: var(--txt); }
+.sidebar-ep.active { background: #ede9fe; color: #6d28d9; font-weight: 600; }
+.sb-method {
+  font-family: 'JetBrains Mono', monospace; font-size: .58rem; font-weight: 700;
+  padding: .1rem .3rem; border-radius: 3px; flex-shrink: 0; min-width: 34px; text-align: center;
+}
+.sb-m-GET    { background: var(--c-get-bg);    color: var(--c-get); }
+.sb-m-POST   { background: var(--c-post-bg);   color: var(--c-post); }
+.sb-m-PUT    { background: var(--c-put-bg);    color: var(--c-put); }
+.sb-m-DELETE { background: var(--c-delete-bg); color: var(--c-delete); }
+.sb-m-PATCH  { background: var(--c-patch-bg);  color: var(--c-patch); }
+.sb-ep-name  { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.sidebar-toggle {
+  position: fixed; top: 50%; left: var(--sidebar-w);
+  transform: translate(-50%, -50%);
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--card-bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 150; color: var(--txt-muted); font-size: .7rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  transition: left .2s ease;
+}
+.sidebar-toggle:hover { background: #f1f5f9; color: var(--txt); }
+body.sidebar-extended .sidebar-toggle { left: var(--sidebar-w-extended); }
+body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
+.docs-sidebar { transition: width .2s ease; }
+
+.docs-main { flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+
+.section-header {
+  display: flex; align-items: center; gap: .65rem;
+  padding: .5rem 0 .75rem; margin-top: 1.75rem; margin-bottom: .5rem;
+  border-bottom: 2px solid var(--border);
+}
+.section-header:first-child { margin-top: 0; }
+.section-icon { font-size: .85rem; color: #f59e0b; }
+.section-name { font-size: 1rem; font-weight: 700; color: var(--txt); }
+.section-count { font-size: .7rem; color: var(--txt-muted); background: #f1f5f9; border-radius: 20px; padding: .1rem .5rem; }
+
+.subsection-header {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .4rem 0 .5rem; margin: 1rem 0 .4rem;
+}
+.subsection-name { font-size: .88rem; font-weight: 700; color: var(--txt-muted); }
+
+.endpoint-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius); margin-bottom: .5rem; overflow: hidden;
+  transition: box-shadow .15s;
+}
+.endpoint-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+
+.endpoint-summary {
+  display: flex; align-items: flex-start; gap: .75rem;
+  padding: .65rem 1rem; cursor: pointer; user-select: none;
+}
+.endpoint-summary:hover { background: #fafafa; }
+
+.method-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem; font-weight: 700; letter-spacing: .02em;
+  padding: .22rem .6rem; border-radius: 5px; flex-shrink: 0; min-width: 60px; text-align: center;
+  margin-top: .1rem;
+}
+.m-GET    .method-badge { background: var(--c-get-bg);    color: var(--c-get);    border: 1px solid var(--c-get-bd); }
+.m-POST   .method-badge { background: var(--c-post-bg);   color: var(--c-post);   border: 1px solid var(--c-post-bd); }
+.m-PUT    .method-badge { background: var(--c-put-bg);    color: var(--c-put);    border: 1px solid var(--c-put-bd); }
+.m-DELETE .method-badge { background: var(--c-delete-bg); color: var(--c-delete); border: 1px solid var(--c-delete-bd); }
+.m-PATCH  .method-badge { background: var(--c-patch-bg);  color: var(--c-patch);  border: 1px solid var(--c-patch-bd); }
+.m-HEAD   .method-badge { background: var(--c-head-bg);   color: var(--c-head);   border: 1px solid var(--c-head-bd); }
+
+.endpoint-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: .15rem; }
+.endpoint-url {
+  font-family: 'JetBrains Mono', monospace; font-size: .8rem;
+  color: var(--txt); word-break: break-all; line-height: 1.4;
+  user-select: text; cursor: text;
+}
+.endpoint-name { font-size: .74rem; color: var(--txt-muted); }
+.endpoint-chevron { font-size: .7rem; color: var(--txt-muted); flex-shrink: 0; transition: transform .2s; margin-top: .15rem; }
+.endpoint-card.open .endpoint-chevron { transform: rotate(90deg); }
+
+.endpoint-card.open { border-color: transparent; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.endpoint-card.open.m-GET    { border-left: 3px solid var(--c-get); }
+.endpoint-card.open.m-POST   { border-left: 3px solid var(--c-post); }
+.endpoint-card.open.m-PUT    { border-left: 3px solid var(--c-put); }
+.endpoint-card.open.m-DELETE { border-left: 3px solid var(--c-delete); }
+.endpoint-card.open.m-PATCH  { border-left: 3px solid var(--c-patch); }
+.endpoint-card.open.m-HEAD   { border-left: 3px solid var(--c-head); }
+.endpoint-card.open .endpoint-summary { background: #fafafa; }
+
+.endpoint-detail { display: none; padding: 0 1rem 1rem; border-top: 1px solid var(--border); }
+.endpoint-card.open .endpoint-detail { display: block; }
+
+.detail-row { display: flex; gap: .65rem; margin-top: .85rem; }
+.detail-label { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--txt-muted); min-width: 90px; padding-top: .12rem; flex-shrink: 0; }
+.detail-value { font-size: .82rem; color: var(--txt); flex: 1; }
+.detail-description { font-size: .83rem; color: var(--txt); line-height: 1.5; }
+
+.auth-badge {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .74rem; font-weight: 600; padding: .2rem .65rem;
+  border-radius: 20px; background: #fef3c7; color: #92400e; border: 1px solid #fde68a;
+}
+.auth-badge.no-auth { background: #f1f5f9; color: var(--txt-muted); border-color: var(--border); }
+.auth-badge.clickable { cursor: pointer; text-decoration: underline dotted; }
+.auth-badge.clickable:hover { background: #fde68a; }
+
+.auth-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,.35); align-items: center; justify-content: center;
+}
+.auth-modal-overlay.show { display: flex; }
+.auth-modal {
+  background: #fff; border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,.18);
+  padding: 1.5rem 1.75rem; max-width: 420px; width: 90%; position: relative;
+}
+.auth-modal-title {
+  font-size: .95rem; font-weight: 700; color: var(--txt); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.auth-modal-close {
+  position: absolute; top: .75rem; right: .85rem;
+  background: none; border: none; font-size: 1rem; color: var(--txt-muted); cursor: pointer; line-height: 1;
+}
+.auth-modal-close:hover { color: var(--txt); }
+.auth-modal-row { margin-bottom: .65rem; }
+.auth-modal-label { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--txt-muted); margin-bottom: .2rem; }
+.auth-modal-val {
+  font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: #334155;
+  background: #f8fafc; border: 1px solid var(--border); border-radius: 6px;
+  padding: .4rem .65rem; word-break: break-all; line-height: 1.5;
+}
+.auth-modal-note { font-size: .76rem; color: var(--txt-muted); margin-top: .75rem; line-height: 1.5; }
+
+.code-wrap { position: relative; margin-top: .35rem; }
+.code-block {
+  background: #f8fafc; border: 1px solid var(--border); border-radius: 7px;
+  padding: .65rem .85rem;
+  font-family: 'JetBrains Mono', monospace; font-size: .75rem; color: #334155;
+  overflow-x: auto; white-space: pre; max-height: 240px; overflow-y: auto; line-height: 1.55;
+  width: 100%;
+}
+.copy-btn {
+  position: absolute; top: .4rem; right: .4rem;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 5px;
+  padding: .18rem .45rem; font-size: .68rem; color: var(--txt-muted);
+  cursor: pointer; display: flex; align-items: center; gap: .25rem;
+  transition: background .15s, color .15s; line-height: 1;
+}
+.copy-btn:hover { background: #e2e8f0; color: var(--txt); }
+.copy-btn.copied { background: #dcfce7; color: #16a34a; border-color: #bbf7d0; }
+
+.status-badge {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-family: 'JetBrains Mono', monospace; font-size: .72rem; font-weight: 700;
+  padding: .2rem .55rem; border-radius: 5px;
+}
+.status-2xx { background: #dcfce7; color: #16a34a; }
+.status-3xx { background: #dbeafe; color: #2563eb; }
+.status-4xx { background: #fef9c3; color: #ca8a04; }
+.status-5xx { background: #fee2e2; color: #dc2626; }
+
+.response-meta { display: flex; align-items: center; gap: .65rem; margin-bottom: .4rem; }
+.response-time { font-size: .72rem; color: var(--txt-muted); }
+.divider { height: 1px; background: var(--border); margin: .85rem 0 0; }
+
+.notfound-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 1rem; text-align: center; }
+.notfound-icon { font-size: 3.5rem; color: #cbd5e1; }
+.notfound-title { font-size: 1.3rem; font-weight: 700; color: var(--txt); }
+.notfound-sub { font-size: .88rem; color: var(--txt-muted); }
+
+.docs-footer { text-align: center; padding: 2rem; font-size: .72rem; color: var(--txt-muted); border-top: 1px solid var(--border); margin-top: 2rem; }
+.docs-footer a { color: #6d28d9; text-decoration: none; font-weight: 600; }
+
+.card-copy-btn {
+  background: none; border: 1px solid transparent; border-radius: 5px;
+  padding: .22rem .4rem; font-size: .72rem; color: var(--txt-muted);
+  cursor: pointer; flex-shrink: 0; line-height: 1;
+  transition: background .12s, color .12s, border-color .12s;
+  display: flex; align-items: center;
+}
+.card-copy-btn:hover { background: #f1f5f9; border-color: var(--border); color: #6d28d9; }
+.card-copy-btn.copied { color: #16a34a; }
+
+.new-badge {
+  display: inline-flex; align-items: center;
+  font-size: .57rem; font-weight: 800; letter-spacing: .04em;
+  padding: .1rem .35rem; border-radius: 20px;
+  background: #fef9c3; color: #a16207; border: 1px solid #fde047;
+  flex-shrink: 0; line-height: 1;
+}
+.sb-new-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22c55e; flex-shrink: 0; margin-left: auto;
+}
+
+.search-box {
+  padding: .65rem .75rem .6rem;
+  border-bottom: 1px solid var(--border);
+}
+.search-wrap {
+  position: relative; display: flex; align-items: center;
+}
+.search-icon {
+  position: absolute; left: .55rem; font-size: .78rem; color: var(--txt-muted); pointer-events: none;
+}
+.search-input {
+  width: 100%; padding: .38rem .65rem .38rem 1.9rem;
+  font-size: .78rem; font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #f1f5f9; color: var(--txt);
+  border: 1px solid var(--border); border-radius: 7px;
+  outline: none; transition: border-color .15s, background .15s;
+}
+.search-input:focus { border-color: #6d28d9; background: #fff; }
+.search-input::placeholder { color: #94a3b8; }
+.search-clear {
+  position: absolute; right: .45rem; font-size: .75rem; color: #94a3b8;
+  cursor: pointer; display: none; background: none; border: none; padding: .1rem .2rem;
+  line-height: 1;
+}
+.search-clear:hover { color: var(--txt); }
+.search-result-count {
+  font-size: .65rem; color: var(--txt-muted); margin-top: .3rem; text-align: right;
+  min-height: .9rem;
+}
+.endpoint-card.search-hidden { display: none; }
+.section-header.search-hidden,
+.subsection-header.search-hidden { display: none; }
+.search-highlight { background: #fef08a; border-radius: 2px; padding: 0 1px; }
+
+.env-selector {
+  padding: .65rem .75rem .5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: .5rem;
+}
+.env-label { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--txt-muted); margin-bottom: .35rem; display: block; }
+.env-select {
+  width: 100%; font-size: .78rem; font-weight: 600;
+  background: #f1f5f9; color: var(--txt);
+  border: 1px solid var(--border); border-radius: 7px;
+  padding: .38rem .6rem; cursor: pointer; outline: none;
+  transition: border-color .15s;
+}
+.env-select:focus { border-color: #6d28d9; }
+.env-badge {
+  display: inline-block; font-size: .6rem; font-weight: 700; padding: .1rem .4rem;
+  border-radius: 3px; margin-left: .3rem; vertical-align: middle;
+}
+.env-host { font-size: .68rem; color: var(--txt-muted); margin-top: .25rem; font-family: 'JetBrains Mono', monospace; word-break: break-all; }
+
+.docs-sidebar::-webkit-scrollbar { width: 4px; }
+.docs-sidebar::-webkit-scrollbar-track { background: transparent; }
+.docs-sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+@media (max-width: 768px) {
+  .docs-sidebar { display: none; }
+  .docs-main { padding: 1.25rem 1rem; }
+  .endpoint-name { display: none; }
+  .sidebar-toggle { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="docs-header">
+  <div class="docs-header-logo"><i class="bi bi-send-fill"></i></div>
+  <span class="docs-header-title">GAJIYA</span>
+  <span class="docs-header-badge">10 endpoints</span>
+</header>
+
+<!-- NOT FOUND -->
+
+
+<!-- DOCS -->
+<div class="docs-layout">
+
+  <!-- Sidebar -->
+  <nav class="docs-sidebar">
+    <div class="search-box">
+      <div class="search-wrap">
+        <i class="bi bi-search search-icon"></i>
+        <input id="endpointSearch" class="search-input" type="text" placeholder="Cari endpoint, URL, deskripsi..." oninput="searchEndpoints(this.value)" autocomplete="off"/>
+        <button class="search-clear" id="searchClear" onclick="clearSearch()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="search-result-count" id="searchCount"></div>
+    </div>
+    <div class="env-selector">
+      <span class="env-label">Environment</span>
+      <select class="env-select" id="envSelect" onchange="applyEnv()">
+        <option value="">— pilih environment —</option>
+        <option value="https://api.stg.joob.asia/v3/external/b2b/dRetail" data-var="joobBaseUrl">JOOB STAGING</option>
+        <option value="https://api.joob.asia/v3/external/b2b/dRetail" data-var="joobBaseUrl">JOOB PROD</option>
+      </select>
+      <div class="env-host" id="envHostLabel"></div>
+    </div>
+    <div class="sidebar-label">Navigasi</div>
+
+    
+
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-118">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>1. Company &amp; Connection</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="891">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Register Company</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="892">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Get Company Status</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="893">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Add Branch</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="894">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Rotate Token</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="895">
+            <span class="sb-method sb-m-PUT">PUT</span>
+            <span class="sb-ep-name">Disconnect Company</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="896">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Registration Check (§6.1)</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-119">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>2. Employees</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="897">
+            <span class="sb-method sb-m-POST">POST</span>
+            <span class="sb-ep-name">Sync Employees</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="898">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Employee Balance (v1.01)</span>
+          </div>
+        
+        
+      </div>
+    
+      <div class="sidebar-item sidebar-folder-toggle" onclick="toggleSbFolder(this)" data-target="#folder-120">
+        <i class="bi bi-chevron-right sb-chevron"></i>
+        <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
+        <span>3. Financing &amp; Applications</span>
+        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+      </div>
+      <div class="sidebar-endpoints">
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="899">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">Financing Status</span>
+          </div>
+        
+          <div class="sidebar-ep" onclick="jumpToEndpoint(this)" data-card-id="900">
+            <span class="sb-method sb-m-GET">GET</span>
+            <span class="sb-ep-name">List Applications</span>
+          </div>
+        
+        
+      </div>
+    
+  </nav>
+
+  <button type="button" class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" title="Perlebar sidebar">
+    <i class="bi bi-chevron-right" id="sidebarToggleIcon"></i>
+  </button>
+
+  <!-- Main -->
+  <main class="docs-main">
+
+    <!-- Direct requests -->
+    
+
+    <!-- Folders -->
+    
+      <div class="section-header" id="folder-118">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">1. Company &amp; Connection</span>
+        <span class="section-count">6 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="891" data-search="register company {{joobbaseurl}}/gajiya/organizations daftarkan company + branch ke gajiya (§10.2). hanya api key, panggilan ini yang mengeluarkan companytoken. idempotent pada externalcompanyid: panggil lagi untuk company yang sama mengembalikan company yang sama (organizationcreated=false) dan tanpa token baru. post-script menyimpan organizationid dan companytoken ke variabel sesi gajiyaorgid / gajiyacompanytoken. status awal pending sampai operator joob menyetujui. di odoo: tombol connect (action_connect).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations">{{joobBaseUrl}}/gajiya/organizations</span>
+              <span class="endpoint-name">Register Company</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Daftarkan company + branch ke Gajiya (§10.2). Hanya API key, panggilan ini yang mengeluarkan companyToken. Idempotent pada externalCompanyId: panggil lagi untuk company yang sama mengembalikan company yang sama (organizationCreated=false) dan TANPA token baru. Post-script menyimpan organizationId dan companyToken ke variabel sesi gajiyaOrgId / gajiyaCompanyToken. Status awal PENDING sampai operator Joob menyetujui. Di Odoo: tombol Connect (action_connect).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;externalCompanyId&quot;: &quot;DRT-COMP-001&quot;,
+  &quot;name&quot;: &quot;PT Contoh Maju&quot;,
+  &quot;contact&quot;: {
+    &quot;name&quot;: &quot;Siti&quot;,
+    &quot;phoneNumber&quot;: &quot;628123456789&quot;,
+    &quot;email&quot;: &quot;hr@example.com&quot;
+  },
+  &quot;branches&quot;: [
+    {
+      &quot;externalStoreId&quot;: &quot;STORE-001&quot;,
+      &quot;name&quot;: &quot;Jakarta Pusat&quot;
+    },
+    {
+      &quot;externalStoreId&quot;: &quot;STORE-002&quot;,
+      &quot;name&quot;: &quot;Bandung&quot;
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="892" data-search="get company status {{joobbaseurl}}/gajiya/organizations/{{gajiyaorgid}} status company (§10.4): pending / connected / rejected / disconnected + status tiap branch. tidak ada webhook untuk approve/reject/disconnect, jadi ini yang di-poll (odoo: cron tiap 15 menit + tombol check status). 401 9000 = token ditolak (company rejected/disconnected, atau token salah).">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}">{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}</span>
+              <span class="endpoint-name">Get Company Status</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Status company (§10.4): PENDING / CONNECTED / REJECTED / DISCONNECTED + status tiap branch. Tidak ada webhook untuk approve/reject/disconnect, jadi ini yang di-poll (Odoo: cron tiap 15 menit + tombol Check Status). 401 9000 = token ditolak (company REJECTED/DISCONNECTED, atau token salah).</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="893" data-search="add branch {{joobbaseurl}}/gajiya/organizations/{{gajiyaorgid}}/branches tambah branch setelah registrasi (§10.3). branch baru selalu pending walau company sudah connected. 400 180100 = externalstoreid sudah dipakai company lain. mengganti nama branch belum tersedia.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/branches">{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/branches</span>
+              <span class="endpoint-name">Add Branch</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Tambah branch setelah registrasi (§10.3). Branch baru selalu PENDING walau company sudah CONNECTED. 400 180100 = externalStoreId sudah dipakai company lain. Mengganti nama branch belum tersedia.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;externalStoreId&quot;: &quot;STORE-003&quot;,
+  &quot;name&quot;: &quot;Surabaya&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="894" data-search="rotate token {{joobbaseurl}}/gajiya/companies/{{gajiyaorgid}}/token/rotate ganti companytoken (§10.5). token lama tetap jalan 7 hari kecuali revokeoldimmediately=true. hanya company connected (400 180101 saat pending). token baru hanya dikembalikan sekali; post-script menyimpannya ke gajiyacompanytoken.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/token/rotate">{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/token/rotate</span>
+              <span class="endpoint-name">Rotate Token</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Ganti companyToken (§10.5). Token lama tetap jalan 7 hari kecuali revokeOldImmediately=true. Hanya company CONNECTED (400 180101 saat PENDING). Token baru hanya dikembalikan sekali; post-script menyimpannya ke gajiyaCompanyToken.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;revokeOldImmediately&quot;: false
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-PUT" data-id="895" data-search="disconnect company {{joobbaseurl}}/gajiya/organizations/{{gajiyaorgid}}/disconnect hati-hati: memutus company (§10.9). semua token dicabut, request baru diblok; untuk sambung lagi harus register ulang dan disetujui operator lagi. ditolak 400 180102 selama masih ada saldo pelunasan, 180107 selama ada pengajuan belum cair, 180101 saat masih pending.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">PUT</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/disconnect">{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/disconnect</span>
+              <span class="endpoint-name">Disconnect Company</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">HATI-HATI: memutus company (§10.9). Semua token dicabut, request baru diblok; untuk sambung lagi harus Register ulang dan disetujui operator lagi. Ditolak 400 180102 selama masih ada saldo pelunasan, 180107 selama ada pengajuan belum cair, 180101 saat masih PENDING.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-POST" data-id="896" data-search="registration check (§6.1) {{joobbaseurl}}/gajiya/status cek pendaftaran merchant berdasarkan nomor hp (§6.1/§10.10). hanya api key. untuk merchant di company connect, respons juga membawa organizationid dan connectionstatus; pending dilaporkan registered=false.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/status">{{joobBaseUrl}}/gajiya/status</span>
+              <span class="endpoint-name">Registration Check (§6.1)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Cek pendaftaran merchant berdasarkan nomor HP (§6.1/§10.10). Hanya API key. Untuk merchant di company Connect, respons juga membawa organizationId dan connectionStatus; PENDING dilaporkan registered=false.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;phoneNumber&quot;: &quot;0812224456&quot;
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
+      <div class="section-header" id="folder-119">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">2. Employees</span>
+        <span class="section-count">2 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-POST" data-id="897" data-search="sync employees {{joobbaseurl}}/gajiya/employees kirim roster karyawan (§10.6): seluruh company, tiap baris dengan branch-nya (externalstoreid), maks 500 per request. header idempotency-key opsional: tambah baris &#39;idempotency-key: &lt;unik&gt;&#39; di headers kalau mau; kunci sama = respons pertama diulang (replayed=true). baris gagal sendiri-sendiri: baca failedcount/faileditems (rowindex 0-based). company pending boleh sync, tapi belum ada pencairan. employeeid = id karyawan odoo.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">POST</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/employees">{{joobBaseUrl}}/gajiya/employees</span>
+              <span class="endpoint-name">Sync Employees</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Kirim roster karyawan (§10.6): seluruh company, tiap baris dengan branch-nya (externalStoreId), maks 500 per request. Header Idempotency-Key opsional: tambah baris &#39;Idempotency-Key: &lt;unik&gt;&#39; di Headers kalau mau; kunci sama = respons pertama diulang (replayed=true). Baris gagal sendiri-sendiri: baca failedCount/failedItems (rowIndex 0-based). Company PENDING boleh sync, tapi belum ada pencairan. employeeId = id karyawan Odoo.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Request Body</span>
+              <div style="flex:1;"><div class="code-wrap"><pre class="code-block" data-json="{
+  &quot;employees&quot;: [
+    {
+      &quot;phoneNumber&quot;: &quot;628123456789&quot;,
+      &quot;name&quot;: &quot;Budi Santoso&quot;,
+      &quot;employeeId&quot;: &quot;E-014&quot;,
+      &quot;externalStoreId&quot;: &quot;STORE-001&quot;,
+      &quot;status&quot;: &quot;ACTIVE&quot;,
+      &quot;tenureDays&quot;: 420,
+      &quot;monthlyWageAmount&quot;: 4500000
+    }
+  ]
+}"></pre><button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-clipboard"></i> Copy</button></div></div>
+            </div>
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="898" data-search="employee balance (v1.01) {{joobbaseurl}}/gajiya/employees/{{gajiyaemployeeid}}/balance {{joobbaseurl}}/gajiya/employees/2150/balance">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/employees/{{gajiyaEmployeeId}}/balance">{{joobBaseUrl}}/gajiya/employees/{{gajiyaEmployeeId}}/balance</span>
+              <span class="endpoint-name">Employee Balance (v1.01)</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">{{joobBaseUrl}}/gajiya/employees/2150/balance</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
+      <div class="section-header" id="folder-120">
+        <i class="bi bi-folder-fill section-icon"></i>
+        <span class="section-name">3. Financing &amp; Applications</span>
+        <span class="section-count">2 endpoint</span>
+      </div>
+
+      <!-- Folder direct requests -->
+      
+        <div class="endpoint-card m-GET" data-id="899" data-search="financing status {{joobbaseurl}}/gajiya/companies/{{gajiyaorgid}}/financing-status {{joobbaseurl}}/gajiya/companies/e1kq37w3lpd8/financing-status">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/financing-status">{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/financing-status</span>
+              <span class="endpoint-name">Financing Status</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">{{joobBaseUrl}}/gajiya/companies/E1Kq37W3LpD8/financing-status</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            
+            
+          </div>
+        </div>
+      
+        <div class="endpoint-card m-GET" data-id="900" data-search="list applications {{joobbaseurl}}/gajiya/applications?updatedsince=0&amp;size=20 daftar pengajuan untuk rekonsiliasi webhook (§10.8), urut (updatedat, id). pertama kali kirim updatedsince (epoch ms, inklusif), berikutnya hanya cursor=nextcursor sampai null. filter opsional: status (requested/approved/disbursed/repayment_due/repaid/cancelled) dan externalstoreid. size 1-100.">
+          <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
+            <span class="method-badge">GET</span>
+            <span class="new-badge">NEW</span>
+            <div class="endpoint-info">
+              <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/applications?updatedSince=0&amp;size=20">{{joobBaseUrl}}/gajiya/applications?updatedSince=0&amp;size=20</span>
+              <span class="endpoint-name">List Applications</span>
+            </div>
+            <button class="card-copy-btn" onclick="copyCard(this,event)" title="Copy endpoint"><i class="bi bi-clipboard"></i></button>
+            <i class="bi bi-chevron-right endpoint-chevron"></i>
+          </div>
+          <div class="endpoint-detail">
+            <div class="detail-row">
+              <span class="detail-label">Deskripsi</span>
+              <span class="detail-description">Daftar pengajuan untuk rekonsiliasi webhook (§10.8), urut (updatedAt, id). Pertama kali kirim updatedSince (epoch ms, inklusif), berikutnya hanya cursor=nextCursor sampai null. Filter opsional: status (REQUESTED/APPROVED/DISBURSED/REPAYMENT_DUE/REPAID/CANCELLED) dan externalStoreId. size 1-100.</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Auth</span>
+              
+              
+              
+              
+              
+              <span class="auth-badge no-auth"><i class="bi bi-unlock"></i> No Auth</span>
+            </div>
+            
+            
+          </div>
+        </div>
+      
+
+      <!-- Subfolders -->
+      
+    
+
+    <div class="docs-footer">
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>21 Nov 2026 02:00</span>
+      
+    </div>
+  </main>
+</div>
+
+<!-- Auth Info Modal -->
+<div class="auth-modal-overlay" id="authModal" onclick="closeAuthModal(event)">
+  <div class="auth-modal">
+    <button class="auth-modal-close" onclick="closeAuthModal()"><i class="bi bi-x-lg"></i></button>
+    <div class="auth-modal-title" id="authModalTitle"></div>
+    <div id="authModalBody"></div>
+  </div>
+</div>
+
+<script>
+var clickLock = false;
+
+function toggleEndpoint(card) {
+  card.classList.toggle('open');
+}
+
+function toggleSbFolder(el) {
+  var wasOpen = el.classList.contains('open');
+  el.classList.toggle('open');
+  // scroll section ke view
+  if (!wasOpen) {
+    var target = el.getAttribute('data-target');
+    if (target) {
+      var section = document.querySelector(target);
+      if (section) {
+        var top = section.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    }
+  }
+  // update sidebar active
+  document.querySelectorAll('.sidebar-item, .sidebar-folder-toggle').forEach(function (x) { x.classList.remove('active'); });
+  el.classList.add('active');
+  clickLock = true;
+  setTimeout(function () { clickLock = false; }, 800);
+}
+
+function toggleSidebar() {
+  var extended = document.body.classList.toggle('sidebar-extended');
+  var icon = document.getElementById('sidebarToggleIcon');
+  icon.className = extended ? 'bi bi-chevron-left' : 'bi bi-chevron-right';
+}
+
+function jumpToEndpoint(el) {
+  var id = el.getAttribute('data-card-id');
+  var card = document.querySelector('.endpoint-card[data-id="' + id + '"]');
+  if (!card) return;
+
+  // highlight sidebar
+  document.querySelectorAll('.sidebar-ep').forEach(function (x) { x.classList.remove('active'); });
+  el.classList.add('active');
+
+  // scroll ke card
+  var top = card.getBoundingClientRect().top + window.scrollY - 80;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+
+  // buka card
+  card.classList.add('open');
+
+  // flash highlight
+  card.style.transition = 'box-shadow .2s';
+  card.style.boxShadow = '0 0 0 2px #6d28d9';
+  setTimeout(function () { card.style.boxShadow = ''; }, 1200);
+}
+
+function searchEndpoints(query) {
+  var q = query.trim().toLowerCase();
+  var clearBtn = document.getElementById('searchClear');
+  var countEl  = document.getElementById('searchCount');
+  clearBtn.style.display = q ? 'block' : 'none';
+
+  var cards = document.querySelectorAll('.endpoint-card');
+  var visible = 0;
+
+  cards.forEach(function (card) {
+    var haystack = card.getAttribute('data-search') || '';
+    var match = !q || haystack.includes(q);
+    card.classList.toggle('search-hidden', !match);
+    if (match) visible++;
+  });
+
+  // Sembunyikan section/subsection header yang semua card-nya hidden
+  document.querySelectorAll('.section-header, .subsection-header').forEach(function (hdr) {
+    var hasVisible = false;
+    var el = hdr.nextElementSibling;
+    while (el && !el.classList.contains('section-header')) {
+      if (el.classList.contains('endpoint-card') && !el.classList.contains('search-hidden')) {
+        hasVisible = true; break;
+      }
+      el = el.nextElementSibling;
+    }
+    hdr.classList.toggle('search-hidden', !hasVisible);
+  });
+
+  countEl.textContent = q ? visible + ' endpoint ditemukan' : '';
+
+  // Auto-expand card yang match saat search
+  cards.forEach(function (card) {
+    if (q && !card.classList.contains('search-hidden')) {
+      card.classList.add('open');
+    } else if (!q) {
+      card.classList.remove('open');
+    }
+  });
+}
+
+function clearSearch() {
+  var input = document.getElementById('endpointSearch');
+  input.value = '';
+  searchEndpoints('');
+  input.focus();
+}
+
+function applyEnv() {
+  var sel = document.getElementById('envSelect');
+  var opt = sel.options[sel.selectedIndex];
+  var host = sel.value;
+  // Which {{varName}} this option's host value fills -- set per-<option>
+  // from EnvOption.varKey (DocsController), since different collections'
+  // requests use different placeholders ({{accountinghost}},
+  // {{odoohost}}, ...). Previously this was hardcoded to accountinghost
+  // only, so picking any environment on a non-accounting collection's
+  // docs page silently substituted nothing.
+  var varKey = opt ? opt.getAttribute('data-var') : null;
+  var label = document.getElementById('envHostLabel');
+  label.textContent = host || '';
+
+  document.querySelectorAll('.endpoint-url[data-url]').forEach(function (el) {
+    var original = el.getAttribute('data-url');
+    if (host && varKey) {
+      var re = new RegExp('\\{\\{' + varKey + '\\}\\}', 'g');
+      el.textContent = original.replace(re, host);
+    } else {
+      el.textContent = original;
+    }
+  });
+}
+
+function copyCode(btn) {
+  var pre = btn.closest('.code-wrap').querySelector('pre');
+  navigator.clipboard.writeText(pre.textContent).then(function () {
+    btn.innerHTML = '<i class="bi bi-clipboard-check"></i> Copied!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.innerHTML = '<i class="bi bi-clipboard"></i> Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+function showAuthInfo(type, event) {
+  if (event) event.stopPropagation();
+  var overlay = document.getElementById('authModal');
+  var title   = document.getElementById('authModalTitle');
+  var body    = document.getElementById('authModalBody');
+
+  if (type === 'headerAuth') {
+    title.innerHTML = '<i class="bi bi-list-ul" style="color:#d97706"></i> Header Auth — Cara Mendapatkan';
+    var today = new Date();
+    var pad = function(n){return n<10?'0'+n:n;};
+    var dateKey = today.getFullYear()+'-'+pad(today.getMonth()+1)+'-'+pad(today.getDate());
+    body.innerHTML =
+      '<div class="auth-modal-row"><div class="auth-modal-label">Algoritma</div>' +
+      '<div class="auth-modal-val">HMAC-SHA256</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Key (tanggal hari ini)</div>' +
+      '<div class="auth-modal-val">' + dateKey + '</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Data (secret)</div>' +
+      '<div class="auth-modal-val">@r3g!NA53cre7</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Cara hitung</div>' +
+      '<div class="auth-modal-val">HMAC-SHA256(key=<em>tanggal</em>, data=<em>secret</em>)<br>→ encode ke hex string</div></div>' +
+      '<div class="auth-modal-note">Header ini dihitung otomatis setiap request dan berubah setiap hari.</div>';
+  } else if (type === 'tokenAuth') {
+    title.innerHTML = '<i class="bi bi-key-fill" style="color:#d97706"></i> Bearer Token — Cara Mendapatkan';
+    body.innerHTML =
+      '<div class="auth-modal-note" style="font-size:.82rem;color:var(--txt);">Token di-generate dari endpoint:</div>' +
+      '<div class="auth-modal-row" style="margin-top:.5rem;"><div class="auth-modal-val">POST /accounting/{companyId}/init-client</div></div>' +
+      '<div class="auth-modal-note">Gunakan response token dari endpoint <strong>/init-client</strong> sebagai Bearer Token pada header Authorization.</div>';
+  } else if (type === 'mposInventoryHmac') {
+    title.innerHTML = '<i class="bi bi-shield-lock" style="color:#7c3aed"></i> MPOS Inventory HMAC — Cara Menghitung';
+    // Secret sengaja TIDAK ditulis di sini (beda dari Header Auth di atas,
+    // yang nampilin secret-nya polos) -- halaman ini publik, dan skema ini
+    // menandatangani isi request (bukan cuma tanggal), jadi bocornya
+    // secret di sini lebih berbahaya (siapa pun bisa forge request apa
+    // saja, bukan cuma replay dalam 1 hari). Minta secretnya langsung ke
+    // developer modul dretail_mpos_inventory_api.
+    body.innerHTML =
+      '<div class="auth-modal-row"><div class="auth-modal-label">Algoritma</div>' +
+      '<div class="auth-modal-val">HMAC-SHA256</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Data yang ditandatangani</div>' +
+      '<div class="auth-modal-val"><code>{timestamp}.{raw_body}</code> untuk POST/PUT/DELETE<br><code>{timestamp}.{raw_query_string}</code> untuk GET (bukan body -- GET tidak bawa body)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Secret</div>' +
+      '<div class="auth-modal-val">Tidak ditampilkan di halaman publik ini -- minta ke developer modul <code>dretail_mpos_inventory_api</code>.</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Header yang dikirim</div>' +
+      '<div class="auth-modal-val"><code>X-Timestamp</code>: unix time detik<br><code>X-Signature</code>: hex digest hasil HMAC di atas</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
+      '<div class="auth-modal-val">30 menit -- request ditolak kalau selisih |now − timestamp| lebih dari itu</div></div>';
+  } else if (type === 'mposBridgeToken') {
+    title.innerHTML = '<i class="bi bi-box-arrow-in-right" style="color:#7c3aed"></i> MPOS Bridge Token — Cara Menghitung';
+    // Secret sengaja TIDAK ditulis (halaman publik) -- token ini membuka
+    // session login Odoo, jadi bocornya secret = bisa login sebagai user MPOS.
+    body.innerHTML =
+      '<div class="auth-modal-row"><div class="auth-modal-label">Algoritma</div>' +
+      '<div class="auth-modal-val">HMAC-SHA256, hasil ditulis hex (huruf kecil)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Data yang ditandatangani</div>' +
+      '<div class="auth-modal-val"><code>{login}.{timestamp}</code><br>timestamp = unix time detik saat itu juga (<code>time()</code> di PHP)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Secret</div>' +
+      '<div class="auth-modal-val">Tidak ditampilkan di halaman publik ini -- minta ke developer dRetail. Simpan hanya di server MPOS, jangan di JavaScript / app Android / iOS.</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Cara kirim</div>' +
+      '<div class="auth-modal-val">POST form (<code>application/x-www-form-urlencoded</code>), BUKAN header, BUKAN JSON:<br><code>login</code>, <code>timestamp</code>, <code>token</code>, <code>redirect</code> (path halaman Odoo tujuan)</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Contoh (secret dummy)</div>' +
+      '<div class="auth-modal-val">secret = <code>CONTOH_SECRET_DUMMY</code><br>data = <code>budi.1735900000</code><br>token = <code>5bddda35db27bcdac718644880787669e3cf362e83d681b88671621998e19cd0</code></div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Freshness window</div>' +
+      '<div class="auth-modal-val">60 detik -- hitung token saat tombol diklik, bukan saat halaman dibuka</div></div>' +
+      '<div class="auth-modal-row"><div class="auth-modal-label">Hasil</div>' +
+      '<div class="auth-modal-val">Berhasil: redirect ke <code>redirect</code> dalam keadaan sudah login.<br>Gagal: redirect ke <code>/web/login</code>.<br>Hanya user yang disinkron dari MPOS yang bisa login lewat sini.</div></div>' +
+      '<div class="auth-modal-note">Harus dibuka dari browser / WebView (form POST), supaya cookie login tersimpan di browser user.</div>';
+  }
+
+  overlay.classList.add('show');
+}
+
+function closeAuthModal(event) {
+  if (event && event.target !== document.getElementById('authModal')) return;
+  document.getElementById('authModal').classList.remove('show');
+}
+
+function copyCard(btn, event) {
+  event.stopPropagation();
+  var card = btn.closest('.endpoint-card');
+
+  var method = card.querySelector('.method-badge').textContent.trim();
+  var url    = card.querySelector('.endpoint-url').textContent.trim();
+  var nameEl = card.querySelector('.endpoint-name');
+  var name   = nameEl ? nameEl.textContent.trim() : '';
+  var descEl = card.querySelector('.detail-description');
+  var desc   = descEl ? descEl.textContent.trim() : '';
+
+  var authEl = card.querySelector('.auth-badge');
+  var auth   = authEl ? authEl.textContent.trim().replace(/\s+/g, ' ') : '';
+
+  var reqBody  = '';
+  var respStatus = '';
+  var respMeta   = '';
+  var respBody   = '';
+
+  card.querySelectorAll('.detail-row').forEach(function(row) {
+    var lbl = row.querySelector('.detail-label');
+    if (!lbl) return;
+    var label = lbl.textContent.trim();
+    if (label === 'Request Body') {
+      var pre = row.querySelector('pre');
+      if (pre) reqBody = pre.textContent.trim();
+    }
+    if (label === 'Last Response') {
+      var sb = row.querySelector('.status-badge');
+      if (sb) respStatus = sb.textContent.trim();
+      var times = row.querySelectorAll('.response-time');
+      var parts = [];
+      times.forEach(function(t) { var v = t.textContent.trim(); if (v) parts.push(v); });
+      respMeta = parts.join('  ');
+      var pre = row.querySelector('pre');
+      if (pre) respBody = pre.textContent.trim();
+    }
+  });
+
+  var lines = [];
+  lines.push(method + '  ' + url);
+  if (name) lines.push('Name        : ' + name);
+  if (desc) lines.push('Description : ' + desc);
+  if (auth) lines.push('Auth        : ' + auth);
+  if (reqBody) {
+    lines.push('');
+    lines.push('Request Body:');
+    lines.push(reqBody);
+  }
+  if (respStatus) {
+    lines.push('');
+    lines.push('── Last Response ──');
+    lines.push('Status : ' + respStatus + (respMeta ? '   ' + respMeta : ''));
+    if (respBody) lines.push(respBody);
+  }
+
+  navigator.clipboard.writeText(lines.join('\n')).then(function() {
+    btn.innerHTML = '<i class="bi bi-clipboard-check"></i>';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('pre[data-json]').forEach(function (el) {
+    var raw = el.getAttribute('data-json');
+    if (!raw) return;
+    try { el.textContent = JSON.stringify(JSON.parse(raw), null, 2); }
+    catch (e) { el.textContent = raw; }
+  });
+
+  var items = document.querySelectorAll('.sidebar-item');
+  if (items.length === 0) return;
+
+  // Klik sidebar → langsung set active, tunda observer sebentar
+  items.forEach(function (a) {
+    a.addEventListener('click', function () {
+      items.forEach(function (x) { x.classList.remove('active'); });
+      a.classList.add('active');
+      clickLock = true;
+      setTimeout(function () { clickLock = false; }, 800);
+    });
+  });
+
+  // Scroll-based highlight (hanya aktif kalau tidak sedang klik)
+  var observer = new IntersectionObserver(function (entries) {
+    if (clickLock) return;
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        items.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-64px 0px -55% 0px', threshold: 0 });
+  document.querySelectorAll('[id^="folder-"], #section-direct').forEach(function (el) {
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>
