@@ -386,7 +386,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>1. Company &amp; Connection</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -427,7 +427,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>2. Employees</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -448,7 +448,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <i class="bi bi-chevron-right sb-chevron"></i>
         <i class="bi bi-folder-fill" style="font-size:.75rem;color:#f59e0b;"></i>
         <span>3. Financing &amp; Applications</span>
-        <span class="new-badge" style="margin-left:auto;font-size:.55rem;padding:.08rem .3rem;">NEW</span>
+        
       </div>
       <div class="sidebar-endpoints">
         
@@ -490,7 +490,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="891" data-search="register company {{joobbaseurl}}/gajiya/organizations daftarkan company + branch ke gajiya (§10.2). hanya api key, panggilan ini yang mengeluarkan companytoken. idempotent pada externalcompanyid: panggil lagi untuk company yang sama mengembalikan company yang sama (organizationcreated=false) dan tanpa token baru. post-script menyimpan organizationid dan companytoken ke variabel sesi gajiyaorgid / gajiyacompanytoken. status awal pending sampai operator joob menyetujui. di odoo: tombol connect (action_connect).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations">{{joobBaseUrl}}/gajiya/organizations</span>
               <span class="endpoint-name">Register Company</span>
@@ -541,7 +541,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="892" data-search="get company status {{joobbaseurl}}/gajiya/organizations/{{gajiyaorgid}} status company (§10.4): pending / connected / rejected / disconnected + status tiap branch. tidak ada webhook untuk approve/reject/disconnect, jadi ini yang di-poll (odoo: cron tiap 15 menit + tombol check status). 401 9000 = token ditolak (company rejected/disconnected, atau token salah).">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}">{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}</span>
               <span class="endpoint-name">Get Company Status</span>
@@ -571,7 +571,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="893" data-search="add branch {{joobbaseurl}}/gajiya/organizations/{{gajiyaorgid}}/branches tambah branch setelah registrasi (§10.3). branch baru selalu pending walau company sudah connected. 400 180100 = externalstoreid sudah dipakai company lain. mengganti nama branch belum tersedia.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/branches">{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/branches</span>
               <span class="endpoint-name">Add Branch</span>
@@ -607,7 +607,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="894" data-search="rotate token {{joobbaseurl}}/gajiya/companies/{{gajiyaorgid}}/token/rotate ganti companytoken (§10.5). token lama tetap jalan 7 hari kecuali revokeoldimmediately=true. hanya company connected (400 180101 saat pending). token baru hanya dikembalikan sekali; post-script menyimpannya ke gajiyacompanytoken.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/token/rotate">{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/token/rotate</span>
               <span class="endpoint-name">Rotate Token</span>
@@ -642,7 +642,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-PUT" data-id="895" data-search="disconnect company {{joobbaseurl}}/gajiya/organizations/{{gajiyaorgid}}/disconnect hati-hati: memutus company (§10.9). semua token dicabut, request baru diblok; untuk sambung lagi harus register ulang dan disetujui operator lagi. ditolak 400 180102 selama masih ada saldo pelunasan, 180107 selama ada pengajuan belum cair, 180101 saat masih pending.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">PUT</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/disconnect">{{joobBaseUrl}}/gajiya/organizations/{{gajiyaOrgId}}/disconnect</span>
               <span class="endpoint-name">Disconnect Company</span>
@@ -672,7 +672,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="896" data-search="registration check (§6.1) {{joobbaseurl}}/gajiya/status cek pendaftaran merchant berdasarkan nomor hp (§6.1/§10.10). hanya api key. untuk merchant di company connect, respons juga membawa organizationid dan connectionstatus; pending dilaporkan registered=false.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/status">{{joobBaseUrl}}/gajiya/status</span>
               <span class="endpoint-name">Registration Check (§6.1)</span>
@@ -719,7 +719,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-POST" data-id="897" data-search="sync employees {{joobbaseurl}}/gajiya/employees kirim roster karyawan (§10.6): seluruh company, tiap baris dengan branch-nya (externalstoreid), maks 500 per request. header idempotency-key opsional: tambah baris &#39;idempotency-key: &lt;unik&gt;&#39; di headers kalau mau; kunci sama = respons pertama diulang (replayed=true). baris gagal sendiri-sendiri: baca failedcount/faileditems (rowindex 0-based). company pending boleh sync, tapi belum ada pencairan. employeeid = id karyawan odoo.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">POST</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/employees">{{joobBaseUrl}}/gajiya/employees</span>
               <span class="endpoint-name">Sync Employees</span>
@@ -764,7 +764,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="898" data-search="employee balance (v1.01) {{joobbaseurl}}/gajiya/employees/{{gajiyaemployeeid}}/balance {{joobbaseurl}}/gajiya/employees/2150/balance">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/employees/{{gajiyaEmployeeId}}/balance">{{joobBaseUrl}}/gajiya/employees/{{gajiyaEmployeeId}}/balance</span>
               <span class="endpoint-name">Employee Balance (v1.01)</span>
@@ -806,7 +806,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="899" data-search="financing status {{joobbaseurl}}/gajiya/companies/{{gajiyaorgid}}/financing-status {{joobbaseurl}}/gajiya/companies/e1kq37w3lpd8/financing-status">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/financing-status">{{joobBaseUrl}}/gajiya/companies/{{gajiyaOrgId}}/financing-status</span>
               <span class="endpoint-name">Financing Status</span>
@@ -836,7 +836,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
         <div class="endpoint-card m-GET" data-id="900" data-search="list applications {{joobbaseurl}}/gajiya/applications?updatedsince=0&amp;size=20 daftar pengajuan untuk rekonsiliasi webhook (§10.8), urut (updatedat, id). pertama kali kirim updatedsince (epoch ms, inklusif), berikutnya hanya cursor=nextcursor sampai null. filter opsional: status (requested/approved/disbursed/repayment_due/repaid/cancelled) dan externalstoreid. size 1-100.">
           <div class="endpoint-summary" onclick="toggleEndpoint(this.closest('.endpoint-card'))">
             <span class="method-badge">GET</span>
-            <span class="new-badge">NEW</span>
+            
             <div class="endpoint-info">
               <span class="endpoint-url" data-url="{{joobBaseUrl}}/gajiya/applications?updatedSince=0&amp;size=20">{{joobBaseUrl}}/gajiya/applications?updatedSince=0&amp;size=20</span>
               <span class="endpoint-name">List Applications</span>
@@ -869,7 +869,7 @@ body.sidebar-extended .docs-sidebar { width: var(--sidebar-w-extended); }
     
 
     <div class="docs-footer">
-      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>27 Nov 2026 02:00</span>
+      Dibuat dengan <a href="#">Postboy</a> &mdash; <span>28 Nov 2026 02:00</span>
       <span style="display:block;margin-top:.35rem;font-size:.68rem;">
         <i class="bi bi-cloud-check" style="color:#22c55e;"></i> Last synced: <span>27 Nov 2026  02:00</span>
       </span>
